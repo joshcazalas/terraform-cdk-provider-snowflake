@@ -1,35 +1,46 @@
+import { readFileSync } from "fs";
 import { cleanTypes } from "./clean_types";
+import { isFile } from "./is_file";
 
-export interface optionalParameters {
+interface blockListOptionalParameters {
     name: string;
     type: string;
     required: boolean;
 }
 
-export async function getOptionalParams(file: string) {
-    
-    // Initialize an array to hold the optional parameters
-    const optionalParams: optionalParameters[] = [];
+export function getBlockListOptionalParams(file: string) {
+
+    const isInputAFile: boolean = isFile(file)
+    let inputString = ''
+    if (isInputAFile) {
+        inputString = readFileSync(`${file}`, 'utf8');
+    }
+    else {
+        inputString = file
+    }
 
     // Initialize an array to hold lines between "### Optional" and "### Read-Only"
     const linesBetweenSections = [];
 
     // Split the inputString by lines
-    const lines = file.split('\n');
+    const lines = inputString.split('\n');
 
     // Initialize a flag to determine if we are within the section
     let withinSection = false;
 
     // Iterate through the lines and capture lines within the section
     for (const line of lines) {
-        if (line.trim() === '### Optional') {
+        if (line.trim() === 'Optional:') {
             withinSection = true;
-        } else if (line.trim() === '### Read-Only') {
+        } else if (line.trim() === '##') {
             withinSection = false;
         } else if (withinSection) {
             linesBetweenSections.push(line);
         }
     }
+
+    // Initialize an array to hold the optional parameters
+    const optionalParams: blockListOptionalParameters[] = [];
 
     for (const line of linesBetweenSections) {
         if (line != '') {
@@ -50,7 +61,7 @@ export async function getOptionalParams(file: string) {
                     if (contentWithinParentheses) {
                         optionalParams.push({
                             name: contentWithinBackticks,
-                            type: cleanTypes(contentWithinParentheses, file),
+                            type: cleanTypes(contentWithinParentheses, inputString),
                             required: false,
                         });
                     }
@@ -58,8 +69,9 @@ export async function getOptionalParams(file: string) {
             }
         }
     }
-    if (optionalParams.length === 0) {
-        return 'Unable to find Optional Parameters';
-    }
-    return optionalParams;
+
+    console.log(optionalParams);
+    //return optionalParams;
 }
+
+getBlockListOptionalParams('../terraform-provider-snowflake/docs/resources/database.md');

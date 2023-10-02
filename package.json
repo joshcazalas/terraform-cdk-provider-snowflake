@@ -9,9 +9,8 @@
     },
     "type": "commonjs",
     "dependencies": {
-        "eslint": "^8.41.0",
-        "node-fetch": "3.3.2",
         "axios": "1.5.1",
+        "eslint": "^8.41.0",
         "isomorphic-git": "1.24.5"
     },
     "repository": {

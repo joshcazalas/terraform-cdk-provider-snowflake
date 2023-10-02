@@ -1,29 +1,40 @@
+import { readFileSync } from "fs";
+import { isFile } from "./is_file";
 import { cleanTypes } from "./clean_types";
 
-export interface requiredParameters {
+interface blockListRequiredParameters {
     name: string
     type: string
     required: boolean
 }
 
-export async function getRequiredParams(file: string) {
+export function getBlockListRequiredParams(file: string) {
 
-    const requiredParams: requiredParameters[] = [];
+    const isInputAFile: boolean = isFile(file)
+    let inputString = ''
+    if (isInputAFile) {
+        inputString = readFileSync(`${file}`, 'utf8');
+    }
+    else {
+        inputString = file
+    }
+    //console.log(inputString)
+    
 
     // Initialize an array to hold lines between "### Required" and "### Optional"
     const linesBetweenSections = [];
 
     // Split the inputString by lines
-    const lines = file.split('\n');
+    const lines = inputString.split('\n');
 
     // Initialize a flag to determine if we are within the section
     let withinSection = false;
 
     // Iterate through the lines and capture lines within the section
     for (const line of lines) {
-        if (line.trim() === '### Required') {
+        if (line.trim() === 'Required:') {
             withinSection = true;
-        } else if (line.trim() === '### Optional') {
+        } else if (line.trim() === 'Optional:') {
             withinSection = false;
         } else if (withinSection) {
             linesBetweenSections.push(line);
@@ -48,17 +59,17 @@ export async function getRequiredParams(file: string) {
                     parenthesesMatches.forEach(match => {
                         contentWithinParentheses = match.slice(1, -1); // Remove parentheses
                     });
+                    const requiredParams: blockListRequiredParameters[] = [];
                     requiredParams.push({
                         name: contentWithinBackticks,
-                        type: cleanTypes(contentWithinParentheses, file),
+                        type: cleanTypes(contentWithinParentheses, inputString),
                         required: true
                     })
+                    console.log(requiredParams)
                 }
             }
         }
     }
-    if (requiredParams.length === 0) {
-        return 'Unable to find Required Parameters';
-    }
-    return requiredParams;
 }
+
+getBlockListRequiredParams('../terraform-provider-snowflake/docs/resources/database.md')
