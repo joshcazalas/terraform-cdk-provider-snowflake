@@ -28,12 +28,6 @@ function getRequiredParams(file: string) {
             linesBetweenSections.push(line);
         }
     }
-    
-
-    // Join the captured lines to get the content between "### Required" and "### Optional"
-    const contentBetweenSections = linesBetweenSections.join('\n');
-
-    console.log(contentBetweenSections);
 
     for (const line of linesBetweenSections) {
         if (line != '') {
@@ -44,23 +38,27 @@ function getRequiredParams(file: string) {
                 let contentWithinBackticks = ''
                 backtickMatches.forEach(match => {
                     contentWithinBackticks = match.slice(1, -1); // Remove backticks
-                    linesBetweenSections.push(contentWithinBackticks);
                 });
-                console.log(contentWithinBackticks)
-            }
-            const parenthesesRegex = /\(([^)]*)\)/g;
-            const parenthesesMatches = line.match(parenthesesRegex);
-            if (parenthesesMatches) {
-                // Extract content within parentheses and push it to the array
-                let contentWithinParentheses = ''
-                parenthesesMatches.forEach(match => {
-                    contentWithinParentheses = match.slice(1, -1); // Remove parentheses
-                    linesBetweenSections.push(contentWithinParentheses.toLowerCase());
-                });
-                console.log(contentWithinParentheses.toLowerCase())
+                const parenthesesRegex = /\(([^)]*)\)/g;
+                const parenthesesMatches = line.match(parenthesesRegex);
+                if (parenthesesMatches) {
+                    // Extract content within parentheses and push it to the array
+                    let contentWithinParentheses = ''
+                    parenthesesMatches.forEach(match => {
+                        contentWithinParentheses = match.slice(1, -1); // Remove parentheses
+                    });
+                    const requiredParams: requiredParameters[] = [];
+                    requiredParams.push({
+                        name: contentWithinBackticks,
+                        type: contentWithinParentheses.toLowerCase(),
+                        required: true
+                    })
+                    console.log(requiredParams)
+                    //return requiredParams
+                }
             }
         }
     }
 }
 
-getRequiredParams('../terraform-provider-snowflake/docs/resources/schema.md')
+getRequiredParams('../terraform-provider-snowflake/docs/resources/database.md')
