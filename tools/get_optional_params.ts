@@ -6,16 +6,28 @@ interface optionalParameters {
     required: boolean;
 }
 
+function checkForBlockList(input: string) {
+    if (input.includes('Block List')) {
+        return 'block list'
+    }
+    else {
+        return input
+    }
+}
+
 function cleanTypes(input: string) {
-  switch (input.toLowerCase()) {
+    let checked_input = checkForBlockList(input)
+    switch (checked_input.toLowerCase()) {
     case 'map of string':
-      return 'Record<string, string>';
+        return 'Record<string, string>';
     case 'set of string':
-      return 'string[]';
+        return 'string[]';
+    case 'block list':
+        return 'BLOCK LIST PLACEHOLDER'
     // Add more cases for other possible values to replace
     default:
-      return input.toLowerCase();
-  }
+        return input.toLowerCase();
+    }
 }
 
 function getOptionalParams(file: string) {
