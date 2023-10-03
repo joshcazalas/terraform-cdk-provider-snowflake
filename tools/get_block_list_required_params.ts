@@ -8,7 +8,7 @@ interface blockListRequiredParameters {
     required: boolean
 }
 
-export function getBlockListRequiredParams(file: string) {
+export async function getBlockListRequiredParams(file: string) {
 
     const isInputAFile: boolean = isFile(file)
     let inputString = ''
