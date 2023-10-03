@@ -4,8 +4,6 @@ import { isFile } from "./is_file";
 
 interface blockListOptionalParameters {
     name: string;
-    type: string;
-    required: boolean;
 }
 
 export async function getBlockListOptionalParams(file: string) {
@@ -60,18 +58,14 @@ export async function getBlockListOptionalParams(file: string) {
                     const contentWithinParentheses = parenthesesMatch[1]; // Extract content within the first parentheses
                     if (contentWithinParentheses) {
                         optionalParams.push({
-                            name: contentWithinBackticks,
-                            type: cleanTypes(contentWithinParentheses, inputString),
-                            required: false,
+                            name: `readonly ${contentWithinBackticks}?: ${cleanTypes(contentWithinParentheses, inputString)};`,
                         });
                     }
                 }
             }
         }
     }
-
-    console.log(optionalParams);
-    //return optionalParams;
+    return optionalParams;
 }
 
 getBlockListOptionalParams('../terraform-provider-snowflake/docs/resources/database.md');

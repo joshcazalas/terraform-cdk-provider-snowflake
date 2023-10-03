@@ -2,10 +2,8 @@ import { readFileSync } from "fs";
 import { isFile } from "./is_file";
 import { cleanTypes } from "./clean_types";
 
-interface blockListRequiredParameters {
+export interface blockListRequiredParameters {
     name: string
-    type: string
-    required: boolean
 }
 
 export async function getBlockListRequiredParams(file: string) {
@@ -41,6 +39,8 @@ export async function getBlockListRequiredParams(file: string) {
         }
     }
 
+    const requiredParams: blockListRequiredParameters[] = [];
+
     for (const line of linesBetweenSections) {
         if (line != '') {
             const backtickRegex = /`([^`]*)`/g;
@@ -59,17 +59,14 @@ export async function getBlockListRequiredParams(file: string) {
                     parenthesesMatches.forEach(match => {
                         contentWithinParentheses = match.slice(1, -1); // Remove parentheses
                     });
-                    const requiredParams: blockListRequiredParameters[] = [];
                     requiredParams.push({
-                        name: contentWithinBackticks,
-                        type: cleanTypes(contentWithinParentheses, inputString),
-                        required: true
+                        name: `readonly ${contentWithinBackticks}: ${cleanTypes(contentWithinParentheses, inputString)};`
                     })
-                    console.log(requiredParams)
                 }
             }
         }
     }
+    return requiredParams
 }
 
 getBlockListRequiredParams('../terraform-provider-snowflake/docs/resources/database.md')
