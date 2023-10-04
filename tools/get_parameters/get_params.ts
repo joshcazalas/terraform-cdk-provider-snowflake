@@ -33,8 +33,17 @@ export async function getParams(file: string) {
 }
 
 export async function getAllParams(file:string, resource_name: string, requiredParams: string | requiredParameters[], optionalParams: string | optionalParameters[]) {
+    let allParams;
+    if (requiredParams == 'Unable to find Required Parameters') {
+        allParams = optionalParams
+    }
+    else if (optionalParams == 'Unable to find Optional Parameters') {
+        allParams = requiredParams
+    }
+    else {
+        allParams = [...requiredParams, ...optionalParams];
+    }
     // Combine the required and optional parameters into one array
-    const allParams = [...requiredParams, ...optionalParams];
     let additionalProperties = await getAdditionalProperties(file)
     let result;
     if (additionalProperties == 'Pattern not found') {
