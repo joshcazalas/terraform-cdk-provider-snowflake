@@ -46,9 +46,7 @@ export async function getBlockListOptionalParams(file: string) {
             const backtickMatches = line.match(backtickRegex);
             if (backtickMatches) {
                 let contentWithinBackticks = '';
-                backtickMatches.forEach(match => {
-                    contentWithinBackticks = match.slice(1, -1); // Remove backticks
-                });
+                contentWithinBackticks = backtickMatches[0].slice(1, -1); // Remove backticks
 
                 // Use a non-global regular expression to match and capture only the first set of parentheses
                 const parenthesesRegex = /\(([^)]*)\)/;
@@ -67,5 +65,3 @@ export async function getBlockListOptionalParams(file: string) {
     }
     return optionalParams;
 }
-
-getBlockListOptionalParams('../terraform-provider-snowflake/docs/resources/database.md');

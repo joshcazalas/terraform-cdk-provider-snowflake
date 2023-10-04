@@ -1,6 +1,7 @@
 import { getBlockListRequiredParams } from "./get_block_list_required_params";
 import { getBlockListOptionalParams } from "./get_block_list_optional_params";
 import { getBlockListResourceName } from "./get_block_list_resource_name";
+import { capitalizeFirstLetter } from "./capitalize_first_letter";
 
 export interface additionalProperties {
     additional_properties?: [
@@ -10,6 +11,18 @@ export interface additionalProperties {
         }
     ]
 }
+
+function addSpaceBetweenSemicolonAndComma(inputString: string): string {
+    // Check if the input string is empty or null
+    if (!inputString) {
+      return inputString;
+    }
+  
+    // Use a regular expression to find instances of a semicolon followed by a comma and replace with a semicolon, space, and comma
+    const result = inputString.replace(/;,/g, '; ,');
+  
+    return result;
+  }
 
 
 export async function getBlockListParams(file: string) {
@@ -32,13 +45,21 @@ export async function getBlockListParams(file: string) {
 
                 const allBlockListParams = [...blockListRequiredParams, ...blockListOptionalParams];
                 let formattedBlockListParams = allBlockListParams.map(property => property.name);
-
-                jsonOutput = {
-                    name: `BLOCK_LIST_RESOURCE_PLACEHOLDER_` + blockListResourceName,
-                    properties: formattedBlockListParams
+                // Inserting spaces between each parameter in formattedBlockListParams
+                let finalBlockListParams: string[] = []
+                for (let entry of formattedBlockListParams) {
+                    let editedEntry = addSpaceBetweenSemicolonAndComma(entry)
+                    finalBlockListParams.push(editedEntry)
                 }
-                if (additionalProperties.additional_properties) {
-                    additionalProperties.additional_properties.push(jsonOutput)
+                
+                if (blockListResourceName) {
+                    jsonOutput = {
+                        name: `BLOCK_LIST_RESOURCE_PLACEHOLDER_` + capitalizeFirstLetter(blockListResourceName),
+                        properties: formattedBlockListParams
+                    }
+                    if (additionalProperties.additional_properties) {
+                        additionalProperties.additional_properties.push(jsonOutput)
+                    }
                 }
             }
         }
@@ -75,7 +96,11 @@ export async function getBlockListParams(file: string) {
                             for (let line of item.properties) {
                                 if (paramType && line.includes(paramType)) {
                                     if (nestedProperties[n]) {
-                                        newLine = line.replace('block list placeholder', nestedProperties[n] as string)
+                                        // Insert a space between parameters so the output changes from '{readonly name: string;readonly type: string;};' to '{readonly name: string; readonly type: string; };'
+                                        let nestedProperty = nestedProperties[n]?.replace(/;/g, '; ')
+                                        if (nestedProperty) {
+                                            newLine = line.replace('block list placeholder', nestedProperty)
+                                        }
                                         n ++ 
                                     }
                                 }

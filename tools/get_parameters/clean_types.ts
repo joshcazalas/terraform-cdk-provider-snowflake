@@ -15,7 +15,6 @@ export function cleanTypes(input: string) {
         return 'string[]';
     case 'block list':
         return 'block list placeholder'
-
     // Add more cases for other possible values to replace
     default:
         return input.toLowerCase();

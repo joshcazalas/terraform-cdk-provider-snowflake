@@ -37,9 +37,7 @@ export async function getRequiredParams(file: string) {
             if (backtickMatches) {
                 // Extract content within backticks and push it to the array
                 let contentWithinBackticks = ''
-                backtickMatches.forEach(match => {
-                    contentWithinBackticks = match.slice(1, -1); // Remove backticks
-                });
+                contentWithinBackticks = backtickMatches[0].slice(1, -1); // Remove backticks
                 const parenthesesRegex = /\(([^)]*)\)/g;
                 const parenthesesMatches = line.match(parenthesesRegex);
                 if (parenthesesMatches) {

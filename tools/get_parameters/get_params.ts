@@ -2,6 +2,7 @@ import { getOptionalParams, optionalParameters } from "./get_optional_params";
 import { getRequiredParams, requiredParameters } from "./get_required_params";
 import { getResourceName } from "./get_resource_name";
 import { getBlockListParams } from "./get_block_list_params";
+import { capitalizeFirstLetter } from "./capitalize_first_letter";
 import { isFile } from "./is_file";
 import { readFileSync } from "fs";
 
@@ -21,7 +22,8 @@ export async function getParams(file: string) {
         let optionalParams = await getOptionalParams(inputString)
         if (resourceName) {
             let allParams = await getAllParams(inputString, resourceName, requiredParams, optionalParams)
-            console.dir(allParams, {depth:null})
+            // console.dir(allParams, {depth:null})
+            return allParams
         }
     }
     catch {
@@ -34,13 +36,22 @@ export async function getAllParams(file:string, resource_name: string, requiredP
     // Combine the required and optional parameters into one array
     const allParams = [...requiredParams, ...optionalParams];
     let additionalProperties = await getAdditionalProperties(file)
-    let result = {
-        name: resource_name,
-        additional_types: [additionalProperties],
-        properties: allParams
-    };
+    let result;
+    if (additionalProperties == 'Pattern not found') {
+        result = {
+            name: capitalizeFirstLetter(resource_name),
+            properties: allParams
+        };   
+    }
+    else {
+        result = {
+            name: capitalizeFirstLetter(resource_name),
+            additional_types: [additionalProperties],
+            properties: allParams
+        };
+    }
     const jsonAsString = JSON.stringify(result)
-    const modifiedJsonString = jsonAsString.replace(/BLOCK_LIST_RESOURCE_PLACEHOLDER_/g, `${resource_name}_`);
+    const modifiedJsonString = jsonAsString.replace(/BLOCK_LIST_RESOURCE_PLACEHOLDER_/g, `${capitalizeFirstLetter(resource_name)}_`);
     let replacedPlaceholderJSON = JSON.parse(modifiedJsonString)
 
     if (replacedPlaceholderJSON.properties) {
@@ -48,7 +59,7 @@ export async function getAllParams(file:string, resource_name: string, requiredP
         for (const item of replacedPlaceholderJSON.properties) {
             if (item.type == 'block list placeholder') {
                 let itemName = item.name
-                item.type = `${resourceName}_${itemName}[]`
+                item.type = `${resourceName}_${capitalizeFirstLetter(itemName)}[]`
             }
         }
     }
@@ -59,6 +70,4 @@ export async function getAllParams(file:string, resource_name: string, requiredP
 export async function getAdditionalProperties(file: string) {
     let additionalProperties = await getBlockListParams(file)
     return additionalProperties
-}
-
-getParams('../terraform-provider-snowflake/docs/resources/masking_policy.md')
+}  

@@ -15,9 +15,7 @@ export async function getBlockListRequiredParams(file: string) {
     }
     else {
         inputString = file
-    }
-    //console.log(inputString)
-    
+    }    
 
     // Initialize an array to hold lines between "### Required" and "### Optional"
     const linesBetweenSections = [];
@@ -48,9 +46,7 @@ export async function getBlockListRequiredParams(file: string) {
             if (backtickMatches) {
                 // Extract content within backticks and push it to the array
                 let contentWithinBackticks = ''
-                backtickMatches.forEach(match => {
-                    contentWithinBackticks = match.slice(1, -1); // Remove backticks
-                });
+                contentWithinBackticks = backtickMatches[0].slice(1, -1); // Remove backticks
                 const parenthesesRegex = /\(([^)]*)\)/g;
                 const parenthesesMatches = line.match(parenthesesRegex);
                 if (parenthesesMatches) {
@@ -67,5 +63,3 @@ export async function getBlockListRequiredParams(file: string) {
     }
     return requiredParams
 }
-
-getBlockListRequiredParams('../terraform-provider-snowflake/docs/resources/database.md')
