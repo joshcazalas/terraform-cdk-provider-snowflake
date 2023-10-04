@@ -61,4 +61,4 @@ export async function getAdditionalProperties(file: string) {
     return additionalProperties
 }
 
-getParams('../terraform-provider-snowflake/docs/resources/table.md')
+getParams('../terraform-provider-snowflake/docs/resources/masking_policy.md')
