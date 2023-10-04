@@ -42,6 +42,17 @@ export async function getAllParams(file:string, resource_name: string, requiredP
     const jsonAsString = JSON.stringify(result)
     const modifiedJsonString = jsonAsString.replace(/BLOCK_LIST_RESOURCE_PLACEHOLDER_/g, `${resource_name}_`);
     let replacedPlaceholderJSON = JSON.parse(modifiedJsonString)
+
+    if (replacedPlaceholderJSON.properties) {
+        let resourceName = replacedPlaceholderJSON.name
+        for (const item of replacedPlaceholderJSON.properties) {
+            if (item.type == 'block list placeholder') {
+                let itemName = item.name
+                item.type = `${resourceName}_${itemName}[]`
+            }
+        }
+    }
+
     return replacedPlaceholderJSON;
 }
 
