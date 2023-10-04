@@ -1,6 +1,7 @@
 import { getOptionalParams, optionalParameters } from "./get_optional_params";
 import { getRequiredParams, requiredParameters } from "./get_required_params";
 import { getResourceName } from "./get_resource_name";
+import { getBlockListParams } from "./get_block_list_params";
 import { isFile } from "./is_file";
 import { readFileSync } from "fs";
 
@@ -19,8 +20,8 @@ export async function getParams(file: string) {
         let requiredParams = await getRequiredParams(inputString)
         let optionalParams = await getOptionalParams(inputString)
         if (resourceName) {
-            let allParams = await getAllParams(resourceName, requiredParams, optionalParams)
-            console.log(allParams)
+            let allParams = await getAllParams(inputString, resourceName, requiredParams, optionalParams)
+            console.dir(allParams, {depth:null})
         }
     }
     catch {
@@ -29,14 +30,24 @@ export async function getParams(file: string) {
     
 }
 
-export async function getAllParams(resource_name: string, requiredParams: string | requiredParameters[], optionalParams: string | optionalParameters[]) {
+export async function getAllParams(file:string, resource_name: string, requiredParams: string | requiredParameters[], optionalParams: string | optionalParameters[]) {
     // Combine the required and optional parameters into one array
     const allParams = [...requiredParams, ...optionalParams];
-    const result = {
+    let additionalProperties = await getAdditionalProperties(file)
+    let result = {
         name: resource_name,
+        additional_types: [additionalProperties],
         properties: allParams
     };
-    return result;
+    const jsonAsString = JSON.stringify(result)
+    const modifiedJsonString = jsonAsString.replace(/BLOCK_LIST_RESOURCE_PLACEHOLDER_/g, `${resource_name}_`);
+    let replacedPlaceholderJSON = JSON.parse(modifiedJsonString)
+    return replacedPlaceholderJSON;
 }
 
-getParams('../terraform-provider-snowflake/docs/resources/schema.md')
+export async function getAdditionalProperties(file: string) {
+    let additionalProperties = await getBlockListParams(file)
+    return additionalProperties
+}
+
+getParams('../terraform-provider-snowflake/docs/resources/table.md')
