@@ -60,7 +60,7 @@ export async function getBlockListRequiredParams(file: string) {
                         contentWithinParentheses = match.slice(1, -1); // Remove parentheses
                     });
                     requiredParams.push({
-                        name: `readonly ${contentWithinBackticks}: ${cleanTypes(contentWithinParentheses, inputString)};`
+                        name: `readonly ${contentWithinBackticks}: ${cleanTypes(contentWithinParentheses)};`
                     })
                 }
             }

@@ -1,13 +1,12 @@
 import { checkForBlockList } from "./check_for_block_list";
-//import { getBlockListParams } from "./get_block_list_params";
 
-export function cleanTypes(input: string, file: string) {
-    for (let line of file) {
-        line
+export function cleanTypes(input: string) {
+    let checkedInput = checkForBlockList(input)
+    if (checkedInput.includes(', deprecated')) {
+        console.log(`************************ it includes deprecated`)
+        checkedInput = checkedInput.replace(', deprecated','')
     }
-    let checked_input = checkForBlockList(input)
-    //console.log(file)
-    switch (checked_input.toLowerCase()) {
+    switch (checkedInput.toLowerCase()) {
     case 'map of string':
         return 'Record<string, string>';
     case 'set of string':
@@ -16,7 +15,7 @@ export function cleanTypes(input: string, file: string) {
         return 'string[]';
     case 'block list':
         return 'block list placeholder'
-        //return getBlockListParams(input, file)
+
     // Add more cases for other possible values to replace
     default:
         return input.toLowerCase();

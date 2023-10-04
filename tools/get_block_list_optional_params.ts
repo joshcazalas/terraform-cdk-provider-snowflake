@@ -58,7 +58,7 @@ export async function getBlockListOptionalParams(file: string) {
                     const contentWithinParentheses = parenthesesMatch[1]; // Extract content within the first parentheses
                     if (contentWithinParentheses) {
                         optionalParams.push({
-                            name: `readonly ${contentWithinBackticks}?: ${cleanTypes(contentWithinParentheses, inputString)};`,
+                            name: `readonly ${contentWithinBackticks}?: ${cleanTypes(contentWithinParentheses)};`,
                         });
                     }
                 }

@@ -42,7 +42,7 @@ export async function getOptionalParams(file: string) {
                 });
 
                 // Use a non-global regular expression to match and capture only the first set of parentheses
-                const parenthesesRegex = /\(([^)]*)\)/;
+                const parenthesesRegex = /\(([^,)]*)/;
                 const parenthesesMatch = line.match(parenthesesRegex);
 
                 if (parenthesesMatch) {
@@ -50,7 +50,7 @@ export async function getOptionalParams(file: string) {
                     if (contentWithinParentheses) {
                         optionalParams.push({
                             name: contentWithinBackticks,
-                            type: cleanTypes(contentWithinParentheses, file),
+                            type: cleanTypes(contentWithinParentheses),
                             required: false,
                         });
                     }
