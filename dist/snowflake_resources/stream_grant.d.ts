@@ -2,7 +2,7 @@ import { TerraformMetaArguments, TerraformResource } from "cdktf";
 import { Construct } from "constructs";
 export interface Stream_GrantConfig extends TerraformMetaArguments {
     database_name: string;
-    roles: string[];
+    roles: Set<string>;
     enable_multiple_grants?: boolean;
     on_all?: boolean;
     on_future?: boolean;
@@ -14,7 +14,7 @@ export interface Stream_GrantConfig extends TerraformMetaArguments {
 }
 export declare class Stream_Grant extends TerraformResource {
     _database_name: string;
-    _roles: string[];
+    _roles: Set<string>;
     _enable_multiple_grants?: boolean;
     _on_all?: boolean;
     _on_future?: boolean;
@@ -32,8 +32,8 @@ export declare class Stream_Grant extends TerraformResource {
     ref(attribute: string): string;
     get database_name(): string;
     set database_name(value: string);
-    get roles(): string[];
-    set roles(value: string[]);
+    get roles(): Set<string>;
+    set roles(value: Set<string>);
     get enable_multiple_grants(): boolean | undefined;
     set enable_multiple_grants(value: boolean | undefined);
     get on_all(): boolean | undefined;

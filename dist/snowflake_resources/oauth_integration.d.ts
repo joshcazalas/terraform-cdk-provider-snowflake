@@ -3,7 +3,7 @@ import { Construct } from "constructs";
 export interface Oauth_IntegrationConfig extends TerraformMetaArguments {
     name: string;
     oauth_client: string;
-    blocked_roles_list?: string[];
+    blocked_roles_list?: Set<string>;
     comment?: string;
     enabled?: boolean;
     oauth_client_type?: string;
@@ -15,7 +15,7 @@ export interface Oauth_IntegrationConfig extends TerraformMetaArguments {
 export declare class Oauth_Integration extends TerraformResource {
     _name: string;
     _oauth_client: string;
-    _blocked_roles_list?: string[];
+    _blocked_roles_list?: Set<string>;
     _comment?: string;
     _enabled?: boolean;
     _oauth_client_type?: string;
@@ -34,8 +34,8 @@ export declare class Oauth_Integration extends TerraformResource {
     set name(value: string);
     get oauth_client(): string;
     set oauth_client(value: string);
-    get blocked_roles_list(): string[] | undefined;
-    set blocked_roles_list(value: string[] | undefined);
+    get blocked_roles_list(): Set<string> | undefined;
+    set blocked_roles_list(value: Set<string> | undefined);
     get comment(): string | undefined;
     set comment(value: string | undefined);
     get enabled(): boolean | undefined;

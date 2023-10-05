@@ -7,9 +7,9 @@ export interface Table_GrantConfig extends TerraformMetaArguments {
     on_future?: boolean;
     privilege?: string;
     revert_ownership_to_role_name?: string;
-    roles?: string[];
+    roles?: Set<string>;
     schema_name?: string;
-    shares?: string[];
+    shares?: Set<string>;
     table_name?: string;
     with_grant_option?: boolean;
 }
@@ -20,9 +20,9 @@ export declare class Table_Grant extends TerraformResource {
     _on_future?: boolean;
     _privilege?: string;
     _revert_ownership_to_role_name?: string;
-    _roles?: string[];
+    _roles?: Set<string>;
     _schema_name?: string;
-    _shares?: string[];
+    _shares?: Set<string>;
     _table_name?: string;
     _with_grant_option?: boolean;
     readonly _id: string;
@@ -44,12 +44,12 @@ export declare class Table_Grant extends TerraformResource {
     set privilege(value: string | undefined);
     get revert_ownership_to_role_name(): string | undefined;
     set revert_ownership_to_role_name(value: string | undefined);
-    get roles(): string[] | undefined;
-    set roles(value: string[] | undefined);
+    get roles(): Set<string> | undefined;
+    set roles(value: Set<string> | undefined);
     get schema_name(): string | undefined;
     set schema_name(value: string | undefined);
-    get shares(): string[] | undefined;
-    set shares(value: string[] | undefined);
+    get shares(): Set<string> | undefined;
+    set shares(value: Set<string> | undefined);
     get table_name(): string | undefined;
     set table_name(value: string | undefined);
     get with_grant_option(): boolean | undefined;

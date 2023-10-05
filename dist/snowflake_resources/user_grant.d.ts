@@ -4,14 +4,14 @@ export interface User_GrantConfig extends TerraformMetaArguments {
     privilege: string;
     user_name: string;
     enable_multiple_grants?: boolean;
-    roles?: string[];
+    roles?: Set<string>;
     with_grant_option?: boolean;
 }
 export declare class User_Grant extends TerraformResource {
     _privilege: string;
     _user_name: string;
     _enable_multiple_grants?: boolean;
-    _roles?: string[];
+    _roles?: Set<string>;
     _with_grant_option?: boolean;
     readonly _id: string;
     constructor(scope: Construct, id: string, config: User_GrantConfig);
@@ -26,8 +26,8 @@ export declare class User_Grant extends TerraformResource {
     set user_name(value: string);
     get enable_multiple_grants(): boolean | undefined;
     set enable_multiple_grants(value: boolean | undefined);
-    get roles(): string[] | undefined;
-    set roles(value: string[] | undefined);
+    get roles(): Set<string> | undefined;
+    set roles(value: Set<string> | undefined);
     get with_grant_option(): boolean | undefined;
     set with_grant_option(value: boolean | undefined);
 }

@@ -30,7 +30,7 @@ export interface Grant_Privileges_To_RoleConfig extends TerraformMetaArguments {
     on_account_object?: Grant_Privileges_To_Role_On_Account_Object[];
     on_schema?: Grant_Privileges_To_Role_On_Schema[];
     on_schema_object?: Grant_Privileges_To_Role_On_Schema_Object[];
-    privileges?: string[];
+    privileges?: Set<string>;
     with_grant_option?: boolean;
 }
 export declare class Grant_Privileges_To_Role extends TerraformResource {
@@ -40,7 +40,7 @@ export declare class Grant_Privileges_To_Role extends TerraformResource {
     _on_account_object?: Grant_Privileges_To_Role_On_Account_Object[];
     _on_schema?: Grant_Privileges_To_Role_On_Schema[];
     _on_schema_object?: Grant_Privileges_To_Role_On_Schema_Object[];
-    _privileges?: string[];
+    _privileges?: Set<string>;
     _with_grant_option?: boolean;
     readonly _id: string;
     constructor(scope: Construct, id: string, config: Grant_Privileges_To_RoleConfig);
@@ -61,8 +61,8 @@ export declare class Grant_Privileges_To_Role extends TerraformResource {
     set on_schema(value: Grant_Privileges_To_Role_On_Schema[] | undefined);
     get on_schema_object(): Grant_Privileges_To_Role_On_Schema_Object[] | undefined;
     set on_schema_object(value: Grant_Privileges_To_Role_On_Schema_Object[] | undefined);
-    get privileges(): string[] | undefined;
-    set privileges(value: string[] | undefined);
+    get privileges(): Set<string> | undefined;
+    set privileges(value: Set<string> | undefined);
     get with_grant_option(): boolean | undefined;
     set with_grant_option(value: boolean | undefined);
 }

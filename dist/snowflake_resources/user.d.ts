@@ -5,7 +5,7 @@ export interface UserConfig extends TerraformMetaArguments {
     comment?: string;
     default_namespace?: string;
     default_role?: string;
-    default_secondary_roles?: string[];
+    default_secondary_roles?: Set<string>;
     default_warehouse?: string;
     disabled?: boolean;
     display_name?: string;
@@ -23,7 +23,7 @@ export declare class User extends TerraformResource {
     _comment?: string;
     _default_namespace?: string;
     _default_role?: string;
-    _default_secondary_roles?: string[];
+    _default_secondary_roles?: Set<string>;
     _default_warehouse?: string;
     _disabled?: boolean;
     _display_name?: string;
@@ -50,8 +50,8 @@ export declare class User extends TerraformResource {
     set default_namespace(value: string | undefined);
     get default_role(): string | undefined;
     set default_role(value: string | undefined);
-    get default_secondary_roles(): string[] | undefined;
-    set default_secondary_roles(value: string[] | undefined);
+    get default_secondary_roles(): Set<string> | undefined;
+    set default_secondary_roles(value: Set<string> | undefined);
     get default_warehouse(): string | undefined;
     set default_warehouse(value: string | undefined);
     get disabled(): boolean | undefined;

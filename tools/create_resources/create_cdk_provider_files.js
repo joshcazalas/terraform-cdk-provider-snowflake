@@ -26,13 +26,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.createCDKProviderFiles = exports.deleteObsoleteFiles = void 0;
 const Handlebars = __importStar(require("handlebars"));
 const path_1 = __importDefault(require("path"));
-const child_process_1 = require("child_process");
 const fs_1 = require("fs");
 const promises_1 = require("fs/promises");
 const create_resources_json_1 = require("./create_resources_json");
-const clone_terrraform_provider_1 = require("./clone_terrraform_provider");
 Handlebars.registerHelper('toLowerCase', function (input) {
     if (!input) {
         return '';
@@ -48,19 +47,23 @@ Handlebars.registerHelper('nestedProperty', function (context, property) {
     }
     return value;
 });
+Handlebars.registerHelper('notEqual', function (a, b, options) {
+    return a !== b ? options.fn(this) : options.inverse(this);
+});
 async function deleteObsoleteFiles(dir, resource_files) {
     try {
         // Read the files in the directory
-        const files = await (0, promises_1.readdir)(dir); // Use fs.promises.readdir
+        const files = await (0, promises_1.readdir)(dir);
         // Loop through each file in the directory
         for (const file of files) {
-            const resourceFileName = path_1.default.basename(file, path_1.default.extname(file)); // Remove file extension
-            // Check if the resource name is not in the array
+            const fileName = path_1.default.basename(file);
+            // Remove .ts, .js, and .d.ts extensions
+            const resourceFileName = fileName.replace(/\.(ts|js|d\.ts)$/, '');
             if (!resource_files.includes(resourceFileName)) {
                 const filePath = path_1.default.join(dir, file);
                 // Delete the file
-                await (0, promises_1.unlink)(filePath); // Use fs.promises.unlink
-                console.log(`Deleted Obsolete/Deprecated file: ${filePath}`);
+                await (0, promises_1.unlink)(filePath);
+                console.log(`Deleted Deprecated file: ${filePath}`);
             }
         }
     }
@@ -68,35 +71,24 @@ async function deleteObsoleteFiles(dir, resource_files) {
         console.error('Error deleting files:', error);
     }
 }
+exports.deleteObsoleteFiles = deleteObsoleteFiles;
 async function createCDKProviderFiles() {
     await (0, create_resources_json_1.writeParamsToJSON)();
-    const createdFiles = [];
-    const snowflakeResourcesJSON = (0, fs_1.readFileSync)(`${__dirname}/snowflake_resources.json`, "utf-8");
-    const snowflakResourceTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${__dirname}/templates/snowflake_resource_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { toLowerCase: true, nestedProperty: true } });
-    const indexTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${__dirname}/templates/index_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { toLowerCase: true, nestedProperty: true } });
+    const createdFiles = ['index'];
+    const parentDirectory = path_1.default.join(__dirname, '../..');
+    const snowflakeResourcesJSON = (0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/snowflake_resources.json`, "utf-8");
+    const snowflakResourceTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/snowflake_resource_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { toLowerCase: true, nestedProperty: true } });
+    const indexTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/index_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { notEqual: true } });
     for (const snowflakeResource of JSON.parse(snowflakeResourcesJSON)) {
         createdFiles.push(snowflakeResource.name.toLowerCase());
-        const parentDirectory = path_1.default.join(__dirname, '..');
         const file_name = `${parentDirectory}/src/snowflake_resources/${snowflakeResource.name.toLowerCase()}`;
         console.log(`Writing Snowflake Resource '${snowflakeResource.name}' to file: src/snowflake_resources/${snowflakeResource.name.toLowerCase()}.ts`);
         (0, fs_1.writeFileSync)(`${file_name}.ts`, snowflakResourceTemplate(snowflakeResource));
-        console.log('Removing Obsolete or Deprecated files...');
-        deleteObsoleteFiles(`${parentDirectory}/src/snowflake_resources/`, createdFiles);
-        deleteObsoleteFiles(`${parentDirectory}/dist/snowflake_resources/`, createdFiles);
     }
-    console.log(createdFiles);
-    console.log("Writing index.ts to file: src/snowflake_resources/index.ts");
-    const parentDirectory = path_1.default.join(__dirname, '..');
+    console.log("Writing Index to file: src/snowflake_resources/index.ts");
     (0, fs_1.writeFileSync)(`${parentDirectory}/src/snowflake_resources/index.ts`, indexTemplate(createdFiles));
+    console.log('Removing Obsolete or Deprecated files...');
+    await deleteObsoleteFiles(`${parentDirectory}/src/snowflake_resources/`, createdFiles);
+    await deleteObsoleteFiles(`${parentDirectory}/dist/snowflake_resources/`, createdFiles);
 }
-async function main() {
-    await (0, clone_terrraform_provider_1.cloneRepository)();
-    await createCDKProviderFiles();
-    console.log('Running Linter...');
-    (0, child_process_1.execSync)('npm run format-json', { stdio: 'inherit' });
-    (0, child_process_1.execSync)('npx eslint . --ext .ts --ext .json --fix', { stdio: 'inherit' });
-    console.log('Recompiling Typescript files...');
-    (0, child_process_1.execSync)('tsc', { stdio: 'inherit' });
-    console.log('Success! All Provider files created.');
-}
-main();
+exports.createCDKProviderFiles = createCDKProviderFiles;

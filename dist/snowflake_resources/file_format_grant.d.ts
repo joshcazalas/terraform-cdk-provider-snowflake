@@ -2,7 +2,7 @@ import { TerraformMetaArguments, TerraformResource } from "cdktf";
 import { Construct } from "constructs";
 export interface File_Format_GrantConfig extends TerraformMetaArguments {
     database_name: string;
-    roles: string[];
+    roles: Set<string>;
     enable_multiple_grants?: boolean;
     file_format_name?: string;
     on_all?: boolean;
@@ -14,7 +14,7 @@ export interface File_Format_GrantConfig extends TerraformMetaArguments {
 }
 export declare class File_Format_Grant extends TerraformResource {
     _database_name: string;
-    _roles: string[];
+    _roles: Set<string>;
     _enable_multiple_grants?: boolean;
     _file_format_name?: string;
     _on_all?: boolean;
@@ -32,8 +32,8 @@ export declare class File_Format_Grant extends TerraformResource {
     ref(attribute: string): string;
     get database_name(): string;
     set database_name(value: string);
-    get roles(): string[];
-    set roles(value: string[]);
+    get roles(): Set<string>;
+    set roles(value: Set<string>);
     get enable_multiple_grants(): boolean | undefined;
     set enable_multiple_grants(value: boolean | undefined);
     get file_format_name(): string | undefined;

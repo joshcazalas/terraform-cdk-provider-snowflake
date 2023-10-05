@@ -4,14 +4,14 @@ export interface Resource_Monitor_GrantConfig extends TerraformMetaArguments {
     monitor_name: string;
     enable_multiple_grants?: boolean;
     privilege?: string;
-    roles?: string[];
+    roles?: Set<string>;
     with_grant_option?: boolean;
 }
 export declare class Resource_Monitor_Grant extends TerraformResource {
     _monitor_name: string;
     _enable_multiple_grants?: boolean;
     _privilege?: string;
-    _roles?: string[];
+    _roles?: Set<string>;
     _with_grant_option?: boolean;
     readonly _id: string;
     constructor(scope: Construct, id: string, config: Resource_Monitor_GrantConfig);
@@ -26,8 +26,8 @@ export declare class Resource_Monitor_Grant extends TerraformResource {
     set enable_multiple_grants(value: boolean | undefined);
     get privilege(): string | undefined;
     set privilege(value: string | undefined);
-    get roles(): string[] | undefined;
-    set roles(value: string[] | undefined);
+    get roles(): Set<string> | undefined;
+    set roles(value: Set<string> | undefined);
     get with_grant_option(): boolean | undefined;
     set with_grant_option(value: boolean | undefined);
 }

@@ -1,7 +1,7 @@
 import { TerraformMetaArguments, TerraformResource } from "cdktf";
 import { Construct } from "constructs";
 export interface Failover_Group_GrantConfig extends TerraformMetaArguments {
-    roles: string[];
+    roles: Set<string>;
     enable_multiple_grants?: boolean;
     failover_group_name?: string;
     privilege?: string;
@@ -9,7 +9,7 @@ export interface Failover_Group_GrantConfig extends TerraformMetaArguments {
     with_grant_option?: boolean;
 }
 export declare class Failover_Group_Grant extends TerraformResource {
-    _roles: string[];
+    _roles: Set<string>;
     _enable_multiple_grants?: boolean;
     _failover_group_name?: string;
     _privilege?: string;
@@ -22,8 +22,8 @@ export declare class Failover_Group_Grant extends TerraformResource {
     };
     get id(): string;
     ref(attribute: string): string;
-    get roles(): string[];
-    set roles(value: string[]);
+    get roles(): Set<string>;
+    set roles(value: Set<string>);
     get enable_multiple_grants(): boolean | undefined;
     set enable_multiple_grants(value: boolean | undefined);
     get failover_group_name(): string | undefined;

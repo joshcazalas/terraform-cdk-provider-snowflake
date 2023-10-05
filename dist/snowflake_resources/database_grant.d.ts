@@ -5,8 +5,8 @@ export interface Database_GrantConfig extends TerraformMetaArguments {
     enable_multiple_grants?: boolean;
     privilege?: string;
     revert_ownership_to_role_name?: string;
-    roles?: string[];
-    shares?: string[];
+    roles?: Set<string>;
+    shares?: Set<string>;
     with_grant_option?: boolean;
 }
 export declare class Database_Grant extends TerraformResource {
@@ -14,8 +14,8 @@ export declare class Database_Grant extends TerraformResource {
     _enable_multiple_grants?: boolean;
     _privilege?: string;
     _revert_ownership_to_role_name?: string;
-    _roles?: string[];
-    _shares?: string[];
+    _roles?: Set<string>;
+    _shares?: Set<string>;
     _with_grant_option?: boolean;
     readonly _id: string;
     constructor(scope: Construct, id: string, config: Database_GrantConfig);
@@ -32,10 +32,10 @@ export declare class Database_Grant extends TerraformResource {
     set privilege(value: string | undefined);
     get revert_ownership_to_role_name(): string | undefined;
     set revert_ownership_to_role_name(value: string | undefined);
-    get roles(): string[] | undefined;
-    set roles(value: string[] | undefined);
-    get shares(): string[] | undefined;
-    set shares(value: string[] | undefined);
+    get roles(): Set<string> | undefined;
+    set roles(value: Set<string> | undefined);
+    get shares(): Set<string> | undefined;
+    set shares(value: Set<string> | undefined);
     get with_grant_option(): boolean | undefined;
     set with_grant_option(value: boolean | undefined);
 }

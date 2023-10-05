@@ -68,15 +68,6 @@ async function cloneRepository() {
             depth: 1, // Limit the history to the latest commit
         });
         console.log('Repository cloned successfully.');
-        await (0, isomorphic_git_1.pull)({
-            fs,
-            http: node_1.default,
-            dir: targetDirectory,
-            url: repoURL,
-            singleBranch: true,
-            author: { name: "placeholder" },
-            fastForwardOnly: true
-        });
         // Now you can access the files in the cloned directory.
     }
     catch (error) {

@@ -14,24 +14,24 @@ export interface Failover_Group_Replication_Schedule {
 }
 export interface Failover_GroupConfig extends TerraformMetaArguments {
     name: string;
-    allowed_accounts?: string[];
-    allowed_databases?: string[];
-    allowed_integration_types?: string[];
-    allowed_shares?: string[];
+    allowed_accounts?: Set<string>;
+    allowed_databases?: Set<string>;
+    allowed_integration_types?: Set<string>;
+    allowed_shares?: Set<string>;
     from_replica?: Failover_Group_From_Replica[];
     ignore_edition_check?: boolean;
-    object_types?: string[];
+    object_types?: Set<string>;
     replication_schedule?: Failover_Group_Replication_Schedule[];
 }
 export declare class Failover_Group extends TerraformResource {
     _name: string;
-    _allowed_accounts?: string[];
-    _allowed_databases?: string[];
-    _allowed_integration_types?: string[];
-    _allowed_shares?: string[];
+    _allowed_accounts?: Set<string>;
+    _allowed_databases?: Set<string>;
+    _allowed_integration_types?: Set<string>;
+    _allowed_shares?: Set<string>;
     _from_replica?: Failover_Group_From_Replica[];
     _ignore_edition_check?: boolean;
-    _object_types?: string[];
+    _object_types?: Set<string>;
     _replication_schedule?: Failover_Group_Replication_Schedule[];
     readonly _id: string;
     constructor(scope: Construct, id: string, config: Failover_GroupConfig);
@@ -42,20 +42,20 @@ export declare class Failover_Group extends TerraformResource {
     ref(attribute: string): string;
     get name(): string;
     set name(value: string);
-    get allowed_accounts(): string[] | undefined;
-    set allowed_accounts(value: string[] | undefined);
-    get allowed_databases(): string[] | undefined;
-    set allowed_databases(value: string[] | undefined);
-    get allowed_integration_types(): string[] | undefined;
-    set allowed_integration_types(value: string[] | undefined);
-    get allowed_shares(): string[] | undefined;
-    set allowed_shares(value: string[] | undefined);
+    get allowed_accounts(): Set<string> | undefined;
+    set allowed_accounts(value: Set<string> | undefined);
+    get allowed_databases(): Set<string> | undefined;
+    set allowed_databases(value: Set<string> | undefined);
+    get allowed_integration_types(): Set<string> | undefined;
+    set allowed_integration_types(value: Set<string> | undefined);
+    get allowed_shares(): Set<string> | undefined;
+    set allowed_shares(value: Set<string> | undefined);
     get from_replica(): Failover_Group_From_Replica[] | undefined;
     set from_replica(value: Failover_Group_From_Replica[] | undefined);
     get ignore_edition_check(): boolean | undefined;
     set ignore_edition_check(value: boolean | undefined);
-    get object_types(): string[] | undefined;
-    set object_types(value: string[] | undefined);
+    get object_types(): Set<string> | undefined;
+    set object_types(value: Set<string> | undefined);
     get replication_schedule(): Failover_Group_Replication_Schedule[] | undefined;
     set replication_schedule(value: Failover_Group_Replication_Schedule[] | undefined);
 }

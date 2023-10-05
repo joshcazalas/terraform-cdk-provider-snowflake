@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { getParams } from './get_parameters/get_params';
+import { getParams } from '../get_parameters/get_params';
 
 async function writeToFile(fileAdded: string, filePath: string, newContents: string) {
   try {
@@ -16,7 +16,7 @@ export async function writeParamsToJSON() {
     const fileNames = fs.readdirSync('../terraform-provider-snowflake/docs/resources')
 
     // Empty the file by writing an empty string to it
-    fs.writeFileSync('./snowflake_resources.json', '[', 'utf-8');
+    fs.writeFileSync('tools/snowflake_resources.json', '[', 'utf-8');
 
     for (let i = 0; i < fileNames.length; i++) {
       const file = fileNames[i];
@@ -24,10 +24,10 @@ export async function writeParamsToJSON() {
       if (file) {
         // Changing behavior of the loop for the last item in the loop
         if (i === fileNames.length - 1) {
-          await writeToFile(file,'./snowflake_resources.json', JSON.stringify(params, null, 2).replace('\\n', '') + '\n]')
+          await writeToFile(file,'tools/snowflake_resources.json', JSON.stringify(params, null, 2).replace('\\n', '') + '\n]')
         }
         else {
-          await writeToFile(file,'./snowflake_resources.json', JSON.stringify(params, null, 2).replace('\\n', '') + ',')
+          await writeToFile(file,'tools/snowflake_resources.json', JSON.stringify(params, null, 2).replace('\\n', '') + ',')
         }
       }
     }

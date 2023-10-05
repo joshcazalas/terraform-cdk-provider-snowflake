@@ -1,4 +1,4 @@
-import { clone, pull } from 'isomorphic-git';
+import { clone } from 'isomorphic-git';
 import * as fs from 'fs';
 import path from 'path';
 import http from 'isomorphic-git/http/node';
@@ -43,16 +43,6 @@ export async function cloneRepository() {
       });
   
       console.log('Repository cloned successfully.');
-  
-      await pull({
-        fs,
-        http,
-        dir: targetDirectory,
-        url: repoURL,
-        singleBranch: true, // Only clone the default branch (main)
-        author: {name: "placeholder"},
-        fastForwardOnly: true
-      })
   
       // Now you can access the files in the cloned directory.
     } catch (error) {
