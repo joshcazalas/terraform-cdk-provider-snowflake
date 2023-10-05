@@ -111,6 +111,7 @@ export class Table_Constraint extends TerraformResource {
     public set columns(value: string[]) {
         this._columns = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -118,6 +119,7 @@ export class Table_Constraint extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get table_id(): string {
         return this._table_id
     }
@@ -125,6 +127,7 @@ export class Table_Constraint extends TerraformResource {
     public set table_id(value: string) {
         this._table_id = value;
     }
+    
     public get type(): string {
         return this._type
     }
@@ -132,6 +135,7 @@ export class Table_Constraint extends TerraformResource {
     public set type(value: string) {
         this._type = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -139,6 +143,7 @@ export class Table_Constraint extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get deferrable(): boolean | undefined {
         return this._deferrable
     }
@@ -146,6 +151,7 @@ export class Table_Constraint extends TerraformResource {
     public set deferrable(value: boolean | undefined) {
         this._deferrable = value;
     }
+    
     public get enable(): boolean | undefined {
         return this._enable
     }
@@ -153,6 +159,7 @@ export class Table_Constraint extends TerraformResource {
     public set enable(value: boolean | undefined) {
         this._enable = value;
     }
+    
     public get enforced(): boolean | undefined {
         return this._enforced
     }
@@ -160,6 +167,7 @@ export class Table_Constraint extends TerraformResource {
     public set enforced(value: boolean | undefined) {
         this._enforced = value;
     }
+    
     public get foreign_key_properties(): Table_Constraint_Foreign_Key_Properties[] | undefined {
         return this._foreign_key_properties
     }
@@ -167,6 +175,7 @@ export class Table_Constraint extends TerraformResource {
     public set foreign_key_properties(value: Table_Constraint_Foreign_Key_Properties[] | undefined) {
         this._foreign_key_properties = value;
     }
+    
     public get initially(): string | undefined {
         return this._initially
     }
@@ -174,6 +183,7 @@ export class Table_Constraint extends TerraformResource {
     public set initially(value: string | undefined) {
         this._initially = value;
     }
+    
     public get rely(): boolean | undefined {
         return this._rely
     }
@@ -181,6 +191,7 @@ export class Table_Constraint extends TerraformResource {
     public set rely(value: boolean | undefined) {
         this._rely = value;
     }
+    
     public get validate(): boolean | undefined {
         return this._validate
     }
@@ -188,5 +199,6 @@ export class Table_Constraint extends TerraformResource {
     public set validate(value: boolean | undefined) {
         this._validate = value;
     }
+    
 }
 

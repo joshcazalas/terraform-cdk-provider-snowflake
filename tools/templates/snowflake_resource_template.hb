@@ -70,6 +70,7 @@ export class {{name}} extends TerraformResource {
     public set {{this.name}}(value: {{this.type}}{{#if this.required}}{{else}} | undefined{{/if}}) {
         this._{{this.name}} = value;
     }
+    
     {{/each}}
 }
 

@@ -94,6 +94,7 @@ export class Alert extends TerraformResource {
     public set action(value: string) {
         this._action = value;
     }
+    
     public get condition(): string {
         return this._condition
     }
@@ -101,6 +102,7 @@ export class Alert extends TerraformResource {
     public set condition(value: string) {
         this._condition = value;
     }
+    
     public get database(): string {
         return this._database
     }
@@ -108,6 +110,7 @@ export class Alert extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -115,6 +118,7 @@ export class Alert extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -122,6 +126,7 @@ export class Alert extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get warehouse(): string {
         return this._warehouse
     }
@@ -129,6 +134,7 @@ export class Alert extends TerraformResource {
     public set warehouse(value: string) {
         this._warehouse = value;
     }
+    
     public get alert_schedule(): Alert_Alert_Schedule[] | undefined {
         return this._alert_schedule
     }
@@ -136,6 +142,7 @@ export class Alert extends TerraformResource {
     public set alert_schedule(value: Alert_Alert_Schedule[] | undefined) {
         this._alert_schedule = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -143,6 +150,7 @@ export class Alert extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get enabled(): boolean | undefined {
         return this._enabled
     }
@@ -150,5 +158,6 @@ export class Alert extends TerraformResource {
     public set enabled(value: boolean | undefined) {
         this._enabled = value;
     }
+    
 }
 

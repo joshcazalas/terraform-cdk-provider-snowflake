@@ -119,6 +119,7 @@ export class Table extends TerraformResource {
     public set column(value: Table_Column[]) {
         this._column = value;
     }
+    
     public get database(): string {
         return this._database
     }
@@ -126,6 +127,7 @@ export class Table extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -133,6 +135,7 @@ export class Table extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -140,6 +143,7 @@ export class Table extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get change_tracking(): boolean | undefined {
         return this._change_tracking
     }
@@ -147,6 +151,7 @@ export class Table extends TerraformResource {
     public set change_tracking(value: boolean | undefined) {
         this._change_tracking = value;
     }
+    
     public get cluster_by(): string[] | undefined {
         return this._cluster_by
     }
@@ -154,6 +159,7 @@ export class Table extends TerraformResource {
     public set cluster_by(value: string[] | undefined) {
         this._cluster_by = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -161,6 +167,7 @@ export class Table extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get data_retention_days(): number | undefined {
         return this._data_retention_days
     }
@@ -168,6 +175,7 @@ export class Table extends TerraformResource {
     public set data_retention_days(value: number | undefined) {
         this._data_retention_days = value;
     }
+    
     public get data_retention_time_in_days(): number | undefined {
         return this._data_retention_time_in_days
     }
@@ -175,6 +183,7 @@ export class Table extends TerraformResource {
     public set data_retention_time_in_days(value: number | undefined) {
         this._data_retention_time_in_days = value;
     }
+    
     public get primary_key(): Table_Primary_Key[] | undefined {
         return this._primary_key
     }
@@ -182,6 +191,7 @@ export class Table extends TerraformResource {
     public set primary_key(value: Table_Primary_Key[] | undefined) {
         this._primary_key = value;
     }
+    
     public get tag(): Table_Tag[] | undefined {
         return this._tag
     }
@@ -189,5 +199,6 @@ export class Table extends TerraformResource {
     public set tag(value: Table_Tag[] | undefined) {
         this._tag = value;
     }
+    
 }
 

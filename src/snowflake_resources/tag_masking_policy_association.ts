@@ -55,6 +55,7 @@ export class Tag_Masking_Policy_Association extends TerraformResource {
     public set masking_policy_id(value: string) {
         this._masking_policy_id = value;
     }
+    
     public get tag_id(): string {
         return this._tag_id
     }
@@ -62,5 +63,6 @@ export class Tag_Masking_Policy_Association extends TerraformResource {
     public set tag_id(value: string) {
         this._tag_id = value;
     }
+    
 }
 

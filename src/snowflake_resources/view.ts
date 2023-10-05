@@ -96,6 +96,7 @@ export class View extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -103,6 +104,7 @@ export class View extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -110,6 +112,7 @@ export class View extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get statement(): string {
         return this._statement
     }
@@ -117,6 +120,7 @@ export class View extends TerraformResource {
     public set statement(value: string) {
         this._statement = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -124,6 +128,7 @@ export class View extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get copy_grants(): boolean | undefined {
         return this._copy_grants
     }
@@ -131,6 +136,7 @@ export class View extends TerraformResource {
     public set copy_grants(value: boolean | undefined) {
         this._copy_grants = value;
     }
+    
     public get is_secure(): boolean | undefined {
         return this._is_secure
     }
@@ -138,6 +144,7 @@ export class View extends TerraformResource {
     public set is_secure(value: boolean | undefined) {
         this._is_secure = value;
     }
+    
     public get or_replace(): boolean | undefined {
         return this._or_replace
     }
@@ -145,6 +152,7 @@ export class View extends TerraformResource {
     public set or_replace(value: boolean | undefined) {
         this._or_replace = value;
     }
+    
     public get tag(): View_Tag[] | undefined {
         return this._tag
     }
@@ -152,5 +160,6 @@ export class View extends TerraformResource {
     public set tag(value: View_Tag[] | undefined) {
         this._tag = value;
     }
+    
 }
 

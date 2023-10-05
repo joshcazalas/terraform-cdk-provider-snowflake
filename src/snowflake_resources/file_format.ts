@@ -220,6 +220,7 @@ export class File_Format extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get format_type(): string {
         return this._format_type
     }
@@ -227,6 +228,7 @@ export class File_Format extends TerraformResource {
     public set format_type(value: string) {
         this._format_type = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -234,6 +236,7 @@ export class File_Format extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -241,6 +244,7 @@ export class File_Format extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get allow_duplicate(): boolean | undefined {
         return this._allow_duplicate
     }
@@ -248,6 +252,7 @@ export class File_Format extends TerraformResource {
     public set allow_duplicate(value: boolean | undefined) {
         this._allow_duplicate = value;
     }
+    
     public get binary_as_text(): boolean | undefined {
         return this._binary_as_text
     }
@@ -255,6 +260,7 @@ export class File_Format extends TerraformResource {
     public set binary_as_text(value: boolean | undefined) {
         this._binary_as_text = value;
     }
+    
     public get binary_format(): string | undefined {
         return this._binary_format
     }
@@ -262,6 +268,7 @@ export class File_Format extends TerraformResource {
     public set binary_format(value: string | undefined) {
         this._binary_format = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -269,6 +276,7 @@ export class File_Format extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get compression(): string | undefined {
         return this._compression
     }
@@ -276,6 +284,7 @@ export class File_Format extends TerraformResource {
     public set compression(value: string | undefined) {
         this._compression = value;
     }
+    
     public get date_format(): string | undefined {
         return this._date_format
     }
@@ -283,6 +292,7 @@ export class File_Format extends TerraformResource {
     public set date_format(value: string | undefined) {
         this._date_format = value;
     }
+    
     public get disable_auto_convert(): boolean | undefined {
         return this._disable_auto_convert
     }
@@ -290,6 +300,7 @@ export class File_Format extends TerraformResource {
     public set disable_auto_convert(value: boolean | undefined) {
         this._disable_auto_convert = value;
     }
+    
     public get disable_snowflake_data(): boolean | undefined {
         return this._disable_snowflake_data
     }
@@ -297,6 +308,7 @@ export class File_Format extends TerraformResource {
     public set disable_snowflake_data(value: boolean | undefined) {
         this._disable_snowflake_data = value;
     }
+    
     public get empty_field_as_null(): boolean | undefined {
         return this._empty_field_as_null
     }
@@ -304,6 +316,7 @@ export class File_Format extends TerraformResource {
     public set empty_field_as_null(value: boolean | undefined) {
         this._empty_field_as_null = value;
     }
+    
     public get enable_octal(): boolean | undefined {
         return this._enable_octal
     }
@@ -311,6 +324,7 @@ export class File_Format extends TerraformResource {
     public set enable_octal(value: boolean | undefined) {
         this._enable_octal = value;
     }
+    
     public get encoding(): string | undefined {
         return this._encoding
     }
@@ -318,6 +332,7 @@ export class File_Format extends TerraformResource {
     public set encoding(value: string | undefined) {
         this._encoding = value;
     }
+    
     public get error_on_column_count_mismatch(): boolean | undefined {
         return this._error_on_column_count_mismatch
     }
@@ -325,6 +340,7 @@ export class File_Format extends TerraformResource {
     public set error_on_column_count_mismatch(value: boolean | undefined) {
         this._error_on_column_count_mismatch = value;
     }
+    
     public get escape(): string | undefined {
         return this._escape
     }
@@ -332,6 +348,7 @@ export class File_Format extends TerraformResource {
     public set escape(value: string | undefined) {
         this._escape = value;
     }
+    
     public get escape_unenclosed_field(): string | undefined {
         return this._escape_unenclosed_field
     }
@@ -339,6 +356,7 @@ export class File_Format extends TerraformResource {
     public set escape_unenclosed_field(value: string | undefined) {
         this._escape_unenclosed_field = value;
     }
+    
     public get field_delimiter(): string | undefined {
         return this._field_delimiter
     }
@@ -346,6 +364,7 @@ export class File_Format extends TerraformResource {
     public set field_delimiter(value: string | undefined) {
         this._field_delimiter = value;
     }
+    
     public get field_optionally_enclosed_by(): string | undefined {
         return this._field_optionally_enclosed_by
     }
@@ -353,6 +372,7 @@ export class File_Format extends TerraformResource {
     public set field_optionally_enclosed_by(value: string | undefined) {
         this._field_optionally_enclosed_by = value;
     }
+    
     public get file_extension(): string | undefined {
         return this._file_extension
     }
@@ -360,6 +380,7 @@ export class File_Format extends TerraformResource {
     public set file_extension(value: string | undefined) {
         this._file_extension = value;
     }
+    
     public get ignore_utf8_errors(): boolean | undefined {
         return this._ignore_utf8_errors
     }
@@ -367,6 +388,7 @@ export class File_Format extends TerraformResource {
     public set ignore_utf8_errors(value: boolean | undefined) {
         this._ignore_utf8_errors = value;
     }
+    
     public get null_if(): string[] | undefined {
         return this._null_if
     }
@@ -374,6 +396,7 @@ export class File_Format extends TerraformResource {
     public set null_if(value: string[] | undefined) {
         this._null_if = value;
     }
+    
     public get preserve_space(): boolean | undefined {
         return this._preserve_space
     }
@@ -381,6 +404,7 @@ export class File_Format extends TerraformResource {
     public set preserve_space(value: boolean | undefined) {
         this._preserve_space = value;
     }
+    
     public get record_delimiter(): string | undefined {
         return this._record_delimiter
     }
@@ -388,6 +412,7 @@ export class File_Format extends TerraformResource {
     public set record_delimiter(value: string | undefined) {
         this._record_delimiter = value;
     }
+    
     public get replace_invalid_characters(): boolean | undefined {
         return this._replace_invalid_characters
     }
@@ -395,6 +420,7 @@ export class File_Format extends TerraformResource {
     public set replace_invalid_characters(value: boolean | undefined) {
         this._replace_invalid_characters = value;
     }
+    
     public get skip_blank_lines(): boolean | undefined {
         return this._skip_blank_lines
     }
@@ -402,6 +428,7 @@ export class File_Format extends TerraformResource {
     public set skip_blank_lines(value: boolean | undefined) {
         this._skip_blank_lines = value;
     }
+    
     public get skip_byte_order_mark(): boolean | undefined {
         return this._skip_byte_order_mark
     }
@@ -409,6 +436,7 @@ export class File_Format extends TerraformResource {
     public set skip_byte_order_mark(value: boolean | undefined) {
         this._skip_byte_order_mark = value;
     }
+    
     public get skip_header(): number | undefined {
         return this._skip_header
     }
@@ -416,6 +444,7 @@ export class File_Format extends TerraformResource {
     public set skip_header(value: number | undefined) {
         this._skip_header = value;
     }
+    
     public get strip_null_values(): boolean | undefined {
         return this._strip_null_values
     }
@@ -423,6 +452,7 @@ export class File_Format extends TerraformResource {
     public set strip_null_values(value: boolean | undefined) {
         this._strip_null_values = value;
     }
+    
     public get strip_outer_array(): boolean | undefined {
         return this._strip_outer_array
     }
@@ -430,6 +460,7 @@ export class File_Format extends TerraformResource {
     public set strip_outer_array(value: boolean | undefined) {
         this._strip_outer_array = value;
     }
+    
     public get strip_outer_element(): boolean | undefined {
         return this._strip_outer_element
     }
@@ -437,6 +468,7 @@ export class File_Format extends TerraformResource {
     public set strip_outer_element(value: boolean | undefined) {
         this._strip_outer_element = value;
     }
+    
     public get time_format(): string | undefined {
         return this._time_format
     }
@@ -444,6 +476,7 @@ export class File_Format extends TerraformResource {
     public set time_format(value: string | undefined) {
         this._time_format = value;
     }
+    
     public get timestamp_format(): string | undefined {
         return this._timestamp_format
     }
@@ -451,6 +484,7 @@ export class File_Format extends TerraformResource {
     public set timestamp_format(value: string | undefined) {
         this._timestamp_format = value;
     }
+    
     public get trim_space(): boolean | undefined {
         return this._trim_space
     }
@@ -458,5 +492,6 @@ export class File_Format extends TerraformResource {
     public set trim_space(value: boolean | undefined) {
         this._trim_space = value;
     }
+    
 }
 

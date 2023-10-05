@@ -129,6 +129,7 @@ export class Function extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -136,6 +137,7 @@ export class Function extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get return_type(): string {
         return this._return_type
     }
@@ -143,6 +145,7 @@ export class Function extends TerraformResource {
     public set return_type(value: string) {
         this._return_type = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -150,6 +153,7 @@ export class Function extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get statement(): string {
         return this._statement
     }
@@ -157,6 +161,7 @@ export class Function extends TerraformResource {
     public set statement(value: string) {
         this._statement = value;
     }
+    
     public get arguments(): Function_Arguments[] | undefined {
         return this._arguments
     }
@@ -164,6 +169,7 @@ export class Function extends TerraformResource {
     public set arguments(value: Function_Arguments[] | undefined) {
         this._arguments = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -171,6 +177,7 @@ export class Function extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get handler(): string | undefined {
         return this._handler
     }
@@ -178,6 +185,7 @@ export class Function extends TerraformResource {
     public set handler(value: string | undefined) {
         this._handler = value;
     }
+    
     public get imports(): string[] | undefined {
         return this._imports
     }
@@ -185,6 +193,7 @@ export class Function extends TerraformResource {
     public set imports(value: string[] | undefined) {
         this._imports = value;
     }
+    
     public get is_secure(): boolean | undefined {
         return this._is_secure
     }
@@ -192,6 +201,7 @@ export class Function extends TerraformResource {
     public set is_secure(value: boolean | undefined) {
         this._is_secure = value;
     }
+    
     public get language(): string | undefined {
         return this._language
     }
@@ -199,6 +209,7 @@ export class Function extends TerraformResource {
     public set language(value: string | undefined) {
         this._language = value;
     }
+    
     public get null_input_behavior(): string | undefined {
         return this._null_input_behavior
     }
@@ -206,6 +217,7 @@ export class Function extends TerraformResource {
     public set null_input_behavior(value: string | undefined) {
         this._null_input_behavior = value;
     }
+    
     public get packages(): string[] | undefined {
         return this._packages
     }
@@ -213,6 +225,7 @@ export class Function extends TerraformResource {
     public set packages(value: string[] | undefined) {
         this._packages = value;
     }
+    
     public get return_behavior(): string | undefined {
         return this._return_behavior
     }
@@ -220,6 +233,7 @@ export class Function extends TerraformResource {
     public set return_behavior(value: string | undefined) {
         this._return_behavior = value;
     }
+    
     public get runtime_version(): string | undefined {
         return this._runtime_version
     }
@@ -227,6 +241,7 @@ export class Function extends TerraformResource {
     public set runtime_version(value: string | undefined) {
         this._runtime_version = value;
     }
+    
     public get target_path(): string | undefined {
         return this._target_path
     }
@@ -234,5 +249,6 @@ export class Function extends TerraformResource {
     public set target_path(value: string | undefined) {
         this._target_path = value;
     }
+    
 }
 

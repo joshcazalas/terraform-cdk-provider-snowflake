@@ -54,9 +54,9 @@ export async function getRequiredParams(file: string) {
                 if (parenthesesMatches) {
                     // Extract content within parentheses and push it to the array
                     let contentWithinParentheses = ''
-                    let parenthesisMatch = parenthesesMatches[0]
+                    const parenthesisMatch = parenthesesMatches[0]
                     contentWithinParentheses = parenthesisMatch.slice(1, -1); // Remove parentheses
-                    let contentWithCommasRemoved = contentWithinParentheses.split(',')[0] // Remove , and anything to the right if exists. Handles grabbing the type when documentation is (String, Sensitive)
+                    const contentWithCommasRemoved = contentWithinParentheses.split(',')[0] // Remove , and anything to the right if exists. Handles grabbing the type when documentation is (String, Sensitive)
                     if (contentWithCommasRemoved) {
                         requiredParams.push({
                             name: contentWithinBackticks,

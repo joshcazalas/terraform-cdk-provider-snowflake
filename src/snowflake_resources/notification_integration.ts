@@ -115,6 +115,7 @@ export class Notification_Integration extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get aws_sns_role_arn(): string | undefined {
         return this._aws_sns_role_arn
     }
@@ -122,6 +123,7 @@ export class Notification_Integration extends TerraformResource {
     public set aws_sns_role_arn(value: string | undefined) {
         this._aws_sns_role_arn = value;
     }
+    
     public get aws_sns_topic_arn(): string | undefined {
         return this._aws_sns_topic_arn
     }
@@ -129,6 +131,7 @@ export class Notification_Integration extends TerraformResource {
     public set aws_sns_topic_arn(value: string | undefined) {
         this._aws_sns_topic_arn = value;
     }
+    
     public get aws_sqs_arn(): string | undefined {
         return this._aws_sqs_arn
     }
@@ -136,6 +139,7 @@ export class Notification_Integration extends TerraformResource {
     public set aws_sqs_arn(value: string | undefined) {
         this._aws_sqs_arn = value;
     }
+    
     public get aws_sqs_role_arn(): string | undefined {
         return this._aws_sqs_role_arn
     }
@@ -143,6 +147,7 @@ export class Notification_Integration extends TerraformResource {
     public set aws_sqs_role_arn(value: string | undefined) {
         this._aws_sqs_role_arn = value;
     }
+    
     public get azure_storage_queue_primary_uri(): string | undefined {
         return this._azure_storage_queue_primary_uri
     }
@@ -150,6 +155,7 @@ export class Notification_Integration extends TerraformResource {
     public set azure_storage_queue_primary_uri(value: string | undefined) {
         this._azure_storage_queue_primary_uri = value;
     }
+    
     public get azure_tenant_id(): string | undefined {
         return this._azure_tenant_id
     }
@@ -157,6 +163,7 @@ export class Notification_Integration extends TerraformResource {
     public set azure_tenant_id(value: string | undefined) {
         this._azure_tenant_id = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -164,6 +171,7 @@ export class Notification_Integration extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get direction(): string | undefined {
         return this._direction
     }
@@ -171,6 +179,7 @@ export class Notification_Integration extends TerraformResource {
     public set direction(value: string | undefined) {
         this._direction = value;
     }
+    
     public get enabled(): boolean | undefined {
         return this._enabled
     }
@@ -178,6 +187,7 @@ export class Notification_Integration extends TerraformResource {
     public set enabled(value: boolean | undefined) {
         this._enabled = value;
     }
+    
     public get gcp_pubsub_subscription_name(): string | undefined {
         return this._gcp_pubsub_subscription_name
     }
@@ -185,6 +195,7 @@ export class Notification_Integration extends TerraformResource {
     public set gcp_pubsub_subscription_name(value: string | undefined) {
         this._gcp_pubsub_subscription_name = value;
     }
+    
     public get gcp_pubsub_topic_name(): string | undefined {
         return this._gcp_pubsub_topic_name
     }
@@ -192,6 +203,7 @@ export class Notification_Integration extends TerraformResource {
     public set gcp_pubsub_topic_name(value: string | undefined) {
         this._gcp_pubsub_topic_name = value;
     }
+    
     public get notification_provider(): string | undefined {
         return this._notification_provider
     }
@@ -199,6 +211,7 @@ export class Notification_Integration extends TerraformResource {
     public set notification_provider(value: string | undefined) {
         this._notification_provider = value;
     }
+    
     public get type(): string | undefined {
         return this._type
     }
@@ -206,5 +219,6 @@ export class Notification_Integration extends TerraformResource {
     public set type(value: string | undefined) {
         this._type = value;
     }
+    
 }
 

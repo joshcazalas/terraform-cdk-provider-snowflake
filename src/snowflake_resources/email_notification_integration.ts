@@ -7,14 +7,14 @@ import { Construct } from "constructs";
 
 
 export interface Email_Notification_IntegrationConfig extends TerraformMetaArguments {
-    allowed_recipients: string[];
+    allowed_recipients: Set<string>;
     enabled: boolean;
     name: string;
     comment?: string;
 }
 
 export class Email_Notification_Integration extends TerraformResource {
-    _allowed_recipients: string[];
+    _allowed_recipients: Set<string>;
     _enabled: boolean;
     _name: string;
     _comment?: string;
@@ -58,13 +58,14 @@ export class Email_Notification_Integration extends TerraformResource {
         return `\${snowflake_email_notification_integration.${this.friendlyUniqueId}.${attribute}}`;
     }
 
-    public get allowed_recipients(): string[] {
+    public get allowed_recipients(): Set<string> {
         return this._allowed_recipients
     }
 
-    public set allowed_recipients(value: string[]) {
+    public set allowed_recipients(value: Set<string>) {
         this._allowed_recipients = value;
     }
+    
     public get enabled(): boolean {
         return this._enabled
     }
@@ -72,6 +73,7 @@ export class Email_Notification_Integration extends TerraformResource {
     public set enabled(value: boolean) {
         this._enabled = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -79,6 +81,7 @@ export class Email_Notification_Integration extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -86,5 +89,6 @@ export class Email_Notification_Integration extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
 }
 

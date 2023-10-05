@@ -60,6 +60,7 @@ export class Share extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get accounts(): string[] | undefined {
         return this._accounts
     }
@@ -67,6 +68,7 @@ export class Share extends TerraformResource {
     public set accounts(value: string[] | undefined) {
         this._accounts = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -74,5 +76,6 @@ export class Share extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
 }
 

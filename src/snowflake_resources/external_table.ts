@@ -126,6 +126,7 @@ export class External_Table extends TerraformResource {
     public set column(value: External_Table_Column[]) {
         this._column = value;
     }
+    
     public get database(): string {
         return this._database
     }
@@ -133,6 +134,7 @@ export class External_Table extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get file_format(): string {
         return this._file_format
     }
@@ -140,6 +142,7 @@ export class External_Table extends TerraformResource {
     public set file_format(value: string) {
         this._file_format = value;
     }
+    
     public get location(): string {
         return this._location
     }
@@ -147,6 +150,7 @@ export class External_Table extends TerraformResource {
     public set location(value: string) {
         this._location = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -154,6 +158,7 @@ export class External_Table extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -161,6 +166,7 @@ export class External_Table extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get auto_refresh(): boolean | undefined {
         return this._auto_refresh
     }
@@ -168,6 +174,7 @@ export class External_Table extends TerraformResource {
     public set auto_refresh(value: boolean | undefined) {
         this._auto_refresh = value;
     }
+    
     public get aws_sns_topic(): string | undefined {
         return this._aws_sns_topic
     }
@@ -175,6 +182,7 @@ export class External_Table extends TerraformResource {
     public set aws_sns_topic(value: string | undefined) {
         this._aws_sns_topic = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -182,6 +190,7 @@ export class External_Table extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get copy_grants(): boolean | undefined {
         return this._copy_grants
     }
@@ -189,6 +198,7 @@ export class External_Table extends TerraformResource {
     public set copy_grants(value: boolean | undefined) {
         this._copy_grants = value;
     }
+    
     public get partition_by(): string[] | undefined {
         return this._partition_by
     }
@@ -196,6 +206,7 @@ export class External_Table extends TerraformResource {
     public set partition_by(value: string[] | undefined) {
         this._partition_by = value;
     }
+    
     public get pattern(): string | undefined {
         return this._pattern
     }
@@ -203,6 +214,7 @@ export class External_Table extends TerraformResource {
     public set pattern(value: string | undefined) {
         this._pattern = value;
     }
+    
     public get refresh_on_create(): boolean | undefined {
         return this._refresh_on_create
     }
@@ -210,6 +222,7 @@ export class External_Table extends TerraformResource {
     public set refresh_on_create(value: boolean | undefined) {
         this._refresh_on_create = value;
     }
+    
     public get tag(): External_Table_Tag[] | undefined {
         return this._tag
     }
@@ -217,5 +230,6 @@ export class External_Table extends TerraformResource {
     public set tag(value: External_Table_Tag[] | undefined) {
         this._tag = value;
     }
+    
 }
 

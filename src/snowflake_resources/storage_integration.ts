@@ -95,6 +95,7 @@ export class Storage_Integration extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get storage_allowed_locations(): string[] {
         return this._storage_allowed_locations
     }
@@ -102,6 +103,7 @@ export class Storage_Integration extends TerraformResource {
     public set storage_allowed_locations(value: string[]) {
         this._storage_allowed_locations = value;
     }
+    
     public get storage_provider(): string {
         return this._storage_provider
     }
@@ -109,6 +111,7 @@ export class Storage_Integration extends TerraformResource {
     public set storage_provider(value: string) {
         this._storage_provider = value;
     }
+    
     public get azure_tenant_id(): string | undefined {
         return this._azure_tenant_id
     }
@@ -116,6 +119,7 @@ export class Storage_Integration extends TerraformResource {
     public set azure_tenant_id(value: string | undefined) {
         this._azure_tenant_id = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -123,6 +127,7 @@ export class Storage_Integration extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get enabled(): boolean | undefined {
         return this._enabled
     }
@@ -130,6 +135,7 @@ export class Storage_Integration extends TerraformResource {
     public set enabled(value: boolean | undefined) {
         this._enabled = value;
     }
+    
     public get storage_aws_object_acl(): string | undefined {
         return this._storage_aws_object_acl
     }
@@ -137,6 +143,7 @@ export class Storage_Integration extends TerraformResource {
     public set storage_aws_object_acl(value: string | undefined) {
         this._storage_aws_object_acl = value;
     }
+    
     public get storage_aws_role_arn(): string | undefined {
         return this._storage_aws_role_arn
     }
@@ -144,6 +151,7 @@ export class Storage_Integration extends TerraformResource {
     public set storage_aws_role_arn(value: string | undefined) {
         this._storage_aws_role_arn = value;
     }
+    
     public get storage_blocked_locations(): string[] | undefined {
         return this._storage_blocked_locations
     }
@@ -151,6 +159,7 @@ export class Storage_Integration extends TerraformResource {
     public set storage_blocked_locations(value: string[] | undefined) {
         this._storage_blocked_locations = value;
     }
+    
     public get type(): string | undefined {
         return this._type
     }
@@ -158,5 +167,6 @@ export class Storage_Integration extends TerraformResource {
     public set type(value: string | undefined) {
         this._type = value;
     }
+    
 }
 

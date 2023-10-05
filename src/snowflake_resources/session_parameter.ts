@@ -65,6 +65,7 @@ export class Session_Parameter extends TerraformResource {
     public set key(value: string) {
         this._key = value;
     }
+    
     public get value(): string {
         return this._value
     }
@@ -72,6 +73,7 @@ export class Session_Parameter extends TerraformResource {
     public set value(value: string) {
         this._value = value;
     }
+    
     public get on_account(): boolean | undefined {
         return this._on_account
     }
@@ -79,6 +81,7 @@ export class Session_Parameter extends TerraformResource {
     public set on_account(value: boolean | undefined) {
         this._on_account = value;
     }
+    
     public get user(): string | undefined {
         return this._user
     }
@@ -86,5 +89,6 @@ export class Session_Parameter extends TerraformResource {
     public set user(value: string | undefined) {
         this._user = value;
     }
+    
 }
 

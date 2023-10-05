@@ -89,6 +89,7 @@ export class Database extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -96,6 +97,7 @@ export class Database extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get data_retention_time_in_days(): number | undefined {
         return this._data_retention_time_in_days
     }
@@ -103,6 +105,7 @@ export class Database extends TerraformResource {
     public set data_retention_time_in_days(value: number | undefined) {
         this._data_retention_time_in_days = value;
     }
+    
     public get from_database(): string | undefined {
         return this._from_database
     }
@@ -110,6 +113,7 @@ export class Database extends TerraformResource {
     public set from_database(value: string | undefined) {
         this._from_database = value;
     }
+    
     public get from_replica(): string | undefined {
         return this._from_replica
     }
@@ -117,6 +121,7 @@ export class Database extends TerraformResource {
     public set from_replica(value: string | undefined) {
         this._from_replica = value;
     }
+    
     public get from_share(): Record<string, string> | undefined {
         return this._from_share
     }
@@ -124,6 +129,7 @@ export class Database extends TerraformResource {
     public set from_share(value: Record<string, string> | undefined) {
         this._from_share = value;
     }
+    
     public get is_transient(): boolean | undefined {
         return this._is_transient
     }
@@ -131,6 +137,7 @@ export class Database extends TerraformResource {
     public set is_transient(value: boolean | undefined) {
         this._is_transient = value;
     }
+    
     public get replication_configuration(): Database_Replication_Configuration[] | undefined {
         return this._replication_configuration
     }
@@ -138,5 +145,6 @@ export class Database extends TerraformResource {
     public set replication_configuration(value: Database_Replication_Configuration[] | undefined) {
         this._replication_configuration = value;
     }
+    
 }
 

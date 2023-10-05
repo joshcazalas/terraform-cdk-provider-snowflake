@@ -88,6 +88,7 @@ export class Tag_Association extends TerraformResource {
     public set object_identifier(value: Tag_Association_Object_Identifier[]) {
         this._object_identifier = value;
     }
+    
     public get object_type(): string {
         return this._object_type
     }
@@ -95,6 +96,7 @@ export class Tag_Association extends TerraformResource {
     public set object_type(value: string) {
         this._object_type = value;
     }
+    
     public get tag_id(): string {
         return this._tag_id
     }
@@ -102,6 +104,7 @@ export class Tag_Association extends TerraformResource {
     public set tag_id(value: string) {
         this._tag_id = value;
     }
+    
     public get tag_value(): string {
         return this._tag_value
     }
@@ -109,6 +112,7 @@ export class Tag_Association extends TerraformResource {
     public set tag_value(value: string) {
         this._tag_value = value;
     }
+    
     public get object_name(): string | undefined {
         return this._object_name
     }
@@ -116,6 +120,7 @@ export class Tag_Association extends TerraformResource {
     public set object_name(value: string | undefined) {
         this._object_name = value;
     }
+    
     public get skip_validation(): boolean | undefined {
         return this._skip_validation
     }
@@ -123,6 +128,7 @@ export class Tag_Association extends TerraformResource {
     public set skip_validation(value: boolean | undefined) {
         this._skip_validation = value;
     }
+    
     public get timeouts(): Tag_Association_Timeouts[] | undefined {
         return this._timeouts
     }
@@ -130,5 +136,6 @@ export class Tag_Association extends TerraformResource {
     public set timeouts(value: Tag_Association_Timeouts[] | undefined) {
         this._timeouts = value;
     }
+    
 }
 

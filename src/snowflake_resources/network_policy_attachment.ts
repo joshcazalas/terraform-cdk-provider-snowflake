@@ -9,13 +9,13 @@ import { Construct } from "constructs";
 export interface Network_Policy_AttachmentConfig extends TerraformMetaArguments {
     network_policy_name: string;
     set_for_account?: boolean;
-    users?: string[];
+    users?: Set<string>;
 }
 
 export class Network_Policy_Attachment extends TerraformResource {
     _network_policy_name: string;
     _set_for_account?: boolean;
-    _users?: string[];
+    _users?: Set<string>;
     readonly _id: string;
 
     public constructor(scope: Construct, id: string, config: Network_Policy_AttachmentConfig) {
@@ -60,6 +60,7 @@ export class Network_Policy_Attachment extends TerraformResource {
     public set network_policy_name(value: string) {
         this._network_policy_name = value;
     }
+    
     public get set_for_account(): boolean | undefined {
         return this._set_for_account
     }
@@ -67,12 +68,14 @@ export class Network_Policy_Attachment extends TerraformResource {
     public set set_for_account(value: boolean | undefined) {
         this._set_for_account = value;
     }
-    public get users(): string[] | undefined {
+    
+    public get users(): Set<string> | undefined {
         return this._users
     }
 
-    public set users(value: string[] | undefined) {
+    public set users(value: Set<string> | undefined) {
         this._users = value;
     }
+    
 }
 

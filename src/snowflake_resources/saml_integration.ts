@@ -120,6 +120,7 @@ export class Saml_Integration extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get saml2_issuer(): string {
         return this._saml2_issuer
     }
@@ -127,6 +128,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_issuer(value: string) {
         this._saml2_issuer = value;
     }
+    
     public get saml2_provider(): string {
         return this._saml2_provider
     }
@@ -134,6 +136,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_provider(value: string) {
         this._saml2_provider = value;
     }
+    
     public get saml2_sso_url(): string {
         return this._saml2_sso_url
     }
@@ -141,6 +144,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_sso_url(value: string) {
         this._saml2_sso_url = value;
     }
+    
     public get saml2_x509_cert(): string {
         return this._saml2_x509_cert
     }
@@ -148,6 +152,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_x509_cert(value: string) {
         this._saml2_x509_cert = value;
     }
+    
     public get enabled(): boolean | undefined {
         return this._enabled
     }
@@ -155,6 +160,7 @@ export class Saml_Integration extends TerraformResource {
     public set enabled(value: boolean | undefined) {
         this._enabled = value;
     }
+    
     public get saml2_enable_sp_initiated(): boolean | undefined {
         return this._saml2_enable_sp_initiated
     }
@@ -162,6 +168,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_enable_sp_initiated(value: boolean | undefined) {
         this._saml2_enable_sp_initiated = value;
     }
+    
     public get saml2_force_authn(): boolean | undefined {
         return this._saml2_force_authn
     }
@@ -169,6 +176,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_force_authn(value: boolean | undefined) {
         this._saml2_force_authn = value;
     }
+    
     public get saml2_post_logout_redirect_url(): string | undefined {
         return this._saml2_post_logout_redirect_url
     }
@@ -176,6 +184,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_post_logout_redirect_url(value: string | undefined) {
         this._saml2_post_logout_redirect_url = value;
     }
+    
     public get saml2_requested_nameid_format(): string | undefined {
         return this._saml2_requested_nameid_format
     }
@@ -183,6 +192,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_requested_nameid_format(value: string | undefined) {
         this._saml2_requested_nameid_format = value;
     }
+    
     public get saml2_sign_request(): boolean | undefined {
         return this._saml2_sign_request
     }
@@ -190,6 +200,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_sign_request(value: boolean | undefined) {
         this._saml2_sign_request = value;
     }
+    
     public get saml2_snowflake_acs_url(): string | undefined {
         return this._saml2_snowflake_acs_url
     }
@@ -197,6 +208,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_snowflake_acs_url(value: string | undefined) {
         this._saml2_snowflake_acs_url = value;
     }
+    
     public get saml2_snowflake_issuer_url(): string | undefined {
         return this._saml2_snowflake_issuer_url
     }
@@ -204,6 +216,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_snowflake_issuer_url(value: string | undefined) {
         this._saml2_snowflake_issuer_url = value;
     }
+    
     public get saml2_snowflake_x509_cert(): string | undefined {
         return this._saml2_snowflake_x509_cert
     }
@@ -211,6 +224,7 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_snowflake_x509_cert(value: string | undefined) {
         this._saml2_snowflake_x509_cert = value;
     }
+    
     public get saml2_sp_initiated_login_page_label(): string | undefined {
         return this._saml2_sp_initiated_login_page_label
     }
@@ -218,5 +232,6 @@ export class Saml_Integration extends TerraformResource {
     public set saml2_sp_initiated_login_page_label(value: string | undefined) {
         this._saml2_sp_initiated_login_page_label = value;
     }
+    
 }
 

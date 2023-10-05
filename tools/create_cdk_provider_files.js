@@ -28,15 +28,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Handlebars = __importStar(require("handlebars"));
 const path_1 = __importDefault(require("path"));
+const child_process_1 = require("child_process");
 const fs_1 = require("fs");
 const create_resources_json_1 = require("./create_resources_json");
 const clone_terrraform_provider_1 = require("./clone_terrraform_provider");
-function toLowerCase(input) {
+Handlebars.registerHelper('toLowerCase', function (input) {
     if (!input) {
         return '';
     }
     return input.toLowerCase();
-}
+});
 Handlebars.registerHelper('nestedProperty', function (context, property) {
     // Split the property path by '.' and traverse the nested structure
     const properties = property.split('.');
@@ -47,19 +48,19 @@ Handlebars.registerHelper('nestedProperty', function (context, property) {
     return value;
 });
 async function createCDKProviderFiles() {
-    Handlebars.registerHelper('toLowerCase', toLowerCase);
     await (0, create_resources_json_1.writeParamsToJSON)();
-    let createdFiles = [];
+    const createdFiles = [];
     const snowflakeResourcesJSON = (0, fs_1.readFileSync)(`${__dirname}/snowflake_resources.json`, "utf-8");
     const snowflakResourceTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${__dirname}/templates/snowflake_resource_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { toLowerCase: true, nestedProperty: true } });
     const indexTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${__dirname}/templates/index_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { toLowerCase: true, nestedProperty: true } });
-    for (let snowflakeResource of JSON.parse(snowflakeResourcesJSON)) {
+    for (const snowflakeResource of JSON.parse(snowflakeResourcesJSON)) {
         createdFiles.push(snowflakeResource.name.toLowerCase());
         const parentDirectory = path_1.default.join(__dirname, '..');
         const file_name = `${parentDirectory}/src/snowflake_resources/${snowflakeResource.name.toLowerCase()}`;
         console.log(`Writing Snowflake Resource '${snowflakeResource.name}' to file: src/snowflake_resources/${snowflakeResource.name.toLowerCase()}.ts`);
         (0, fs_1.writeFileSync)(`${file_name}.ts`, snowflakResourceTemplate(snowflakeResource));
     }
+    console.log(createdFiles);
     console.log("Writing index.ts to file: src/snowflake_resources/index.ts");
     const parentDirectory = path_1.default.join(__dirname, '..');
     (0, fs_1.writeFileSync)(`${parentDirectory}/src/snowflake_resources/index.ts`, indexTemplate(createdFiles));
@@ -67,5 +68,11 @@ async function createCDKProviderFiles() {
 async function main() {
     await (0, clone_terrraform_provider_1.cloneRepository)();
     await createCDKProviderFiles();
+    console.log('Running Linter...');
+    (0, child_process_1.execSync)('npm run format-json', { stdio: 'inherit' });
+    (0, child_process_1.execSync)('npx eslint . --ext .ts --ext .json --fix', { stdio: 'inherit' });
+    console.log('Recompiling Typescript files...');
+    (0, child_process_1.execSync)('tsc', { stdio: 'inherit' });
+    console.log('Success! All Provider files created.');
 }
 main();

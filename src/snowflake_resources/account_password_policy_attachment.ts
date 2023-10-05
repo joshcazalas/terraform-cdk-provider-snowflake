@@ -50,5 +50,6 @@ export class Account_Password_Policy_Attachment extends TerraformResource {
     public set password_policy(value: string) {
         this._password_policy = value;
     }
+    
 }
 

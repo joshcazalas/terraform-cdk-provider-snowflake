@@ -11,14 +11,14 @@ export interface External_Oauth_IntegrationConfig extends TerraformMetaArguments
     issuer: string;
     name: string;
     snowflake_user_mapping_attribute: string;
-    token_user_mapping_claims: string[];
+    token_user_mapping_claims: Set<string>;
     type: string;
-    allowed_roles?: string[];
+    allowed_roles?: Set<string>;
     any_role_mode?: string;
-    audience_urls?: string[];
-    blocked_roles?: string[];
+    audience_urls?: Set<string>;
+    blocked_roles?: Set<string>;
     comment?: string;
-    jws_keys_urls?: string[];
+    jws_keys_urls?: Set<string>;
     rsa_public_key?: string;
     rsa_public_key_2?: string;
     scope_delimiter?: string;
@@ -30,14 +30,14 @@ export class External_Oauth_Integration extends TerraformResource {
     _issuer: string;
     _name: string;
     _snowflake_user_mapping_attribute: string;
-    _token_user_mapping_claims: string[];
+    _token_user_mapping_claims: Set<string>;
     _type: string;
-    _allowed_roles?: string[];
+    _allowed_roles?: Set<string>;
     _any_role_mode?: string;
-    _audience_urls?: string[];
-    _blocked_roles?: string[];
+    _audience_urls?: Set<string>;
+    _blocked_roles?: Set<string>;
     _comment?: string;
-    _jws_keys_urls?: string[];
+    _jws_keys_urls?: Set<string>;
     _rsa_public_key?: string;
     _rsa_public_key_2?: string;
     _scope_delimiter?: string;
@@ -125,6 +125,7 @@ export class External_Oauth_Integration extends TerraformResource {
     public set enabled(value: boolean) {
         this._enabled = value;
     }
+    
     public get issuer(): string {
         return this._issuer
     }
@@ -132,6 +133,7 @@ export class External_Oauth_Integration extends TerraformResource {
     public set issuer(value: string) {
         this._issuer = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -139,6 +141,7 @@ export class External_Oauth_Integration extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get snowflake_user_mapping_attribute(): string {
         return this._snowflake_user_mapping_attribute
     }
@@ -146,13 +149,15 @@ export class External_Oauth_Integration extends TerraformResource {
     public set snowflake_user_mapping_attribute(value: string) {
         this._snowflake_user_mapping_attribute = value;
     }
-    public get token_user_mapping_claims(): string[] {
+    
+    public get token_user_mapping_claims(): Set<string> {
         return this._token_user_mapping_claims
     }
 
-    public set token_user_mapping_claims(value: string[]) {
+    public set token_user_mapping_claims(value: Set<string>) {
         this._token_user_mapping_claims = value;
     }
+    
     public get type(): string {
         return this._type
     }
@@ -160,13 +165,15 @@ export class External_Oauth_Integration extends TerraformResource {
     public set type(value: string) {
         this._type = value;
     }
-    public get allowed_roles(): string[] | undefined {
+    
+    public get allowed_roles(): Set<string> | undefined {
         return this._allowed_roles
     }
 
-    public set allowed_roles(value: string[] | undefined) {
+    public set allowed_roles(value: Set<string> | undefined) {
         this._allowed_roles = value;
     }
+    
     public get any_role_mode(): string | undefined {
         return this._any_role_mode
     }
@@ -174,20 +181,23 @@ export class External_Oauth_Integration extends TerraformResource {
     public set any_role_mode(value: string | undefined) {
         this._any_role_mode = value;
     }
-    public get audience_urls(): string[] | undefined {
+    
+    public get audience_urls(): Set<string> | undefined {
         return this._audience_urls
     }
 
-    public set audience_urls(value: string[] | undefined) {
+    public set audience_urls(value: Set<string> | undefined) {
         this._audience_urls = value;
     }
-    public get blocked_roles(): string[] | undefined {
+    
+    public get blocked_roles(): Set<string> | undefined {
         return this._blocked_roles
     }
 
-    public set blocked_roles(value: string[] | undefined) {
+    public set blocked_roles(value: Set<string> | undefined) {
         this._blocked_roles = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -195,13 +205,15 @@ export class External_Oauth_Integration extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
-    public get jws_keys_urls(): string[] | undefined {
+    
+    public get jws_keys_urls(): Set<string> | undefined {
         return this._jws_keys_urls
     }
 
-    public set jws_keys_urls(value: string[] | undefined) {
+    public set jws_keys_urls(value: Set<string> | undefined) {
         this._jws_keys_urls = value;
     }
+    
     public get rsa_public_key(): string | undefined {
         return this._rsa_public_key
     }
@@ -209,6 +221,7 @@ export class External_Oauth_Integration extends TerraformResource {
     public set rsa_public_key(value: string | undefined) {
         this._rsa_public_key = value;
     }
+    
     public get rsa_public_key_2(): string | undefined {
         return this._rsa_public_key_2
     }
@@ -216,6 +229,7 @@ export class External_Oauth_Integration extends TerraformResource {
     public set rsa_public_key_2(value: string | undefined) {
         this._rsa_public_key_2 = value;
     }
+    
     public get scope_delimiter(): string | undefined {
         return this._scope_delimiter
     }
@@ -223,6 +237,7 @@ export class External_Oauth_Integration extends TerraformResource {
     public set scope_delimiter(value: string | undefined) {
         this._scope_delimiter = value;
     }
+    
     public get scope_mapping_attribute(): string | undefined {
         return this._scope_mapping_attribute
     }
@@ -230,5 +245,6 @@ export class External_Oauth_Integration extends TerraformResource {
     public set scope_mapping_attribute(value: string | undefined) {
         this._scope_mapping_attribute = value;
     }
+    
 }
 

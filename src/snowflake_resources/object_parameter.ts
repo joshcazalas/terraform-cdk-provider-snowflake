@@ -75,6 +75,7 @@ export class Object_Parameter extends TerraformResource {
     public set key(value: string) {
         this._key = value;
     }
+    
     public get value(): string {
         return this._value
     }
@@ -82,6 +83,7 @@ export class Object_Parameter extends TerraformResource {
     public set value(value: string) {
         this._value = value;
     }
+    
     public get object_identifier(): Object_Parameter_Object_Identifier[] | undefined {
         return this._object_identifier
     }
@@ -89,6 +91,7 @@ export class Object_Parameter extends TerraformResource {
     public set object_identifier(value: Object_Parameter_Object_Identifier[] | undefined) {
         this._object_identifier = value;
     }
+    
     public get object_type(): string | undefined {
         return this._object_type
     }
@@ -96,6 +99,7 @@ export class Object_Parameter extends TerraformResource {
     public set object_type(value: string | undefined) {
         this._object_type = value;
     }
+    
     public get on_account(): boolean | undefined {
         return this._on_account
     }
@@ -103,5 +107,6 @@ export class Object_Parameter extends TerraformResource {
     public set on_account(value: boolean | undefined) {
         this._on_account = value;
     }
+    
 }
 

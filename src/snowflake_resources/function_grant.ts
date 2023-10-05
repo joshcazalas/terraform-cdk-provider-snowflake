@@ -8,7 +8,7 @@ import { Construct } from "constructs";
 
 export interface Function_GrantConfig extends TerraformMetaArguments {
     database_name: string;
-    roles: string[];
+    roles: Set<string>;
     argument_data_types?: string[];
     enable_multiple_grants?: boolean;
     function_name?: string;
@@ -17,13 +17,13 @@ export interface Function_GrantConfig extends TerraformMetaArguments {
     privilege?: string;
     revert_ownership_to_role_name?: string;
     schema_name?: string;
-    shares?: string[];
+    shares?: Set<string>;
     with_grant_option?: boolean;
 }
 
 export class Function_Grant extends TerraformResource {
     _database_name: string;
-    _roles: string[];
+    _roles: Set<string>;
     _argument_data_types?: string[];
     _enable_multiple_grants?: boolean;
     _function_name?: string;
@@ -32,7 +32,7 @@ export class Function_Grant extends TerraformResource {
     _privilege?: string;
     _revert_ownership_to_role_name?: string;
     _schema_name?: string;
-    _shares?: string[];
+    _shares?: Set<string>;
     _with_grant_option?: boolean;
     readonly _id: string;
 
@@ -105,13 +105,15 @@ export class Function_Grant extends TerraformResource {
     public set database_name(value: string) {
         this._database_name = value;
     }
-    public get roles(): string[] {
+    
+    public get roles(): Set<string> {
         return this._roles
     }
 
-    public set roles(value: string[]) {
+    public set roles(value: Set<string>) {
         this._roles = value;
     }
+    
     public get argument_data_types(): string[] | undefined {
         return this._argument_data_types
     }
@@ -119,6 +121,7 @@ export class Function_Grant extends TerraformResource {
     public set argument_data_types(value: string[] | undefined) {
         this._argument_data_types = value;
     }
+    
     public get enable_multiple_grants(): boolean | undefined {
         return this._enable_multiple_grants
     }
@@ -126,6 +129,7 @@ export class Function_Grant extends TerraformResource {
     public set enable_multiple_grants(value: boolean | undefined) {
         this._enable_multiple_grants = value;
     }
+    
     public get function_name(): string | undefined {
         return this._function_name
     }
@@ -133,6 +137,7 @@ export class Function_Grant extends TerraformResource {
     public set function_name(value: string | undefined) {
         this._function_name = value;
     }
+    
     public get on_all(): boolean | undefined {
         return this._on_all
     }
@@ -140,6 +145,7 @@ export class Function_Grant extends TerraformResource {
     public set on_all(value: boolean | undefined) {
         this._on_all = value;
     }
+    
     public get on_future(): boolean | undefined {
         return this._on_future
     }
@@ -147,6 +153,7 @@ export class Function_Grant extends TerraformResource {
     public set on_future(value: boolean | undefined) {
         this._on_future = value;
     }
+    
     public get privilege(): string | undefined {
         return this._privilege
     }
@@ -154,6 +161,7 @@ export class Function_Grant extends TerraformResource {
     public set privilege(value: string | undefined) {
         this._privilege = value;
     }
+    
     public get revert_ownership_to_role_name(): string | undefined {
         return this._revert_ownership_to_role_name
     }
@@ -161,6 +169,7 @@ export class Function_Grant extends TerraformResource {
     public set revert_ownership_to_role_name(value: string | undefined) {
         this._revert_ownership_to_role_name = value;
     }
+    
     public get schema_name(): string | undefined {
         return this._schema_name
     }
@@ -168,13 +177,15 @@ export class Function_Grant extends TerraformResource {
     public set schema_name(value: string | undefined) {
         this._schema_name = value;
     }
-    public get shares(): string[] | undefined {
+    
+    public get shares(): Set<string> | undefined {
         return this._shares
     }
 
-    public set shares(value: string[] | undefined) {
+    public set shares(value: Set<string> | undefined) {
         this._shares = value;
     }
+    
     public get with_grant_option(): boolean | undefined {
         return this._with_grant_option
     }
@@ -182,5 +193,6 @@ export class Function_Grant extends TerraformResource {
     public set with_grant_option(value: boolean | undefined) {
         this._with_grant_option = value;
     }
+    
 }
 

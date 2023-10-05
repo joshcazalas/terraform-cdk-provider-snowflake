@@ -110,6 +110,7 @@ export class Account extends TerraformResource {
     public set admin_name(value: string) {
         this._admin_name = value;
     }
+    
     public get edition(): string {
         return this._edition
     }
@@ -117,6 +118,7 @@ export class Account extends TerraformResource {
     public set edition(value: string) {
         this._edition = value;
     }
+    
     public get email(): string {
         return this._email
     }
@@ -124,6 +126,7 @@ export class Account extends TerraformResource {
     public set email(value: string) {
         this._email = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -131,6 +134,7 @@ export class Account extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get admin_password(): string | undefined {
         return this._admin_password
     }
@@ -138,6 +142,7 @@ export class Account extends TerraformResource {
     public set admin_password(value: string | undefined) {
         this._admin_password = value;
     }
+    
     public get admin_rsa_public_key(): string | undefined {
         return this._admin_rsa_public_key
     }
@@ -145,6 +150,7 @@ export class Account extends TerraformResource {
     public set admin_rsa_public_key(value: string | undefined) {
         this._admin_rsa_public_key = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -152,6 +158,7 @@ export class Account extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get first_name(): string | undefined {
         return this._first_name
     }
@@ -159,6 +166,7 @@ export class Account extends TerraformResource {
     public set first_name(value: string | undefined) {
         this._first_name = value;
     }
+    
     public get grace_period_in_days(): number | undefined {
         return this._grace_period_in_days
     }
@@ -166,6 +174,7 @@ export class Account extends TerraformResource {
     public set grace_period_in_days(value: number | undefined) {
         this._grace_period_in_days = value;
     }
+    
     public get last_name(): string | undefined {
         return this._last_name
     }
@@ -173,6 +182,7 @@ export class Account extends TerraformResource {
     public set last_name(value: string | undefined) {
         this._last_name = value;
     }
+    
     public get must_change_password(): boolean | undefined {
         return this._must_change_password
     }
@@ -180,6 +190,7 @@ export class Account extends TerraformResource {
     public set must_change_password(value: boolean | undefined) {
         this._must_change_password = value;
     }
+    
     public get region(): string | undefined {
         return this._region
     }
@@ -187,6 +198,7 @@ export class Account extends TerraformResource {
     public set region(value: string | undefined) {
         this._region = value;
     }
+    
     public get region_group(): string | undefined {
         return this._region_group
     }
@@ -194,5 +206,6 @@ export class Account extends TerraformResource {
     public set region_group(value: string | undefined) {
         this._region_group = value;
     }
+    
 }
 

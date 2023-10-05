@@ -7,16 +7,16 @@ import { Construct } from "constructs";
 
 
 export interface Network_PolicyConfig extends TerraformMetaArguments {
-    allowed_ip_list: string[];
+    allowed_ip_list: Set<string>;
     name: string;
-    blocked_ip_list?: string[];
+    blocked_ip_list?: Set<string>;
     comment?: string;
 }
 
 export class Network_Policy extends TerraformResource {
-    _allowed_ip_list: string[];
+    _allowed_ip_list: Set<string>;
     _name: string;
-    _blocked_ip_list?: string[];
+    _blocked_ip_list?: Set<string>;
     _comment?: string;
     readonly _id: string;
 
@@ -58,13 +58,14 @@ export class Network_Policy extends TerraformResource {
         return `\${snowflake_network_policy.${this.friendlyUniqueId}.${attribute}}`;
     }
 
-    public get allowed_ip_list(): string[] {
+    public get allowed_ip_list(): Set<string> {
         return this._allowed_ip_list
     }
 
-    public set allowed_ip_list(value: string[]) {
+    public set allowed_ip_list(value: Set<string>) {
         this._allowed_ip_list = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -72,13 +73,15 @@ export class Network_Policy extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
-    public get blocked_ip_list(): string[] | undefined {
+    
+    public get blocked_ip_list(): Set<string> | undefined {
         return this._blocked_ip_list
     }
 
-    public set blocked_ip_list(value: string[] | undefined) {
+    public set blocked_ip_list(value: Set<string> | undefined) {
         this._blocked_ip_list = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -86,5 +89,6 @@ export class Network_Policy extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
 }
 

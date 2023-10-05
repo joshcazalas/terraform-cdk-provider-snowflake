@@ -37,12 +37,12 @@ export async function getBlockListParams(file: string) {
 
         let nestedMatch;
         let jsonOutput;
-        let additionalProperties: additionalProperties = {additional_properties:[{}]}
+        const additionalProperties: additionalProperties = {additional_properties:[{}]}
         while ((nestedMatch = nestedRegexPattern.exec(capturedText)) !== null) {
             if (nestedMatch[1]) {
-                let blockListResourceName = await getBlockListResourceName(nestedMatch[1])
-                let blockListRequiredParams = await getBlockListRequiredParams(nestedMatch[1])
-                let blockListOptionalParams = await getBlockListOptionalParams(nestedMatch[1])
+                const blockListResourceName = await getBlockListResourceName(nestedMatch[1])
+                const blockListRequiredParams = await getBlockListRequiredParams(nestedMatch[1])
+                const blockListOptionalParams = await getBlockListOptionalParams(nestedMatch[1])
 
                 let formattedBlockListParams: string[];
                 let allBlockListParams: blockListRequiredParameters[];
@@ -63,9 +63,9 @@ export async function getBlockListParams(file: string) {
                 }
  
                 // Inserting spaces between each parameter in formattedBlockListParams
-                let finalBlockListParams: string[] = []
-                for (let entry of formattedBlockListParams) {
-                    let editedEntry = addSpaceBetweenSemicolonAndComma(entry)
+                const finalBlockListParams: string[] = []
+                for (const entry of formattedBlockListParams) {
+                    const editedEntry = addSpaceBetweenSemicolonAndComma(entry)
                     finalBlockListParams.push(editedEntry)
                 }
                 
@@ -81,8 +81,8 @@ export async function getBlockListParams(file: string) {
             }
         }
 
-        let nestedParams: string[] = []
-        let nestedProperties: string[] = []
+        const nestedParams: string[] = []
+        const nestedProperties: string[] = []
         if (additionalProperties.additional_properties) {
             // Loop through all the 'name' properties in 'additionalProperties'
             for (const item of additionalProperties.additional_properties) {
@@ -91,8 +91,8 @@ export async function getBlockListParams(file: string) {
                 if (name?.includes(".")) {
                     nestedParams.push(name)
                     if (item.properties) {
-                        let propertiesAsString = item.properties.join('\n')
-                        let adjustedProperties = `{${propertiesAsString}}`
+                        const propertiesAsString = item.properties.join('\n')
+                        const adjustedProperties = `{${propertiesAsString}}`
                         nestedProperties.push(adjustedProperties)
                     }
                     
@@ -100,21 +100,21 @@ export async function getBlockListParams(file: string) {
             }
         }
         let n = 0
-        for (let param of nestedParams) {
-            let splitParam = param.split('.')
-            let paramName = splitParam[0]
-            let paramType = splitParam[1]
+        for (const param of nestedParams) {
+            const splitParam = param.split('.')
+            const paramName = splitParam[0]
+            const paramType = splitParam[1]
             let newLine: string = ''
             if (additionalProperties.additional_properties) {
                 for (const item of additionalProperties.additional_properties) {
                     const name = item.name?.slice(32);
                     if (name == paramName) {
                         if (item.properties) {
-                            for (let line of item.properties) {
+                            for (const line of item.properties) {
                                 if (paramType && line.includes(paramType)) {
                                     if (nestedProperties[n]) {
                                         // Insert a space between parameters so the output changes from '{readonly name: string;readonly type: string;};' to '{readonly name: string; readonly type: string; };'
-                                        let nestedProperty = nestedProperties[n]?.replace(/;/g, '; ')
+                                        const nestedProperty = nestedProperties[n]?.replace(/;/g, '; ')
                                         if (nestedProperty) {
                                             newLine = line.replace('block list placeholder', nestedProperty)
                                         }
@@ -132,9 +132,9 @@ export async function getBlockListParams(file: string) {
                     const name = item.name?.slice(32);
                     if (name == paramName) {
                         if (item.properties) {
-                            for (let line of item.properties) {
+                            for (const line of item.properties) {
                                 if (paramType && line.includes(paramType)) {
-                                    let index = item.properties.indexOf(line)
+                                    const index = item.properties.indexOf(line)
                                     newLine = newLine.replace('\n','')
                                     item.properties[index] = newLine
                                 }
@@ -147,7 +147,7 @@ export async function getBlockListParams(file: string) {
         // Use filter to keep only entries without a "." in the 'name' property
         let filteredAdditionalProperties
         if (additionalProperties.additional_properties) {
-            let firstFilter = additionalProperties.additional_properties.filter(entry => !entry.name || !entry.name.includes('.'));
+            const firstFilter = additionalProperties.additional_properties.filter(entry => !entry.name || !entry.name.includes('.'));
             filteredAdditionalProperties = firstFilter.filter(entry => Object.keys(entry).length > 0);
         }
         return filteredAdditionalProperties

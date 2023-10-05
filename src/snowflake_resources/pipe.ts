@@ -90,6 +90,7 @@ export class Pipe extends TerraformResource {
     public set copy_statement(value: string) {
         this._copy_statement = value;
     }
+    
     public get database(): string {
         return this._database
     }
@@ -97,6 +98,7 @@ export class Pipe extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -104,6 +106,7 @@ export class Pipe extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -111,6 +114,7 @@ export class Pipe extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get auto_ingest(): boolean | undefined {
         return this._auto_ingest
     }
@@ -118,6 +122,7 @@ export class Pipe extends TerraformResource {
     public set auto_ingest(value: boolean | undefined) {
         this._auto_ingest = value;
     }
+    
     public get aws_sns_topic_arn(): string | undefined {
         return this._aws_sns_topic_arn
     }
@@ -125,6 +130,7 @@ export class Pipe extends TerraformResource {
     public set aws_sns_topic_arn(value: string | undefined) {
         this._aws_sns_topic_arn = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -132,6 +138,7 @@ export class Pipe extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get error_integration(): string | undefined {
         return this._error_integration
     }
@@ -139,6 +146,7 @@ export class Pipe extends TerraformResource {
     public set error_integration(value: string | undefined) {
         this._error_integration = value;
     }
+    
     public get integration(): string | undefined {
         return this._integration
     }
@@ -146,5 +154,6 @@ export class Pipe extends TerraformResource {
     public set integration(value: string | undefined) {
         this._integration = value;
     }
+    
 }
 

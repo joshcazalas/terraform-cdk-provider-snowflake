@@ -105,6 +105,7 @@ export class Api_Integration extends TerraformResource {
     public set api_allowed_prefixes(value: string[]) {
         this._api_allowed_prefixes = value;
     }
+    
     public get api_provider(): string {
         return this._api_provider
     }
@@ -112,6 +113,7 @@ export class Api_Integration extends TerraformResource {
     public set api_provider(value: string) {
         this._api_provider = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -119,6 +121,7 @@ export class Api_Integration extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get api_aws_role_arn(): string | undefined {
         return this._api_aws_role_arn
     }
@@ -126,6 +129,7 @@ export class Api_Integration extends TerraformResource {
     public set api_aws_role_arn(value: string | undefined) {
         this._api_aws_role_arn = value;
     }
+    
     public get api_blocked_prefixes(): string[] | undefined {
         return this._api_blocked_prefixes
     }
@@ -133,6 +137,7 @@ export class Api_Integration extends TerraformResource {
     public set api_blocked_prefixes(value: string[] | undefined) {
         this._api_blocked_prefixes = value;
     }
+    
     public get api_gcp_service_account(): string | undefined {
         return this._api_gcp_service_account
     }
@@ -140,6 +145,7 @@ export class Api_Integration extends TerraformResource {
     public set api_gcp_service_account(value: string | undefined) {
         this._api_gcp_service_account = value;
     }
+    
     public get api_key(): string | undefined {
         return this._api_key
     }
@@ -147,6 +153,7 @@ export class Api_Integration extends TerraformResource {
     public set api_key(value: string | undefined) {
         this._api_key = value;
     }
+    
     public get azure_ad_application_id(): string | undefined {
         return this._azure_ad_application_id
     }
@@ -154,6 +161,7 @@ export class Api_Integration extends TerraformResource {
     public set azure_ad_application_id(value: string | undefined) {
         this._azure_ad_application_id = value;
     }
+    
     public get azure_tenant_id(): string | undefined {
         return this._azure_tenant_id
     }
@@ -161,6 +169,7 @@ export class Api_Integration extends TerraformResource {
     public set azure_tenant_id(value: string | undefined) {
         this._azure_tenant_id = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -168,6 +177,7 @@ export class Api_Integration extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get enabled(): boolean | undefined {
         return this._enabled
     }
@@ -175,6 +185,7 @@ export class Api_Integration extends TerraformResource {
     public set enabled(value: boolean | undefined) {
         this._enabled = value;
     }
+    
     public get google_audience(): string | undefined {
         return this._google_audience
     }
@@ -182,5 +193,6 @@ export class Api_Integration extends TerraformResource {
     public set google_audience(value: string | undefined) {
         this._google_audience = value;
     }
+    
 }
 

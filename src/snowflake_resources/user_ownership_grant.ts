@@ -65,6 +65,7 @@ export class User_Ownership_Grant extends TerraformResource {
     public set on_user_name(value: string) {
         this._on_user_name = value;
     }
+    
     public get to_role_name(): string {
         return this._to_role_name
     }
@@ -72,6 +73,7 @@ export class User_Ownership_Grant extends TerraformResource {
     public set to_role_name(value: string) {
         this._to_role_name = value;
     }
+    
     public get current_grants(): string | undefined {
         return this._current_grants
     }
@@ -79,6 +81,7 @@ export class User_Ownership_Grant extends TerraformResource {
     public set current_grants(value: string | undefined) {
         this._current_grants = value;
     }
+    
     public get revert_ownership_to_role_name(): string | undefined {
         return this._revert_ownership_to_role_name
     }
@@ -86,5 +89,6 @@ export class User_Ownership_Grant extends TerraformResource {
     public set revert_ownership_to_role_name(value: string | undefined) {
         this._revert_ownership_to_role_name = value;
     }
+    
 }
 

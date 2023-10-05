@@ -10,7 +10,7 @@ export interface User_GrantConfig extends TerraformMetaArguments {
     privilege: string;
     user_name: string;
     enable_multiple_grants?: boolean;
-    roles?: string[];
+    roles?: Set<string>;
     with_grant_option?: boolean;
 }
 
@@ -18,7 +18,7 @@ export class User_Grant extends TerraformResource {
     _privilege: string;
     _user_name: string;
     _enable_multiple_grants?: boolean;
-    _roles?: string[];
+    _roles?: Set<string>;
     _with_grant_option?: boolean;
     readonly _id: string;
 
@@ -70,6 +70,7 @@ export class User_Grant extends TerraformResource {
     public set privilege(value: string) {
         this._privilege = value;
     }
+    
     public get user_name(): string {
         return this._user_name
     }
@@ -77,6 +78,7 @@ export class User_Grant extends TerraformResource {
     public set user_name(value: string) {
         this._user_name = value;
     }
+    
     public get enable_multiple_grants(): boolean | undefined {
         return this._enable_multiple_grants
     }
@@ -84,13 +86,15 @@ export class User_Grant extends TerraformResource {
     public set enable_multiple_grants(value: boolean | undefined) {
         this._enable_multiple_grants = value;
     }
-    public get roles(): string[] | undefined {
+    
+    public get roles(): Set<string> | undefined {
         return this._roles
     }
 
-    public set roles(value: string[] | undefined) {
+    public set roles(value: Set<string> | undefined) {
         this._roles = value;
     }
+    
     public get with_grant_option(): boolean | undefined {
         return this._with_grant_option
     }
@@ -98,5 +102,6 @@ export class User_Grant extends TerraformResource {
     public set with_grant_option(value: boolean | undefined) {
         this._with_grant_option = value;
     }
+    
 }
 

@@ -75,6 +75,7 @@ export class Row_Access_Policy extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -82,6 +83,7 @@ export class Row_Access_Policy extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get row_access_expression(): string {
         return this._row_access_expression
     }
@@ -89,6 +91,7 @@ export class Row_Access_Policy extends TerraformResource {
     public set row_access_expression(value: string) {
         this._row_access_expression = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -96,6 +99,7 @@ export class Row_Access_Policy extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get signature(): Record<string, string> {
         return this._signature
     }
@@ -103,6 +107,7 @@ export class Row_Access_Policy extends TerraformResource {
     public set signature(value: Record<string, string>) {
         this._signature = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -110,5 +115,6 @@ export class Row_Access_Policy extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
 }
 

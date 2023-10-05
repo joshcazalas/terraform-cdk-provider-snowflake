@@ -12,14 +12,14 @@ export interface Resource_MonitorConfig extends TerraformMetaArguments {
     end_timestamp?: string;
     frequency?: string;
     notify_triggers?: Set<number>;
-    notify_users?: string[];
+    notify_users?: Set<string>;
     set_for_account?: boolean;
     start_timestamp?: string;
     suspend_immediate_trigger?: number;
     suspend_immediate_triggers?: Set<number>;
     suspend_trigger?: number;
     suspend_triggers?: Set<number>;
-    warehouses?: string[];
+    warehouses?: Set<string>;
 }
 
 export class Resource_Monitor extends TerraformResource {
@@ -28,14 +28,14 @@ export class Resource_Monitor extends TerraformResource {
     _end_timestamp?: string;
     _frequency?: string;
     _notify_triggers?: Set<number>;
-    _notify_users?: string[];
+    _notify_users?: Set<string>;
     _set_for_account?: boolean;
     _start_timestamp?: string;
     _suspend_immediate_trigger?: number;
     _suspend_immediate_triggers?: Set<number>;
     _suspend_trigger?: number;
     _suspend_triggers?: Set<number>;
-    _warehouses?: string[];
+    _warehouses?: Set<string>;
     readonly _id: string;
 
     public constructor(scope: Construct, id: string, config: Resource_MonitorConfig) {
@@ -110,6 +110,7 @@ export class Resource_Monitor extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get credit_quota(): number | undefined {
         return this._credit_quota
     }
@@ -117,6 +118,7 @@ export class Resource_Monitor extends TerraformResource {
     public set credit_quota(value: number | undefined) {
         this._credit_quota = value;
     }
+    
     public get end_timestamp(): string | undefined {
         return this._end_timestamp
     }
@@ -124,6 +126,7 @@ export class Resource_Monitor extends TerraformResource {
     public set end_timestamp(value: string | undefined) {
         this._end_timestamp = value;
     }
+    
     public get frequency(): string | undefined {
         return this._frequency
     }
@@ -131,6 +134,7 @@ export class Resource_Monitor extends TerraformResource {
     public set frequency(value: string | undefined) {
         this._frequency = value;
     }
+    
     public get notify_triggers(): Set<number> | undefined {
         return this._notify_triggers
     }
@@ -138,13 +142,15 @@ export class Resource_Monitor extends TerraformResource {
     public set notify_triggers(value: Set<number> | undefined) {
         this._notify_triggers = value;
     }
-    public get notify_users(): string[] | undefined {
+    
+    public get notify_users(): Set<string> | undefined {
         return this._notify_users
     }
 
-    public set notify_users(value: string[] | undefined) {
+    public set notify_users(value: Set<string> | undefined) {
         this._notify_users = value;
     }
+    
     public get set_for_account(): boolean | undefined {
         return this._set_for_account
     }
@@ -152,6 +158,7 @@ export class Resource_Monitor extends TerraformResource {
     public set set_for_account(value: boolean | undefined) {
         this._set_for_account = value;
     }
+    
     public get start_timestamp(): string | undefined {
         return this._start_timestamp
     }
@@ -159,6 +166,7 @@ export class Resource_Monitor extends TerraformResource {
     public set start_timestamp(value: string | undefined) {
         this._start_timestamp = value;
     }
+    
     public get suspend_immediate_trigger(): number | undefined {
         return this._suspend_immediate_trigger
     }
@@ -166,6 +174,7 @@ export class Resource_Monitor extends TerraformResource {
     public set suspend_immediate_trigger(value: number | undefined) {
         this._suspend_immediate_trigger = value;
     }
+    
     public get suspend_immediate_triggers(): Set<number> | undefined {
         return this._suspend_immediate_triggers
     }
@@ -173,6 +182,7 @@ export class Resource_Monitor extends TerraformResource {
     public set suspend_immediate_triggers(value: Set<number> | undefined) {
         this._suspend_immediate_triggers = value;
     }
+    
     public get suspend_trigger(): number | undefined {
         return this._suspend_trigger
     }
@@ -180,6 +190,7 @@ export class Resource_Monitor extends TerraformResource {
     public set suspend_trigger(value: number | undefined) {
         this._suspend_trigger = value;
     }
+    
     public get suspend_triggers(): Set<number> | undefined {
         return this._suspend_triggers
     }
@@ -187,12 +198,14 @@ export class Resource_Monitor extends TerraformResource {
     public set suspend_triggers(value: Set<number> | undefined) {
         this._suspend_triggers = value;
     }
-    public get warehouses(): string[] | undefined {
+    
+    public get warehouses(): Set<string> | undefined {
         return this._warehouses
     }
 
-    public set warehouses(value: string[] | undefined) {
+    public set warehouses(value: Set<string> | undefined) {
         this._warehouses = value;
     }
+    
 }
 

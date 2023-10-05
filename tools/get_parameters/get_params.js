@@ -18,11 +18,11 @@ async function getParams(file) {
         inputString = file;
     }
     try {
-        let resourceName = await (0, get_resource_name_1.getResourceName)(inputString);
-        let requiredParams = await (0, get_required_params_1.getRequiredParams)(inputString);
-        let optionalParams = await (0, get_optional_params_1.getOptionalParams)(inputString);
+        const resourceName = await (0, get_resource_name_1.getResourceName)(inputString);
+        const requiredParams = await (0, get_required_params_1.getRequiredParams)(inputString);
+        const optionalParams = await (0, get_optional_params_1.getOptionalParams)(inputString);
         if (resourceName) {
-            let allParams = await getAllParams(inputString, resourceName, requiredParams, optionalParams);
+            const allParams = await getAllParams(inputString, resourceName, requiredParams, optionalParams);
             return allParams;
         }
     }
@@ -43,7 +43,7 @@ async function getAllParams(file, resource_name, requiredParams, optionalParams)
         allParams = [...requiredParams, ...optionalParams];
     }
     // Combine the required and optional parameters into one array
-    let additionalProperties = await getAdditionalProperties(file);
+    const additionalProperties = await getAdditionalProperties(file);
     let result;
     if (additionalProperties == 'Pattern not found') {
         result = {
@@ -60,12 +60,12 @@ async function getAllParams(file, resource_name, requiredParams, optionalParams)
     }
     const jsonAsString = JSON.stringify(result);
     const modifiedJsonString = jsonAsString.replace(/BLOCK_LIST_RESOURCE_PLACEHOLDER_/g, `${(0, capitalize_first_letter_1.capitalizeFirstLetter)(resource_name)}_`);
-    let replacedPlaceholderJSON = JSON.parse(modifiedJsonString);
+    const replacedPlaceholderJSON = JSON.parse(modifiedJsonString);
     if (replacedPlaceholderJSON.properties) {
-        let resourceName = replacedPlaceholderJSON.name;
+        const resourceName = replacedPlaceholderJSON.name;
         for (const item of replacedPlaceholderJSON.properties) {
             if (item.type == 'block list placeholder') {
-                let itemName = item.name;
+                const itemName = item.name;
                 item.type = `${resourceName}_${(0, capitalize_first_letter_1.capitalizeFirstLetter)(itemName)}[]`;
             }
         }
@@ -74,7 +74,7 @@ async function getAllParams(file, resource_name, requiredParams, optionalParams)
 }
 exports.getAllParams = getAllParams;
 async function getAdditionalProperties(file) {
-    let additionalProperties = await (0, get_block_list_params_1.getBlockListParams)(file);
+    const additionalProperties = await (0, get_block_list_params_1.getBlockListParams)(file);
     return additionalProperties;
 }
 exports.getAdditionalProperties = getAdditionalProperties;

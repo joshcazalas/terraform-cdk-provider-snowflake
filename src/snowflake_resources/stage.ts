@@ -121,6 +121,7 @@ export class Stage extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -128,6 +129,7 @@ export class Stage extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -135,6 +137,7 @@ export class Stage extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get aws_external_id(): string | undefined {
         return this._aws_external_id
     }
@@ -142,6 +145,7 @@ export class Stage extends TerraformResource {
     public set aws_external_id(value: string | undefined) {
         this._aws_external_id = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -149,6 +153,7 @@ export class Stage extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get copy_options(): string | undefined {
         return this._copy_options
     }
@@ -156,6 +161,7 @@ export class Stage extends TerraformResource {
     public set copy_options(value: string | undefined) {
         this._copy_options = value;
     }
+    
     public get credentials(): string | undefined {
         return this._credentials
     }
@@ -163,6 +169,7 @@ export class Stage extends TerraformResource {
     public set credentials(value: string | undefined) {
         this._credentials = value;
     }
+    
     public get directory(): string | undefined {
         return this._directory
     }
@@ -170,6 +177,7 @@ export class Stage extends TerraformResource {
     public set directory(value: string | undefined) {
         this._directory = value;
     }
+    
     public get encryption(): string | undefined {
         return this._encryption
     }
@@ -177,6 +185,7 @@ export class Stage extends TerraformResource {
     public set encryption(value: string | undefined) {
         this._encryption = value;
     }
+    
     public get file_format(): string | undefined {
         return this._file_format
     }
@@ -184,6 +193,7 @@ export class Stage extends TerraformResource {
     public set file_format(value: string | undefined) {
         this._file_format = value;
     }
+    
     public get snowflake_iam_user(): string | undefined {
         return this._snowflake_iam_user
     }
@@ -191,6 +201,7 @@ export class Stage extends TerraformResource {
     public set snowflake_iam_user(value: string | undefined) {
         this._snowflake_iam_user = value;
     }
+    
     public get storage_integration(): string | undefined {
         return this._storage_integration
     }
@@ -198,6 +209,7 @@ export class Stage extends TerraformResource {
     public set storage_integration(value: string | undefined) {
         this._storage_integration = value;
     }
+    
     public get tag(): Stage_Tag[] | undefined {
         return this._tag
     }
@@ -205,6 +217,7 @@ export class Stage extends TerraformResource {
     public set tag(value: Stage_Tag[] | undefined) {
         this._tag = value;
     }
+    
     public get url(): string | undefined {
         return this._url
     }
@@ -212,5 +225,6 @@ export class Stage extends TerraformResource {
     public set url(value: string | undefined) {
         this._url = value;
     }
+    
 }
 

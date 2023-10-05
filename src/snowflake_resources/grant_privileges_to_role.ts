@@ -29,7 +29,7 @@ export interface Grant_Privileges_To_RoleConfig extends TerraformMetaArguments {
     on_account_object?: Grant_Privileges_To_Role_On_Account_Object[];
     on_schema?: Grant_Privileges_To_Role_On_Schema[];
     on_schema_object?: Grant_Privileges_To_Role_On_Schema_Object[];
-    privileges?: string[];
+    privileges?: Set<string>;
     with_grant_option?: boolean;
 }
 
@@ -40,7 +40,7 @@ export class Grant_Privileges_To_Role extends TerraformResource {
     _on_account_object?: Grant_Privileges_To_Role_On_Account_Object[];
     _on_schema?: Grant_Privileges_To_Role_On_Schema[];
     _on_schema_object?: Grant_Privileges_To_Role_On_Schema_Object[];
-    _privileges?: string[];
+    _privileges?: Set<string>;
     _with_grant_option?: boolean;
     readonly _id: string;
 
@@ -101,6 +101,7 @@ export class Grant_Privileges_To_Role extends TerraformResource {
     public set role_name(value: string) {
         this._role_name = value;
     }
+    
     public get all_privileges(): boolean | undefined {
         return this._all_privileges
     }
@@ -108,6 +109,7 @@ export class Grant_Privileges_To_Role extends TerraformResource {
     public set all_privileges(value: boolean | undefined) {
         this._all_privileges = value;
     }
+    
     public get on_account(): boolean | undefined {
         return this._on_account
     }
@@ -115,6 +117,7 @@ export class Grant_Privileges_To_Role extends TerraformResource {
     public set on_account(value: boolean | undefined) {
         this._on_account = value;
     }
+    
     public get on_account_object(): Grant_Privileges_To_Role_On_Account_Object[] | undefined {
         return this._on_account_object
     }
@@ -122,6 +125,7 @@ export class Grant_Privileges_To_Role extends TerraformResource {
     public set on_account_object(value: Grant_Privileges_To_Role_On_Account_Object[] | undefined) {
         this._on_account_object = value;
     }
+    
     public get on_schema(): Grant_Privileges_To_Role_On_Schema[] | undefined {
         return this._on_schema
     }
@@ -129,6 +133,7 @@ export class Grant_Privileges_To_Role extends TerraformResource {
     public set on_schema(value: Grant_Privileges_To_Role_On_Schema[] | undefined) {
         this._on_schema = value;
     }
+    
     public get on_schema_object(): Grant_Privileges_To_Role_On_Schema_Object[] | undefined {
         return this._on_schema_object
     }
@@ -136,13 +141,15 @@ export class Grant_Privileges_To_Role extends TerraformResource {
     public set on_schema_object(value: Grant_Privileges_To_Role_On_Schema_Object[] | undefined) {
         this._on_schema_object = value;
     }
-    public get privileges(): string[] | undefined {
+    
+    public get privileges(): Set<string> | undefined {
         return this._privileges
     }
 
-    public set privileges(value: string[] | undefined) {
+    public set privileges(value: Set<string> | undefined) {
         this._privileges = value;
     }
+    
     public get with_grant_option(): boolean | undefined {
         return this._with_grant_option
     }
@@ -150,5 +157,6 @@ export class Grant_Privileges_To_Role extends TerraformResource {
     public set with_grant_option(value: boolean | undefined) {
         this._with_grant_option = value;
     }
+    
 }
 

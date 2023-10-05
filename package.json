@@ -9,17 +9,21 @@
     },
     "type": "commonjs",
     "dependencies": {
+        "@typescript-eslint/eslint-plugin": "6.7.4",
+        "@typescript-eslint/parser": "6.7.4",
         "axios": "1.5.1",
         "cdktf": "0.18.1",
         "eslint": "^8.41.0",
         "isomorphic-git": "1.24.5",
-        "handlebars": "4.7.8"
+        "handlebars": "4.7.8",
+        "prettier":"3.0.3"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/joshcazalas/terraform-cdk-provider-snowflake"
     },
     "scripts": {
+        "format-json": "prettier --write 'tools/snowflake_resources.json'",
         "test": "npm run test-internal && npm run test-external",
         "test-internal": "./bin/cmd.cjs --verbose && tape test/*.js",
         "test-external": "tape test/external/*.js",

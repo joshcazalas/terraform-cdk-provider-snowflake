@@ -60,6 +60,7 @@ export class User_Public_Keys extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get rsa_public_key(): string | undefined {
         return this._rsa_public_key
     }
@@ -67,6 +68,7 @@ export class User_Public_Keys extends TerraformResource {
     public set rsa_public_key(value: string | undefined) {
         this._rsa_public_key = value;
     }
+    
     public get rsa_public_key_2(): string | undefined {
         return this._rsa_public_key_2
     }
@@ -74,5 +76,6 @@ export class User_Public_Keys extends TerraformResource {
     public set rsa_public_key_2(value: string | undefined) {
         this._rsa_public_key_2 = value;
     }
+    
 }
 

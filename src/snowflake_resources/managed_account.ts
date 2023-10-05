@@ -70,6 +70,7 @@ export class Managed_Account extends TerraformResource {
     public set admin_name(value: string) {
         this._admin_name = value;
     }
+    
     public get admin_password(): string {
         return this._admin_password
     }
@@ -77,6 +78,7 @@ export class Managed_Account extends TerraformResource {
     public set admin_password(value: string) {
         this._admin_password = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -84,6 +86,7 @@ export class Managed_Account extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -91,6 +94,7 @@ export class Managed_Account extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get type(): string | undefined {
         return this._type
     }
@@ -98,5 +102,6 @@ export class Managed_Account extends TerraformResource {
     public set type(value: string | undefined) {
         this._type = value;
     }
+    
 }
 

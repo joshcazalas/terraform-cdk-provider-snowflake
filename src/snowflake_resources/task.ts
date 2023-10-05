@@ -120,6 +120,7 @@ export class Task extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -127,6 +128,7 @@ export class Task extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -134,6 +136,7 @@ export class Task extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get sql_statement(): string {
         return this._sql_statement
     }
@@ -141,6 +144,7 @@ export class Task extends TerraformResource {
     public set sql_statement(value: string) {
         this._sql_statement = value;
     }
+    
     public get after(): string[] | undefined {
         return this._after
     }
@@ -148,6 +152,7 @@ export class Task extends TerraformResource {
     public set after(value: string[] | undefined) {
         this._after = value;
     }
+    
     public get allow_overlapping_execution(): boolean | undefined {
         return this._allow_overlapping_execution
     }
@@ -155,6 +160,7 @@ export class Task extends TerraformResource {
     public set allow_overlapping_execution(value: boolean | undefined) {
         this._allow_overlapping_execution = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -162,6 +168,7 @@ export class Task extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get enabled(): boolean | undefined {
         return this._enabled
     }
@@ -169,6 +176,7 @@ export class Task extends TerraformResource {
     public set enabled(value: boolean | undefined) {
         this._enabled = value;
     }
+    
     public get error_integration(): string | undefined {
         return this._error_integration
     }
@@ -176,6 +184,7 @@ export class Task extends TerraformResource {
     public set error_integration(value: string | undefined) {
         this._error_integration = value;
     }
+    
     public get schedule(): string | undefined {
         return this._schedule
     }
@@ -183,6 +192,7 @@ export class Task extends TerraformResource {
     public set schedule(value: string | undefined) {
         this._schedule = value;
     }
+    
     public get session_parameters(): Record<string, string> | undefined {
         return this._session_parameters
     }
@@ -190,6 +200,7 @@ export class Task extends TerraformResource {
     public set session_parameters(value: Record<string, string> | undefined) {
         this._session_parameters = value;
     }
+    
     public get user_task_managed_initial_warehouse_size(): string | undefined {
         return this._user_task_managed_initial_warehouse_size
     }
@@ -197,6 +208,7 @@ export class Task extends TerraformResource {
     public set user_task_managed_initial_warehouse_size(value: string | undefined) {
         this._user_task_managed_initial_warehouse_size = value;
     }
+    
     public get user_task_timeout_ms(): number | undefined {
         return this._user_task_timeout_ms
     }
@@ -204,6 +216,7 @@ export class Task extends TerraformResource {
     public set user_task_timeout_ms(value: number | undefined) {
         this._user_task_timeout_ms = value;
     }
+    
     public get warehouse(): string | undefined {
         return this._warehouse
     }
@@ -211,6 +224,7 @@ export class Task extends TerraformResource {
     public set warehouse(value: string | undefined) {
         this._warehouse = value;
     }
+    
     public get when(): string | undefined {
         return this._when
     }
@@ -218,5 +232,6 @@ export class Task extends TerraformResource {
     public set when(value: string | undefined) {
         this._when = value;
     }
+    
 }
 

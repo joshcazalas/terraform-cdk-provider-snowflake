@@ -7,7 +7,7 @@ import { Construct } from "constructs";
 
 
 export interface Failover_Group_GrantConfig extends TerraformMetaArguments {
-    roles: string[];
+    roles: Set<string>;
     enable_multiple_grants?: boolean;
     failover_group_name?: string;
     privilege?: string;
@@ -16,7 +16,7 @@ export interface Failover_Group_GrantConfig extends TerraformMetaArguments {
 }
 
 export class Failover_Group_Grant extends TerraformResource {
-    _roles: string[];
+    _roles: Set<string>;
     _enable_multiple_grants?: boolean;
     _failover_group_name?: string;
     _privilege?: string;
@@ -68,13 +68,14 @@ export class Failover_Group_Grant extends TerraformResource {
         return `\${snowflake_failover_group_grant.${this.friendlyUniqueId}.${attribute}}`;
     }
 
-    public get roles(): string[] {
+    public get roles(): Set<string> {
         return this._roles
     }
 
-    public set roles(value: string[]) {
+    public set roles(value: Set<string>) {
         this._roles = value;
     }
+    
     public get enable_multiple_grants(): boolean | undefined {
         return this._enable_multiple_grants
     }
@@ -82,6 +83,7 @@ export class Failover_Group_Grant extends TerraformResource {
     public set enable_multiple_grants(value: boolean | undefined) {
         this._enable_multiple_grants = value;
     }
+    
     public get failover_group_name(): string | undefined {
         return this._failover_group_name
     }
@@ -89,6 +91,7 @@ export class Failover_Group_Grant extends TerraformResource {
     public set failover_group_name(value: string | undefined) {
         this._failover_group_name = value;
     }
+    
     public get privilege(): string | undefined {
         return this._privilege
     }
@@ -96,6 +99,7 @@ export class Failover_Group_Grant extends TerraformResource {
     public set privilege(value: string | undefined) {
         this._privilege = value;
     }
+    
     public get revert_ownership_to_role_name(): string | undefined {
         return this._revert_ownership_to_role_name
     }
@@ -103,6 +107,7 @@ export class Failover_Group_Grant extends TerraformResource {
     public set revert_ownership_to_role_name(value: string | undefined) {
         this._revert_ownership_to_role_name = value;
     }
+    
     public get with_grant_option(): boolean | undefined {
         return this._with_grant_option
     }
@@ -110,5 +115,6 @@ export class Failover_Group_Grant extends TerraformResource {
     public set with_grant_option(value: boolean | undefined) {
         this._with_grant_option = value;
     }
+    
 }
 

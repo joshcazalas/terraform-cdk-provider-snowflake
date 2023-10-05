@@ -120,6 +120,7 @@ export class Password_Policy extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -127,6 +128,7 @@ export class Password_Policy extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -134,6 +136,7 @@ export class Password_Policy extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -141,6 +144,7 @@ export class Password_Policy extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get if_not_exists(): boolean | undefined {
         return this._if_not_exists
     }
@@ -148,6 +152,7 @@ export class Password_Policy extends TerraformResource {
     public set if_not_exists(value: boolean | undefined) {
         this._if_not_exists = value;
     }
+    
     public get lockout_time_mins(): number | undefined {
         return this._lockout_time_mins
     }
@@ -155,6 +160,7 @@ export class Password_Policy extends TerraformResource {
     public set lockout_time_mins(value: number | undefined) {
         this._lockout_time_mins = value;
     }
+    
     public get max_age_days(): number | undefined {
         return this._max_age_days
     }
@@ -162,6 +168,7 @@ export class Password_Policy extends TerraformResource {
     public set max_age_days(value: number | undefined) {
         this._max_age_days = value;
     }
+    
     public get max_length(): number | undefined {
         return this._max_length
     }
@@ -169,6 +176,7 @@ export class Password_Policy extends TerraformResource {
     public set max_length(value: number | undefined) {
         this._max_length = value;
     }
+    
     public get max_retries(): number | undefined {
         return this._max_retries
     }
@@ -176,6 +184,7 @@ export class Password_Policy extends TerraformResource {
     public set max_retries(value: number | undefined) {
         this._max_retries = value;
     }
+    
     public get min_length(): number | undefined {
         return this._min_length
     }
@@ -183,6 +192,7 @@ export class Password_Policy extends TerraformResource {
     public set min_length(value: number | undefined) {
         this._min_length = value;
     }
+    
     public get min_lower_case_chars(): number | undefined {
         return this._min_lower_case_chars
     }
@@ -190,6 +200,7 @@ export class Password_Policy extends TerraformResource {
     public set min_lower_case_chars(value: number | undefined) {
         this._min_lower_case_chars = value;
     }
+    
     public get min_numeric_chars(): number | undefined {
         return this._min_numeric_chars
     }
@@ -197,6 +208,7 @@ export class Password_Policy extends TerraformResource {
     public set min_numeric_chars(value: number | undefined) {
         this._min_numeric_chars = value;
     }
+    
     public get min_special_chars(): number | undefined {
         return this._min_special_chars
     }
@@ -204,6 +216,7 @@ export class Password_Policy extends TerraformResource {
     public set min_special_chars(value: number | undefined) {
         this._min_special_chars = value;
     }
+    
     public get min_upper_case_chars(): number | undefined {
         return this._min_upper_case_chars
     }
@@ -211,6 +224,7 @@ export class Password_Policy extends TerraformResource {
     public set min_upper_case_chars(value: number | undefined) {
         this._min_upper_case_chars = value;
     }
+    
     public get or_replace(): boolean | undefined {
         return this._or_replace
     }
@@ -218,5 +232,6 @@ export class Password_Policy extends TerraformResource {
     public set or_replace(value: boolean | undefined) {
         this._or_replace = value;
     }
+    
 }
 

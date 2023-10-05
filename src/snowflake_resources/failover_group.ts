@@ -17,25 +17,25 @@ import { Construct } from "constructs";
 
 export interface Failover_GroupConfig extends TerraformMetaArguments {
     name: string;
-    allowed_accounts?: string[];
-    allowed_databases?: string[];
-    allowed_integration_types?: string[];
-    allowed_shares?: string[];
+    allowed_accounts?: Set<string>;
+    allowed_databases?: Set<string>;
+    allowed_integration_types?: Set<string>;
+    allowed_shares?: Set<string>;
     from_replica?: Failover_Group_From_Replica[];
     ignore_edition_check?: boolean;
-    object_types?: string[];
+    object_types?: Set<string>;
     replication_schedule?: Failover_Group_Replication_Schedule[];
 }
 
 export class Failover_Group extends TerraformResource {
     _name: string;
-    _allowed_accounts?: string[];
-    _allowed_databases?: string[];
-    _allowed_integration_types?: string[];
-    _allowed_shares?: string[];
+    _allowed_accounts?: Set<string>;
+    _allowed_databases?: Set<string>;
+    _allowed_integration_types?: Set<string>;
+    _allowed_shares?: Set<string>;
     _from_replica?: Failover_Group_From_Replica[];
     _ignore_edition_check?: boolean;
-    _object_types?: string[];
+    _object_types?: Set<string>;
     _replication_schedule?: Failover_Group_Replication_Schedule[];
     readonly _id: string;
 
@@ -99,34 +99,39 @@ export class Failover_Group extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
-    public get allowed_accounts(): string[] | undefined {
+    
+    public get allowed_accounts(): Set<string> | undefined {
         return this._allowed_accounts
     }
 
-    public set allowed_accounts(value: string[] | undefined) {
+    public set allowed_accounts(value: Set<string> | undefined) {
         this._allowed_accounts = value;
     }
-    public get allowed_databases(): string[] | undefined {
+    
+    public get allowed_databases(): Set<string> | undefined {
         return this._allowed_databases
     }
 
-    public set allowed_databases(value: string[] | undefined) {
+    public set allowed_databases(value: Set<string> | undefined) {
         this._allowed_databases = value;
     }
-    public get allowed_integration_types(): string[] | undefined {
+    
+    public get allowed_integration_types(): Set<string> | undefined {
         return this._allowed_integration_types
     }
 
-    public set allowed_integration_types(value: string[] | undefined) {
+    public set allowed_integration_types(value: Set<string> | undefined) {
         this._allowed_integration_types = value;
     }
-    public get allowed_shares(): string[] | undefined {
+    
+    public get allowed_shares(): Set<string> | undefined {
         return this._allowed_shares
     }
 
-    public set allowed_shares(value: string[] | undefined) {
+    public set allowed_shares(value: Set<string> | undefined) {
         this._allowed_shares = value;
     }
+    
     public get from_replica(): Failover_Group_From_Replica[] | undefined {
         return this._from_replica
     }
@@ -134,6 +139,7 @@ export class Failover_Group extends TerraformResource {
     public set from_replica(value: Failover_Group_From_Replica[] | undefined) {
         this._from_replica = value;
     }
+    
     public get ignore_edition_check(): boolean | undefined {
         return this._ignore_edition_check
     }
@@ -141,13 +147,15 @@ export class Failover_Group extends TerraformResource {
     public set ignore_edition_check(value: boolean | undefined) {
         this._ignore_edition_check = value;
     }
-    public get object_types(): string[] | undefined {
+    
+    public get object_types(): Set<string> | undefined {
         return this._object_types
     }
 
-    public set object_types(value: string[] | undefined) {
+    public set object_types(value: Set<string> | undefined) {
         this._object_types = value;
     }
+    
     public get replication_schedule(): Failover_Group_Replication_Schedule[] | undefined {
         return this._replication_schedule
     }
@@ -155,5 +163,6 @@ export class Failover_Group extends TerraformResource {
     public set replication_schedule(value: Failover_Group_Replication_Schedule[] | undefined) {
         this._replication_schedule = value;
     }
+    
 }
 

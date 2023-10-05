@@ -9,7 +9,7 @@ import { Construct } from "constructs";
 export interface Oauth_IntegrationConfig extends TerraformMetaArguments {
     name: string;
     oauth_client: string;
-    blocked_roles_list?: string[];
+    blocked_roles_list?: Set<string>;
     comment?: string;
     enabled?: boolean;
     oauth_client_type?: string;
@@ -22,7 +22,7 @@ export interface Oauth_IntegrationConfig extends TerraformMetaArguments {
 export class Oauth_Integration extends TerraformResource {
     _name: string;
     _oauth_client: string;
-    _blocked_roles_list?: string[];
+    _blocked_roles_list?: Set<string>;
     _comment?: string;
     _enabled?: boolean;
     _oauth_client_type?: string;
@@ -95,6 +95,7 @@ export class Oauth_Integration extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get oauth_client(): string {
         return this._oauth_client
     }
@@ -102,13 +103,15 @@ export class Oauth_Integration extends TerraformResource {
     public set oauth_client(value: string) {
         this._oauth_client = value;
     }
-    public get blocked_roles_list(): string[] | undefined {
+    
+    public get blocked_roles_list(): Set<string> | undefined {
         return this._blocked_roles_list
     }
 
-    public set blocked_roles_list(value: string[] | undefined) {
+    public set blocked_roles_list(value: Set<string> | undefined) {
         this._blocked_roles_list = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -116,6 +119,7 @@ export class Oauth_Integration extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get enabled(): boolean | undefined {
         return this._enabled
     }
@@ -123,6 +127,7 @@ export class Oauth_Integration extends TerraformResource {
     public set enabled(value: boolean | undefined) {
         this._enabled = value;
     }
+    
     public get oauth_client_type(): string | undefined {
         return this._oauth_client_type
     }
@@ -130,6 +135,7 @@ export class Oauth_Integration extends TerraformResource {
     public set oauth_client_type(value: string | undefined) {
         this._oauth_client_type = value;
     }
+    
     public get oauth_issue_refresh_tokens(): boolean | undefined {
         return this._oauth_issue_refresh_tokens
     }
@@ -137,6 +143,7 @@ export class Oauth_Integration extends TerraformResource {
     public set oauth_issue_refresh_tokens(value: boolean | undefined) {
         this._oauth_issue_refresh_tokens = value;
     }
+    
     public get oauth_redirect_uri(): string | undefined {
         return this._oauth_redirect_uri
     }
@@ -144,6 +151,7 @@ export class Oauth_Integration extends TerraformResource {
     public set oauth_redirect_uri(value: string | undefined) {
         this._oauth_redirect_uri = value;
     }
+    
     public get oauth_refresh_token_validity(): number | undefined {
         return this._oauth_refresh_token_validity
     }
@@ -151,6 +159,7 @@ export class Oauth_Integration extends TerraformResource {
     public set oauth_refresh_token_validity(value: number | undefined) {
         this._oauth_refresh_token_validity = value;
     }
+    
     public get oauth_use_secondary_roles(): string | undefined {
         return this._oauth_use_secondary_roles
     }
@@ -158,5 +167,6 @@ export class Oauth_Integration extends TerraformResource {
     public set oauth_use_secondary_roles(value: string | undefined) {
         this._oauth_use_secondary_roles = value;
     }
+    
 }
 

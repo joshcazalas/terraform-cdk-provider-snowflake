@@ -66,6 +66,7 @@ export class Role extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -73,6 +74,7 @@ export class Role extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get tag(): Role_Tag[] | undefined {
         return this._tag
     }
@@ -80,5 +82,6 @@ export class Role extends TerraformResource {
     public set tag(value: Role_Tag[] | undefined) {
         this._tag = value;
     }
+    
 }
 

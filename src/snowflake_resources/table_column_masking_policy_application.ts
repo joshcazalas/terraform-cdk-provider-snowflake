@@ -60,6 +60,7 @@ export class Table_Column_Masking_Policy_Application extends TerraformResource {
     public set column(value: string) {
         this._column = value;
     }
+    
     public get masking_policy(): string {
         return this._masking_policy
     }
@@ -67,6 +68,7 @@ export class Table_Column_Masking_Policy_Application extends TerraformResource {
     public set masking_policy(value: string) {
         this._masking_policy = value;
     }
+    
     public get table(): string {
         return this._table
     }
@@ -74,5 +76,6 @@ export class Table_Column_Masking_Policy_Application extends TerraformResource {
     public set table(value: string) {
         this._table = value;
     }
+    
 }
 

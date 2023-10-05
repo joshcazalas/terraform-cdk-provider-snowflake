@@ -9,14 +9,14 @@ import { Construct } from "constructs";
 export interface Account_GrantConfig extends TerraformMetaArguments {
     enable_multiple_grants?: boolean;
     privilege?: string;
-    roles?: string[];
+    roles?: Set<string>;
     with_grant_option?: boolean;
 }
 
 export class Account_Grant extends TerraformResource {
     _enable_multiple_grants?: boolean;
     _privilege?: string;
-    _roles?: string[];
+    _roles?: Set<string>;
     _with_grant_option?: boolean;
     readonly _id: string;
 
@@ -65,6 +65,7 @@ export class Account_Grant extends TerraformResource {
     public set enable_multiple_grants(value: boolean | undefined) {
         this._enable_multiple_grants = value;
     }
+    
     public get privilege(): string | undefined {
         return this._privilege
     }
@@ -72,13 +73,15 @@ export class Account_Grant extends TerraformResource {
     public set privilege(value: string | undefined) {
         this._privilege = value;
     }
-    public get roles(): string[] | undefined {
+    
+    public get roles(): Set<string> | undefined {
         return this._roles
     }
 
-    public set roles(value: string[] | undefined) {
+    public set roles(value: Set<string> | undefined) {
         this._roles = value;
     }
+    
     public get with_grant_option(): boolean | undefined {
         return this._with_grant_option
     }
@@ -86,5 +89,6 @@ export class Account_Grant extends TerraformResource {
     public set with_grant_option(value: boolean | undefined) {
         this._with_grant_option = value;
     }
+    
 }
 

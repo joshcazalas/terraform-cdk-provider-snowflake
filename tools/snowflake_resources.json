@@ -1,3942 +1,4000 @@
-[{
-  "name": "Account",
-  "properties": [
-    {
-      "name": "admin_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "edition",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "email",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "admin_password",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "admin_rsa_public_key",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "first_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "grace_period_in_days",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "last_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "must_change_password",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "region",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "region_group",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Account_Grant",
-  "properties": [
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Account_Parameter",
-  "properties": [
-    {
-      "name": "key",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "value",
-      "type": "string",
-      "required": true
-    }
-  ]
-},{
-  "name": "Account_Password_Policy_Attachment",
-  "properties": [
-    {
-      "name": "password_policy",
-      "type": "string",
-      "required": true
-    }
-  ]
-},{
-  "name": "Alert",
-  "additional_types": [
-    [
+[
+  {
+    "name": "Account",
+    "properties": [
       {
-        "name": "Alert_Alert_Schedule",
-        "properties": [
-          "readonly cron?: {readonly expression: string; readonly time_zone: string; };",
-          "readonly interval?: number;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "action",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "condition",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "warehouse",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "alert_schedule",
-      "type": "Alert_Alert_Schedule[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Api_Integration",
-  "properties": [
-    {
-      "name": "api_allowed_prefixes",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "api_provider",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "api_aws_role_arn",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "api_blocked_prefixes",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "api_gcp_service_account",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "api_key",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "azure_ad_application_id",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "azure_tenant_id",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "google_audience",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Database",
-  "additional_types": [
-    [
-      {
-        "name": "Database_Replication_Configuration",
-        "properties": [
-          "readonly accounts: string[];",
-          "readonly ignore_edition_check?: boolean;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "data_retention_time_in_days",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "from_database",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "from_replica",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "from_share",
-      "type": "Record<string, string>",
-      "required": false
-    },
-    {
-      "name": "is_transient",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "replication_configuration",
-      "type": "Database_Replication_Configuration[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Database_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Database_Role",
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Email_Notification_Integration",
-  "properties": [
-    {
-      "name": "allowed_recipients",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "External_Function",
-  "additional_types": [
-    [
-      {
-        "name": "External_Function_Arg",
-        "properties": [
-          "readonly name: string;",
-          "readonly type: string;"
-        ]
+        "name": "admin_name",
+        "type": "string",
+        "required": true
       },
       {
-        "name": "External_Function_Header",
-        "properties": [
-          "readonly name: string;",
-          "readonly value: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "api_integration",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "return_behavior",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "return_type",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "url_of_proxy_and_resource",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "arg",
-      "type": "External_Function_Arg[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "compression",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "context_headers",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "header",
-      "type": "External_Function_Header[]",
-      "required": false
-    },
-    {
-      "name": "max_batch_rows",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "null_input_behavior",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "request_translator",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "response_translator",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "return_null_allowed",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "External_Oauth_Integration",
-  "properties": [
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": true
-    },
-    {
-      "name": "issuer",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "snowflake_user_mapping_attribute",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "token_user_mapping_claims",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "type",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "allowed_roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "any_role_mode",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "audience_urls",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "blocked_roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "jws_keys_urls",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "rsa_public_key",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "rsa_public_key_2",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "scope_delimiter",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "scope_mapping_attribute",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "External_Table",
-  "additional_types": [
-    [
-      {
-        "name": "External_Table_Column",
-        "properties": [
-          "readonly as: string;",
-          "readonly name: string;",
-          "readonly type: string;"
-        ]
+        "name": "edition",
+        "type": "string",
+        "required": true
       },
       {
-        "name": "External_Table_Tag",
-        "properties": [
-          "readonly name: string;",
-          "readonly value: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "column",
-      "type": "External_Table_Column[]",
-      "required": true
-    },
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "file_format",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "location",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "auto_refresh",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "aws_sns_topic",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "copy_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "partition_by",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "pattern",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "refresh_on_create",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "tag",
-      "type": "External_Table_Tag[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "External_Table_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "external_table_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Failover_Group",
-  "additional_types": [
-    [
-      {
-        "name": "Failover_Group_From_Replica",
-        "properties": [
-          "readonly name: string;",
-          "readonly organization_name: string;",
-          "readonly source_account_name: string;"
-        ]
+        "name": "email",
+        "type": "string",
+        "required": true
       },
       {
-        "name": "Failover_Group_Replication_Schedule",
-        "properties": [
-          "readonly cron?: {readonly expression: string; readonly time_zone: string; };",
-          "readonly interval?: number;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "allowed_accounts",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "allowed_databases",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "allowed_integration_types",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "allowed_shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "from_replica",
-      "type": "Failover_Group_From_Replica[]",
-      "required": false
-    },
-    {
-      "name": "ignore_edition_check",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "object_types",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "replication_schedule",
-      "type": "Failover_Group_Replication_Schedule[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Failover_Group_Grant",
-  "properties": [
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "failover_group_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "File_Format",
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "format_type",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "allow_duplicate",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "binary_as_text",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "binary_format",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "compression",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "date_format",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "disable_auto_convert",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "disable_snowflake_data",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "empty_field_as_null",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "enable_octal",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "encoding",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "error_on_column_count_mismatch",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "escape",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "escape_unenclosed_field",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "field_delimiter",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "field_optionally_enclosed_by",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "file_extension",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "ignore_utf8_errors",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "null_if",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "preserve_space",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "record_delimiter",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "replace_invalid_characters",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "skip_blank_lines",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "skip_byte_order_mark",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "skip_header",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "strip_null_values",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "strip_outer_array",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "strip_outer_element",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "time_format",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "timestamp_format",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "trim_space",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "File_Format_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "file_format_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Function",
-  "additional_types": [
-    [
-      {
-        "name": "Function_Arguments",
-        "properties": [
-          "readonly name: string;",
-          "readonly type: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "return_type",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "statement",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "arguments",
-      "type": "Function_Arguments[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "handler",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "imports",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "is_secure",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "language",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "null_input_behavior",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "packages",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "return_behavior",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "runtime_version",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "target_path",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Function_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "argument_data_types",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "function_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Grant_Privileges_To_Role",
-  "additional_types": [
-    [
-      {
-        "name": "Grant_Privileges_To_Role_On_Account_Object",
-        "properties": [
-          "readonly object_name: string;",
-          "readonly object_type: string;"
-        ]
+        "name": "name",
+        "type": "string",
+        "required": true
       },
       {
-        "name": "Grant_Privileges_To_Role_On_Schema",
-        "properties": [
-          "readonly all_schemas_in_database?: string;",
-          "readonly future_schemas_in_database?: string;",
-          "readonly schema_name?: string;"
-        ]
+        "name": "admin_password",
+        "type": "string",
+        "required": false
       },
       {
-        "name": "Grant_Privileges_To_Role_On_Schema_Object",
-        "properties": [
-          "readonly all?: {readonly object_type_plural: string; readonly in_database?: string; readonly in_schema?: string; };",
-          "readonly future?: {readonly object_type_plural: string; readonly in_database?: string; \nreadonly in_schema?: string; };",
-          "readonly object_name?: string;",
-          "readonly object_type?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "role_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "all_privileges",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_account",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_account_object",
-      "type": "Grant_Privileges_To_Role_On_Account_Object[]",
-      "required": false
-    },
-    {
-      "name": "on_schema",
-      "type": "Grant_Privileges_To_Role_On_Schema[]",
-      "required": false
-    },
-    {
-      "name": "on_schema_object",
-      "type": "Grant_Privileges_To_Role_On_Schema_Object[]",
-      "required": false
-    },
-    {
-      "name": "privileges",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Integration_Grant",
-  "properties": [
-    {
-      "name": "integration_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Managed_Account",
-  "properties": [
-    {
-      "name": "admin_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "admin_password",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "type",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Masking_Policy",
-  "additional_types": [
-    [
-      {
-        "name": "Masking_Policy_Signature",
-        "properties": [
-          "readonly column: {readonly name: string; readonly type: string; };"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "masking_expression",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "return_data_type",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "signature",
-      "type": "Masking_Policy_Signature[]",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "exempt_other_policies",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "if_not_exists",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "or_replace",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Masking_Policy_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "masking_policy_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Materialized_View",
-  "additional_types": [
-    [
-      {
-        "name": "Materialized_View_Tag",
-        "properties": [
-          "readonly name: string;",
-          "readonly value: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "statement",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "warehouse",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "is_secure",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "or_replace",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "tag",
-      "type": "Materialized_View_Tag[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Materialized_View_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "materialized_view_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Network_Policy",
-  "properties": [
-    {
-      "name": "allowed_ip_list",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "blocked_ip_list",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Network_Policy_Attachment",
-  "properties": [
-    {
-      "name": "network_policy_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "set_for_account",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "users",
-      "type": "string[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Notification_Integration",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "aws_sns_role_arn",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "aws_sns_topic_arn",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "aws_sqs_arn",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "aws_sqs_role_arn",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "azure_storage_queue_primary_uri",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "azure_tenant_id",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "direction",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "gcp_pubsub_subscription_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "gcp_pubsub_topic_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "notification_provider",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "type",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Oauth_Integration",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "oauth_client",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "blocked_roles_list",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "oauth_client_type",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "oauth_issue_refresh_tokens",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "oauth_redirect_uri",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "oauth_refresh_token_validity",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "oauth_use_secondary_roles",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Object_Parameter",
-  "additional_types": [
-    [
-      {
-        "name": "Object_Parameter_Object_Identifier",
-        "properties": [
-          "readonly name: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "key",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "value",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "object_identifier",
-      "type": "Object_Parameter_Object_Identifier[]",
-      "required": false
-    },
-    {
-      "name": "object_type",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "on_account",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Password_Policy",
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "if_not_exists",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "lockout_time_mins",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "max_age_days",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "max_length",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "max_retries",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "min_length",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "min_lower_case_chars",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "min_numeric_chars",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "min_special_chars",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "min_upper_case_chars",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "or_replace",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Pipe",
-  "properties": [
-    {
-      "name": "copy_statement",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "auto_ingest",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "aws_sns_topic_arn",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "error_integration",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "integration",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Pipe_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "pipe_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Procedure",
-  "additional_types": [
-    [
-      {
-        "name": "Procedure_Arguments",
-        "properties": [
-          "readonly name: string;",
-          "readonly type: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "return_type",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "statement",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "arguments",
-      "type": "Procedure_Arguments[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "execute_as",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "handler",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "imports",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "language",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "null_input_behavior",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "packages",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "return_behavior",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "runtime_version",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Procedure_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "argument_data_types",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "procedure_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Resource_Monitor",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "credit_quota",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "end_timestamp",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "frequency",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "notify_triggers",
-      "type": "Set<number>",
-      "required": false
-    },
-    {
-      "name": "notify_users",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "set_for_account",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "start_timestamp",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "suspend_immediate_trigger",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "suspend_immediate_triggers",
-      "type": "Set<number>",
-      "required": false
-    },
-    {
-      "name": "suspend_trigger",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "suspend_triggers",
-      "type": "Set<number>",
-      "required": false
-    },
-    {
-      "name": "warehouses",
-      "type": "string[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Resource_Monitor_Grant",
-  "properties": [
-    {
-      "name": "monitor_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Role",
-  "additional_types": [
-    [
-      {
-        "name": "Role_Tag",
-        "properties": [
-          "readonly name: string;",
-          "readonly value: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "tag",
-      "type": "Role_Tag[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Role_Grants",
-  "properties": [
-    {
-      "name": "role_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "users",
-      "type": "string[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Role_Ownership_Grant",
-  "properties": [
-    {
-      "name": "on_role_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "to_role_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "current_grants",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Row_Access_Policy",
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "row_access_expression",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "signature",
-      "type": "Record<string, string>",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Row_Access_Policy_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "row_access_policy_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Saml_Integration",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "saml2_issuer",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "saml2_provider",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "saml2_sso_url",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "saml2_x509_cert",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "saml2_enable_sp_initiated",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "saml2_force_authn",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "saml2_post_logout_redirect_url",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "saml2_requested_nameid_format",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "saml2_sign_request",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "saml2_snowflake_acs_url",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "saml2_snowflake_issuer_url",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "saml2_snowflake_x509_cert",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "saml2_sp_initiated_login_page_label",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Schema",
-  "additional_types": [
-    [
-      {
-        "name": "Schema_Tag",
-        "properties": [
-          "readonly name: string;",
-          "readonly value: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "data_retention_days",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "is_managed",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "is_transient",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "tag",
-      "type": "Schema_Tag[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Schema_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Scim_Integration",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "provisioner_role",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "scim_client",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "network_policy",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Sequence",
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "increment",
-      "type": "number",
-      "required": false
-    }
-  ]
-},{
-  "name": "Sequence_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "sequence_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Session_Parameter",
-  "properties": [
-    {
-      "name": "key",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "value",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "on_account",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "user",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Share",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "accounts",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Stage",
-  "additional_types": [
-    [
-      {
-        "name": "Stage_Tag",
-        "properties": [
-          "readonly name: string;",
-          "readonly value: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "aws_external_id",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "copy_options",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "credentials",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "directory",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "encryption",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "file_format",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "snowflake_iam_user",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "storage_integration",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "tag",
-      "type": "Stage_Tag[]",
-      "required": false
-    },
-    {
-      "name": "url",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Stage_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "stage_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Storage_Integration",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "storage_allowed_locations",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "storage_provider",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "azure_tenant_id",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "storage_aws_object_acl",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "storage_aws_role_arn",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "storage_blocked_locations",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "type",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Stream",
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "append_only",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "insert_only",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_stage",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "on_table",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "on_view",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "show_initial_rows",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Stream_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "stream_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Table",
-  "additional_types": [
-    [
-      {
-        "name": "Table_Column",
-        "properties": [
-          "readonly name: string;",
-          "readonly type: string;",
-          "readonly comment?: string;",
-          "readonly default?: {readonly constant?: string; readonly expression?: string; readonly sequence?: string; };",
-          "readonly identity?: {readonly start_num?: number; readonly step_num?: number; };",
-          "readonly masking_policy?: string;",
-          "readonly nullable?: boolean;"
-        ]
+        "name": "admin_rsa_public_key",
+        "type": "string",
+        "required": false
       },
       {
-        "name": "Table_Primary_Key",
-        "properties": [
-          "readonly keys: string[];",
-          "readonly name?: string;"
-        ]
+        "name": "comment",
+        "type": "string",
+        "required": false
       },
       {
-        "name": "Table_Tag",
-        "properties": [
-          "readonly name: string;",
-          "readonly value: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "column",
-      "type": "Table_Column[]",
-      "required": true
-    },
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "change_tracking",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "cluster_by",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "data_retention_days",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "data_retention_time_in_days",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "primary_key",
-      "type": "Table_Primary_Key[]",
-      "required": false
-    },
-    {
-      "name": "tag",
-      "type": "Table_Tag[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Table_Column_Masking_Policy_Application",
-  "properties": [
-    {
-      "name": "column",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "masking_policy",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "table",
-      "type": "string",
-      "required": true
-    }
-  ]
-},{
-  "name": "Table_Constraint",
-  "additional_types": [
-    [
-      {
-        "name": "Table_Constraint_Foreign_Key_Properties",
-        "properties": [
-          "readonly match?: string;",
-          "readonly on_delete?: string;",
-          "readonly on_update?: string;",
-          "readonly references?: {readonly columns: string[]; readonly table_id: string; };"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "columns",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "table_id",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "type",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "deferrable",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "enable",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "enforced",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "foreign_key_properties",
-      "type": "Table_Constraint_Foreign_Key_Properties[]",
-      "required": false
-    },
-    {
-      "name": "initially",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "rely",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "validate",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Table_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "table_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Tag",
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "allowed_values",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Tag_Association",
-  "additional_types": [
-    [
-      {
-        "name": "Tag_Association_Object_Identifier",
-        "properties": [
-          "readonly name: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
+        "name": "first_name",
+        "type": "string",
+        "required": false
       },
       {
-        "name": "Tag_Association_Timeouts",
-        "properties": [
-          "readonly create?: string;"
-        ]
-      }
-    ]
-  ],
-  "properties": [
-    {
-      "name": "object_identifier",
-      "type": "Tag_Association_Object_Identifier[]",
-      "required": true
-    },
-    {
-      "name": "object_type",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "tag_id",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "tag_value",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "object_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "skip_validation",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "timeouts",
-      "type": "Tag_Association_Timeouts[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "Tag_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "tag_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Tag_Masking_Policy_Association",
-  "properties": [
-    {
-      "name": "masking_policy_id",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "tag_id",
-      "type": "string",
-      "required": true
-    }
-  ]
-},{
-  "name": "Task",
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "sql_statement",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "after",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "allow_overlapping_execution",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "enabled",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "error_integration",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schedule",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "session_parameters",
-      "type": "Record<string, string>",
-      "required": false
-    },
-    {
-      "name": "user_task_managed_initial_warehouse_size",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "user_task_timeout_ms",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "warehouse",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "when",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Task_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "task_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "User",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "default_namespace",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "default_role",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "default_secondary_roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "default_warehouse",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "disabled",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "display_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "email",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "first_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "last_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "login_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "must_change_password",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "password",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "rsa_public_key",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "rsa_public_key_2",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "User_Grant",
-  "properties": [
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "user_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "User_Ownership_Grant",
-  "properties": [
-    {
-      "name": "on_user_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "to_role_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "current_grants",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "User_Public_Keys",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "rsa_public_key",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "rsa_public_key_2",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "View",
-  "additional_types": [
-    [
+        "name": "grace_period_in_days",
+        "type": "number",
+        "required": false
+      },
       {
-        "name": "View_Tag",
-        "properties": [
-          "readonly name: string;",
-          "readonly value: string;",
-          "readonly database?: string;",
-          "readonly schema?: string;"
-        ]
+        "name": "last_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "must_change_password",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "region",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "region_group",
+        "type": "string",
+        "required": false
       }
     ]
-  ],
-  "properties": [
-    {
-      "name": "database",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "schema",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "statement",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "copy_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "is_secure",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "or_replace",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "tag",
-      "type": "View_Tag[]",
-      "required": false
-    }
-  ]
-},{
-  "name": "View_Grant",
-  "properties": [
-    {
-      "name": "database_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_all",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "on_future",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "schema_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "shares",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "view_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-},{
-  "name": "Warehouse",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "auto_resume",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "auto_suspend",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "comment",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "enable_query_acceleration",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "initially_suspended",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "max_cluster_count",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "max_concurrency_level",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "min_cluster_count",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "query_acceleration_max_scale_factor",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "resource_monitor",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "scaling_policy",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "statement_queued_timeout_in_seconds",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "statement_timeout_in_seconds",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "wait_for_provisioning",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "warehouse_size",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "warehouse_type",
-      "type": "string",
-      "required": false
-    }
-  ]
-},{
-  "name": "Warehouse_Grant",
-  "properties": [
-    {
-      "name": "warehouse_name",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "enable_multiple_grants",
-      "type": "boolean",
-      "required": false
-    },
-    {
-      "name": "privilege",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "revert_ownership_to_role_name",
-      "type": "string",
-      "required": false
-    },
-    {
-      "name": "roles",
-      "type": "string[]",
-      "required": false
-    },
-    {
-      "name": "with_grant_option",
-      "type": "boolean",
-      "required": false
-    }
-  ]
-}
+  },
+  {
+    "name": "Account_Grant",
+    "properties": [
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Account_Parameter",
+    "properties": [
+      {
+        "name": "key",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Account_Password_Policy_Attachment",
+    "properties": [
+      {
+        "name": "password_policy",
+        "type": "string",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Alert",
+    "additional_types": [
+      [
+        {
+          "name": "Alert_Alert_Schedule",
+          "properties": [
+            "readonly cron?: {readonly expression: string; readonly time_zone: string; };",
+            "readonly interval?: number;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "action",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "condition",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "warehouse",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "alert_schedule",
+        "type": "Alert_Alert_Schedule[]",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Api_Integration",
+    "properties": [
+      {
+        "name": "api_allowed_prefixes",
+        "type": "string[]",
+        "required": true
+      },
+      {
+        "name": "api_provider",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "api_aws_role_arn",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "api_blocked_prefixes",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "api_gcp_service_account",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "api_key",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "azure_ad_application_id",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "azure_tenant_id",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "google_audience",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Database",
+    "additional_types": [
+      [
+        {
+          "name": "Database_Replication_Configuration",
+          "properties": [
+            "readonly accounts: string[];",
+            "readonly ignore_edition_check?: boolean;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "data_retention_time_in_days",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "from_database",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "from_replica",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "from_share",
+        "type": "Record<string, string>",
+        "required": false
+      },
+      {
+        "name": "is_transient",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "replication_configuration",
+        "type": "Database_Replication_Configuration[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Database_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Database_Role",
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Email_Notification_Integration",
+    "properties": [
+      {
+        "name": "allowed_recipients",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "External_Function",
+    "additional_types": [
+      [
+        {
+          "name": "External_Function_Arg",
+          "properties": ["readonly name: string;", "readonly type: string;"]
+        },
+        {
+          "name": "External_Function_Header",
+          "properties": ["readonly name: string;", "readonly value: string;"]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "api_integration",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "return_behavior",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "return_type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "url_of_proxy_and_resource",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "arg",
+        "type": "External_Function_Arg[]",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "compression",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "context_headers",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "header",
+        "type": "External_Function_Header[]",
+        "required": false
+      },
+      {
+        "name": "max_batch_rows",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "null_input_behavior",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "request_translator",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "response_translator",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "return_null_allowed",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "External_Oauth_Integration",
+    "properties": [
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": true
+      },
+      {
+        "name": "issuer",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "snowflake_user_mapping_attribute",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "token_user_mapping_claims",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "allowed_roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "any_role_mode",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "audience_urls",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "blocked_roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "jws_keys_urls",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "rsa_public_key",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "rsa_public_key_2",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "scope_delimiter",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "scope_mapping_attribute",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "External_Table",
+    "additional_types": [
+      [
+        {
+          "name": "External_Table_Column",
+          "properties": [
+            "readonly as: string;",
+            "readonly name: string;",
+            "readonly type: string;"
+          ]
+        },
+        {
+          "name": "External_Table_Tag",
+          "properties": [
+            "readonly name: string;",
+            "readonly value: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "column",
+        "type": "External_Table_Column[]",
+        "required": true
+      },
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "file_format",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "location",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "auto_refresh",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "aws_sns_topic",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "copy_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "partition_by",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "pattern",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "refresh_on_create",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "tag",
+        "type": "External_Table_Tag[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "External_Table_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "external_table_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Failover_Group",
+    "additional_types": [
+      [
+        {
+          "name": "Failover_Group_From_Replica",
+          "properties": [
+            "readonly name: string;",
+            "readonly organization_name: string;",
+            "readonly source_account_name: string;"
+          ]
+        },
+        {
+          "name": "Failover_Group_Replication_Schedule",
+          "properties": [
+            "readonly cron?: {readonly expression: string; readonly time_zone: string; };",
+            "readonly interval?: number;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "allowed_accounts",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "allowed_databases",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "allowed_integration_types",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "allowed_shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "from_replica",
+        "type": "Failover_Group_From_Replica[]",
+        "required": false
+      },
+      {
+        "name": "ignore_edition_check",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "object_types",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "replication_schedule",
+        "type": "Failover_Group_Replication_Schedule[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Failover_Group_Grant",
+    "properties": [
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "failover_group_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "File_Format",
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "format_type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "allow_duplicate",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "binary_as_text",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "binary_format",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "compression",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "date_format",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "disable_auto_convert",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "disable_snowflake_data",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "empty_field_as_null",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "enable_octal",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "encoding",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "error_on_column_count_mismatch",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "escape",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "escape_unenclosed_field",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "field_delimiter",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "field_optionally_enclosed_by",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "file_extension",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "ignore_utf8_errors",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "null_if",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "preserve_space",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "record_delimiter",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "replace_invalid_characters",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "skip_blank_lines",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "skip_byte_order_mark",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "skip_header",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "strip_null_values",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "strip_outer_array",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "strip_outer_element",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "time_format",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "timestamp_format",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "trim_space",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "File_Format_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "file_format_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Function",
+    "additional_types": [
+      [
+        {
+          "name": "Function_Arguments",
+          "properties": ["readonly name: string;", "readonly type: string;"]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "return_type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "statement",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "arguments",
+        "type": "Function_Arguments[]",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "handler",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "imports",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "is_secure",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "language",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "null_input_behavior",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "packages",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "return_behavior",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "runtime_version",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "target_path",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Function_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "argument_data_types",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "function_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Grant_Privileges_To_Role",
+    "additional_types": [
+      [
+        {
+          "name": "Grant_Privileges_To_Role_On_Account_Object",
+          "properties": [
+            "readonly object_name: string;",
+            "readonly object_type: string;"
+          ]
+        },
+        {
+          "name": "Grant_Privileges_To_Role_On_Schema",
+          "properties": [
+            "readonly all_schemas_in_database?: string;",
+            "readonly future_schemas_in_database?: string;",
+            "readonly schema_name?: string;"
+          ]
+        },
+        {
+          "name": "Grant_Privileges_To_Role_On_Schema_Object",
+          "properties": [
+            "readonly all?: {readonly object_type_plural: string; readonly in_database?: string; readonly in_schema?: string; };",
+            "readonly future?: {readonly object_type_plural: string; readonly in_database?: string; \nreadonly in_schema?: string; };",
+            "readonly object_name?: string;",
+            "readonly object_type?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "role_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "all_privileges",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_account",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_account_object",
+        "type": "Grant_Privileges_To_Role_On_Account_Object[]",
+        "required": false
+      },
+      {
+        "name": "on_schema",
+        "type": "Grant_Privileges_To_Role_On_Schema[]",
+        "required": false
+      },
+      {
+        "name": "on_schema_object",
+        "type": "Grant_Privileges_To_Role_On_Schema_Object[]",
+        "required": false
+      },
+      {
+        "name": "privileges",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Integration_Grant",
+    "properties": [
+      {
+        "name": "integration_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Managed_Account",
+    "properties": [
+      {
+        "name": "admin_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "admin_password",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Masking_Policy",
+    "additional_types": [
+      [
+        {
+          "name": "Masking_Policy_Signature",
+          "properties": [
+            "readonly column: {readonly name: string; readonly type: string; };"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "masking_expression",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "return_data_type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "signature",
+        "type": "Masking_Policy_Signature[]",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "exempt_other_policies",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "if_not_exists",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "or_replace",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Masking_Policy_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "masking_policy_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Materialized_View",
+    "additional_types": [
+      [
+        {
+          "name": "Materialized_View_Tag",
+          "properties": [
+            "readonly name: string;",
+            "readonly value: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "statement",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "warehouse",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "is_secure",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "or_replace",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "tag",
+        "type": "Materialized_View_Tag[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Materialized_View_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "materialized_view_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Network_Policy",
+    "properties": [
+      {
+        "name": "allowed_ip_list",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "blocked_ip_list",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Network_Policy_Attachment",
+    "properties": [
+      {
+        "name": "network_policy_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "set_for_account",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "users",
+        "type": "Set<string>",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Notification_Integration",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "aws_sns_role_arn",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "aws_sns_topic_arn",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "aws_sqs_arn",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "aws_sqs_role_arn",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "azure_storage_queue_primary_uri",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "azure_tenant_id",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "direction",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "gcp_pubsub_subscription_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "gcp_pubsub_topic_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "notification_provider",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Oauth_Integration",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "oauth_client",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "blocked_roles_list",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "oauth_client_type",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "oauth_issue_refresh_tokens",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "oauth_redirect_uri",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "oauth_refresh_token_validity",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "oauth_use_secondary_roles",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Object_Parameter",
+    "additional_types": [
+      [
+        {
+          "name": "Object_Parameter_Object_Identifier",
+          "properties": [
+            "readonly name: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "key",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "object_identifier",
+        "type": "Object_Parameter_Object_Identifier[]",
+        "required": false
+      },
+      {
+        "name": "object_type",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_account",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Password_Policy",
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "if_not_exists",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "lockout_time_mins",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "max_age_days",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "max_length",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "max_retries",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "min_length",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "min_lower_case_chars",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "min_numeric_chars",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "min_special_chars",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "min_upper_case_chars",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "or_replace",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Pipe",
+    "properties": [
+      {
+        "name": "copy_statement",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "auto_ingest",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "aws_sns_topic_arn",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "error_integration",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "integration",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Pipe_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "pipe_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Procedure",
+    "additional_types": [
+      [
+        {
+          "name": "Procedure_Arguments",
+          "properties": ["readonly name: string;", "readonly type: string;"]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "return_type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "statement",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "arguments",
+        "type": "Procedure_Arguments[]",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "execute_as",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "handler",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "imports",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "language",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "null_input_behavior",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "packages",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "return_behavior",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "runtime_version",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Procedure_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "argument_data_types",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "procedure_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Resource_Monitor",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "credit_quota",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "end_timestamp",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "frequency",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "notify_triggers",
+        "type": "Set<number>",
+        "required": false
+      },
+      {
+        "name": "notify_users",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "set_for_account",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "start_timestamp",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "suspend_immediate_trigger",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "suspend_immediate_triggers",
+        "type": "Set<number>",
+        "required": false
+      },
+      {
+        "name": "suspend_trigger",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "suspend_triggers",
+        "type": "Set<number>",
+        "required": false
+      },
+      {
+        "name": "warehouses",
+        "type": "Set<string>",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Resource_Monitor_Grant",
+    "properties": [
+      {
+        "name": "monitor_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Role",
+    "additional_types": [
+      [
+        {
+          "name": "Role_Tag",
+          "properties": [
+            "readonly name: string;",
+            "readonly value: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "tag",
+        "type": "Role_Tag[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Role_Grants",
+    "properties": [
+      {
+        "name": "role_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "users",
+        "type": "Set<string>",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Role_Ownership_Grant",
+    "properties": [
+      {
+        "name": "on_role_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "to_role_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "current_grants",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Row_Access_Policy",
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "row_access_expression",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "signature",
+        "type": "Record<string, string>",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Row_Access_Policy_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "row_access_policy_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Saml_Integration",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "saml2_issuer",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "saml2_provider",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "saml2_sso_url",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "saml2_x509_cert",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "saml2_enable_sp_initiated",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "saml2_force_authn",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "saml2_post_logout_redirect_url",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "saml2_requested_nameid_format",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "saml2_sign_request",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "saml2_snowflake_acs_url",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "saml2_snowflake_issuer_url",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "saml2_snowflake_x509_cert",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "saml2_sp_initiated_login_page_label",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Schema",
+    "additional_types": [
+      [
+        {
+          "name": "Schema_Tag",
+          "properties": [
+            "readonly name: string;",
+            "readonly value: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "data_retention_days",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "is_managed",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "is_transient",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "tag",
+        "type": "Schema_Tag[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Schema_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Scim_Integration",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "provisioner_role",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "scim_client",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "network_policy",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Sequence",
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "increment",
+        "type": "number",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Sequence_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "sequence_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Session_Parameter",
+    "properties": [
+      {
+        "name": "key",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "on_account",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "user",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Share",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "accounts",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Stage",
+    "additional_types": [
+      [
+        {
+          "name": "Stage_Tag",
+          "properties": [
+            "readonly name: string;",
+            "readonly value: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "aws_external_id",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "copy_options",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "credentials",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "directory",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "encryption",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "file_format",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "snowflake_iam_user",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "storage_integration",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "tag",
+        "type": "Stage_Tag[]",
+        "required": false
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Stage_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "stage_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Storage_Integration",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "storage_allowed_locations",
+        "type": "string[]",
+        "required": true
+      },
+      {
+        "name": "storage_provider",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "azure_tenant_id",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "storage_aws_object_acl",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "storage_aws_role_arn",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "storage_blocked_locations",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Stream",
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "append_only",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "insert_only",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_stage",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_table",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_view",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "show_initial_rows",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Stream_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "stream_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Table",
+    "additional_types": [
+      [
+        {
+          "name": "Table_Column",
+          "properties": [
+            "readonly name: string;",
+            "readonly type: string;",
+            "readonly comment?: string;",
+            "readonly default?: {readonly constant?: string; readonly expression?: string; readonly sequence?: string; };",
+            "readonly identity?: {readonly start_num?: number; readonly step_num?: number; };",
+            "readonly masking_policy?: string;",
+            "readonly nullable?: boolean;"
+          ]
+        },
+        {
+          "name": "Table_Primary_Key",
+          "properties": ["readonly keys: string[];", "readonly name?: string;"]
+        },
+        {
+          "name": "Table_Tag",
+          "properties": [
+            "readonly name: string;",
+            "readonly value: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "column",
+        "type": "Table_Column[]",
+        "required": true
+      },
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "change_tracking",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "cluster_by",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "data_retention_days",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "data_retention_time_in_days",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "primary_key",
+        "type": "Table_Primary_Key[]",
+        "required": false
+      },
+      {
+        "name": "tag",
+        "type": "Table_Tag[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Table_Column_Masking_Policy_Application",
+    "properties": [
+      {
+        "name": "column",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "masking_policy",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "table",
+        "type": "string",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Table_Constraint",
+    "additional_types": [
+      [
+        {
+          "name": "Table_Constraint_Foreign_Key_Properties",
+          "properties": [
+            "readonly match?: string;",
+            "readonly on_delete?: string;",
+            "readonly on_update?: string;",
+            "readonly references?: {readonly columns: string[]; readonly table_id: string; };"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "columns",
+        "type": "string[]",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "table_id",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "deferrable",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "enable",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "enforced",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "foreign_key_properties",
+        "type": "Table_Constraint_Foreign_Key_Properties[]",
+        "required": false
+      },
+      {
+        "name": "initially",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "rely",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "validate",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Table_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "table_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Tag",
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "allowed_values",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Tag_Association",
+    "additional_types": [
+      [
+        {
+          "name": "Tag_Association_Object_Identifier",
+          "properties": [
+            "readonly name: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        },
+        {
+          "name": "Tag_Association_Timeouts",
+          "properties": ["readonly create?: string;"]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "object_identifier",
+        "type": "Tag_Association_Object_Identifier[]",
+        "required": true
+      },
+      {
+        "name": "object_type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tag_id",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tag_value",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "object_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "skip_validation",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "timeouts",
+        "type": "Tag_Association_Timeouts[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Tag_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tag_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Tag_Masking_Policy_Association",
+    "properties": [
+      {
+        "name": "masking_policy_id",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tag_id",
+        "type": "string",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Task",
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "sql_statement",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "after",
+        "type": "string[]",
+        "required": false
+      },
+      {
+        "name": "allow_overlapping_execution",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "error_integration",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schedule",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "session_parameters",
+        "type": "Record<string, string>",
+        "required": false
+      },
+      {
+        "name": "user_task_managed_initial_warehouse_size",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "user_task_timeout_ms",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "warehouse",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "when",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Task_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "task_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "User",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "default_namespace",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "default_role",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "default_secondary_roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "default_warehouse",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "display_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "first_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "last_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "login_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "must_change_password",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "rsa_public_key",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "rsa_public_key_2",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "User_Grant",
+    "properties": [
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "User_Ownership_Grant",
+    "properties": [
+      {
+        "name": "on_user_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "to_role_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "current_grants",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "User_Public_Keys",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "rsa_public_key",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "rsa_public_key_2",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "View",
+    "additional_types": [
+      [
+        {
+          "name": "View_Tag",
+          "properties": [
+            "readonly name: string;",
+            "readonly value: string;",
+            "readonly database?: string;",
+            "readonly schema?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "statement",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "copy_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "is_secure",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "or_replace",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "tag",
+        "type": "View_Tag[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "View_Grant",
+    "properties": [
+      {
+        "name": "database_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_all",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "on_future",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "schema_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "view_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Warehouse",
+    "properties": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "auto_resume",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "auto_suspend",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "enable_query_acceleration",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "initially_suspended",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "max_cluster_count",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "max_concurrency_level",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "min_cluster_count",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "query_acceleration_max_scale_factor",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "resource_monitor",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "scaling_policy",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "statement_queued_timeout_in_seconds",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "statement_timeout_in_seconds",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "wait_for_provisioning",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "warehouse_size",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "warehouse_type",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Warehouse_Grant",
+    "properties": [
+      {
+        "name": "warehouse_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "enable_multiple_grants",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "privilege",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "revert_ownership_to_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "roles",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  }
 ]

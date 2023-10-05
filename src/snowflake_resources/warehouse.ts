@@ -130,6 +130,7 @@ export class Warehouse extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get auto_resume(): boolean | undefined {
         return this._auto_resume
     }
@@ -137,6 +138,7 @@ export class Warehouse extends TerraformResource {
     public set auto_resume(value: boolean | undefined) {
         this._auto_resume = value;
     }
+    
     public get auto_suspend(): number | undefined {
         return this._auto_suspend
     }
@@ -144,6 +146,7 @@ export class Warehouse extends TerraformResource {
     public set auto_suspend(value: number | undefined) {
         this._auto_suspend = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -151,6 +154,7 @@ export class Warehouse extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get enable_query_acceleration(): boolean | undefined {
         return this._enable_query_acceleration
     }
@@ -158,6 +162,7 @@ export class Warehouse extends TerraformResource {
     public set enable_query_acceleration(value: boolean | undefined) {
         this._enable_query_acceleration = value;
     }
+    
     public get initially_suspended(): boolean | undefined {
         return this._initially_suspended
     }
@@ -165,6 +170,7 @@ export class Warehouse extends TerraformResource {
     public set initially_suspended(value: boolean | undefined) {
         this._initially_suspended = value;
     }
+    
     public get max_cluster_count(): number | undefined {
         return this._max_cluster_count
     }
@@ -172,6 +178,7 @@ export class Warehouse extends TerraformResource {
     public set max_cluster_count(value: number | undefined) {
         this._max_cluster_count = value;
     }
+    
     public get max_concurrency_level(): number | undefined {
         return this._max_concurrency_level
     }
@@ -179,6 +186,7 @@ export class Warehouse extends TerraformResource {
     public set max_concurrency_level(value: number | undefined) {
         this._max_concurrency_level = value;
     }
+    
     public get min_cluster_count(): number | undefined {
         return this._min_cluster_count
     }
@@ -186,6 +194,7 @@ export class Warehouse extends TerraformResource {
     public set min_cluster_count(value: number | undefined) {
         this._min_cluster_count = value;
     }
+    
     public get query_acceleration_max_scale_factor(): number | undefined {
         return this._query_acceleration_max_scale_factor
     }
@@ -193,6 +202,7 @@ export class Warehouse extends TerraformResource {
     public set query_acceleration_max_scale_factor(value: number | undefined) {
         this._query_acceleration_max_scale_factor = value;
     }
+    
     public get resource_monitor(): string | undefined {
         return this._resource_monitor
     }
@@ -200,6 +210,7 @@ export class Warehouse extends TerraformResource {
     public set resource_monitor(value: string | undefined) {
         this._resource_monitor = value;
     }
+    
     public get scaling_policy(): string | undefined {
         return this._scaling_policy
     }
@@ -207,6 +218,7 @@ export class Warehouse extends TerraformResource {
     public set scaling_policy(value: string | undefined) {
         this._scaling_policy = value;
     }
+    
     public get statement_queued_timeout_in_seconds(): number | undefined {
         return this._statement_queued_timeout_in_seconds
     }
@@ -214,6 +226,7 @@ export class Warehouse extends TerraformResource {
     public set statement_queued_timeout_in_seconds(value: number | undefined) {
         this._statement_queued_timeout_in_seconds = value;
     }
+    
     public get statement_timeout_in_seconds(): number | undefined {
         return this._statement_timeout_in_seconds
     }
@@ -221,6 +234,7 @@ export class Warehouse extends TerraformResource {
     public set statement_timeout_in_seconds(value: number | undefined) {
         this._statement_timeout_in_seconds = value;
     }
+    
     public get wait_for_provisioning(): boolean | undefined {
         return this._wait_for_provisioning
     }
@@ -228,6 +242,7 @@ export class Warehouse extends TerraformResource {
     public set wait_for_provisioning(value: boolean | undefined) {
         this._wait_for_provisioning = value;
     }
+    
     public get warehouse_size(): string | undefined {
         return this._warehouse_size
     }
@@ -235,6 +250,7 @@ export class Warehouse extends TerraformResource {
     public set warehouse_size(value: string | undefined) {
         this._warehouse_size = value;
     }
+    
     public get warehouse_type(): string | undefined {
         return this._warehouse_type
     }
@@ -242,5 +258,6 @@ export class Warehouse extends TerraformResource {
     public set warehouse_type(value: string | undefined) {
         this._warehouse_type = value;
     }
+    
 }
 

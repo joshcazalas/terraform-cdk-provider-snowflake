@@ -11,7 +11,7 @@ export interface UserConfig extends TerraformMetaArguments {
     comment?: string;
     default_namespace?: string;
     default_role?: string;
-    default_secondary_roles?: string[];
+    default_secondary_roles?: Set<string>;
     default_warehouse?: string;
     disabled?: boolean;
     display_name?: string;
@@ -30,7 +30,7 @@ export class User extends TerraformResource {
     _comment?: string;
     _default_namespace?: string;
     _default_role?: string;
-    _default_secondary_roles?: string[];
+    _default_secondary_roles?: Set<string>;
     _default_warehouse?: string;
     _disabled?: boolean;
     _display_name?: string;
@@ -125,6 +125,7 @@ export class User extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -132,6 +133,7 @@ export class User extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get default_namespace(): string | undefined {
         return this._default_namespace
     }
@@ -139,6 +141,7 @@ export class User extends TerraformResource {
     public set default_namespace(value: string | undefined) {
         this._default_namespace = value;
     }
+    
     public get default_role(): string | undefined {
         return this._default_role
     }
@@ -146,13 +149,15 @@ export class User extends TerraformResource {
     public set default_role(value: string | undefined) {
         this._default_role = value;
     }
-    public get default_secondary_roles(): string[] | undefined {
+    
+    public get default_secondary_roles(): Set<string> | undefined {
         return this._default_secondary_roles
     }
 
-    public set default_secondary_roles(value: string[] | undefined) {
+    public set default_secondary_roles(value: Set<string> | undefined) {
         this._default_secondary_roles = value;
     }
+    
     public get default_warehouse(): string | undefined {
         return this._default_warehouse
     }
@@ -160,6 +165,7 @@ export class User extends TerraformResource {
     public set default_warehouse(value: string | undefined) {
         this._default_warehouse = value;
     }
+    
     public get disabled(): boolean | undefined {
         return this._disabled
     }
@@ -167,6 +173,7 @@ export class User extends TerraformResource {
     public set disabled(value: boolean | undefined) {
         this._disabled = value;
     }
+    
     public get display_name(): string | undefined {
         return this._display_name
     }
@@ -174,6 +181,7 @@ export class User extends TerraformResource {
     public set display_name(value: string | undefined) {
         this._display_name = value;
     }
+    
     public get email(): string | undefined {
         return this._email
     }
@@ -181,6 +189,7 @@ export class User extends TerraformResource {
     public set email(value: string | undefined) {
         this._email = value;
     }
+    
     public get first_name(): string | undefined {
         return this._first_name
     }
@@ -188,6 +197,7 @@ export class User extends TerraformResource {
     public set first_name(value: string | undefined) {
         this._first_name = value;
     }
+    
     public get last_name(): string | undefined {
         return this._last_name
     }
@@ -195,6 +205,7 @@ export class User extends TerraformResource {
     public set last_name(value: string | undefined) {
         this._last_name = value;
     }
+    
     public get login_name(): string | undefined {
         return this._login_name
     }
@@ -202,6 +213,7 @@ export class User extends TerraformResource {
     public set login_name(value: string | undefined) {
         this._login_name = value;
     }
+    
     public get must_change_password(): boolean | undefined {
         return this._must_change_password
     }
@@ -209,6 +221,7 @@ export class User extends TerraformResource {
     public set must_change_password(value: boolean | undefined) {
         this._must_change_password = value;
     }
+    
     public get password(): string | undefined {
         return this._password
     }
@@ -216,6 +229,7 @@ export class User extends TerraformResource {
     public set password(value: string | undefined) {
         this._password = value;
     }
+    
     public get rsa_public_key(): string | undefined {
         return this._rsa_public_key
     }
@@ -223,6 +237,7 @@ export class User extends TerraformResource {
     public set rsa_public_key(value: string | undefined) {
         this._rsa_public_key = value;
     }
+    
     public get rsa_public_key_2(): string | undefined {
         return this._rsa_public_key_2
     }
@@ -230,5 +245,6 @@ export class User extends TerraformResource {
     public set rsa_public_key_2(value: string | undefined) {
         this._rsa_public_key_2 = value;
     }
+    
 }
 

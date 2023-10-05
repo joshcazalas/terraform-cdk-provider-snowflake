@@ -86,6 +86,7 @@ export class Schema extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -93,6 +94,7 @@ export class Schema extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -100,6 +102,7 @@ export class Schema extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get data_retention_days(): number | undefined {
         return this._data_retention_days
     }
@@ -107,6 +110,7 @@ export class Schema extends TerraformResource {
     public set data_retention_days(value: number | undefined) {
         this._data_retention_days = value;
     }
+    
     public get is_managed(): boolean | undefined {
         return this._is_managed
     }
@@ -114,6 +118,7 @@ export class Schema extends TerraformResource {
     public set is_managed(value: boolean | undefined) {
         this._is_managed = value;
     }
+    
     public get is_transient(): boolean | undefined {
         return this._is_transient
     }
@@ -121,6 +126,7 @@ export class Schema extends TerraformResource {
     public set is_transient(value: boolean | undefined) {
         this._is_transient = value;
     }
+    
     public get tag(): Schema_Tag[] | undefined {
         return this._tag
     }
@@ -128,5 +134,6 @@ export class Schema extends TerraformResource {
     public set tag(value: Schema_Tag[] | undefined) {
         this._tag = value;
     }
+    
 }
 

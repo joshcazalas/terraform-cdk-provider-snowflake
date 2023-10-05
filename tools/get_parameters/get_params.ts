@@ -17,11 +17,11 @@ export async function getParams(file: string) {
         inputString = file
     }
     try {
-        let resourceName = await getResourceName(inputString)
-        let requiredParams = await getRequiredParams(inputString)
-        let optionalParams = await getOptionalParams(inputString)
+        const resourceName = await getResourceName(inputString)
+        const requiredParams = await getRequiredParams(inputString)
+        const optionalParams = await getOptionalParams(inputString)
         if (resourceName) {
-            let allParams = await getAllParams(inputString, resourceName, requiredParams, optionalParams)
+            const allParams = await getAllParams(inputString, resourceName, requiredParams, optionalParams)
             return allParams
         }
     }
@@ -43,7 +43,7 @@ export async function getAllParams(file:string, resource_name: string, requiredP
         allParams = [...requiredParams, ...optionalParams];
     }
     // Combine the required and optional parameters into one array
-    let additionalProperties = await getAdditionalProperties(file)
+    const additionalProperties = await getAdditionalProperties(file)
     let result;
     if (additionalProperties == 'Pattern not found') {
         result = {
@@ -60,13 +60,13 @@ export async function getAllParams(file:string, resource_name: string, requiredP
     }
     const jsonAsString = JSON.stringify(result)
     const modifiedJsonString = jsonAsString.replace(/BLOCK_LIST_RESOURCE_PLACEHOLDER_/g, `${capitalizeFirstLetter(resource_name)}_`);
-    let replacedPlaceholderJSON = JSON.parse(modifiedJsonString)
+    const replacedPlaceholderJSON = JSON.parse(modifiedJsonString)
 
     if (replacedPlaceholderJSON.properties) {
-        let resourceName = replacedPlaceholderJSON.name
+        const resourceName = replacedPlaceholderJSON.name
         for (const item of replacedPlaceholderJSON.properties) {
             if (item.type == 'block list placeholder') {
-                let itemName = item.name
+                const itemName = item.name
                 item.type = `${resourceName}_${capitalizeFirstLetter(itemName)}[]`
             }
         }
@@ -76,6 +76,6 @@ export async function getAllParams(file:string, resource_name: string, requiredP
 }
 
 export async function getAdditionalProperties(file: string) {
-    let additionalProperties = await getBlockListParams(file)
+    const additionalProperties = await getBlockListParams(file)
     return additionalProperties
 }  

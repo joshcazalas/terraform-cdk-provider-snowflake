@@ -98,6 +98,7 @@ export class Masking_Policy extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get masking_expression(): string {
         return this._masking_expression
     }
@@ -105,6 +106,7 @@ export class Masking_Policy extends TerraformResource {
     public set masking_expression(value: string) {
         this._masking_expression = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -112,6 +114,7 @@ export class Masking_Policy extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get return_data_type(): string {
         return this._return_data_type
     }
@@ -119,6 +122,7 @@ export class Masking_Policy extends TerraformResource {
     public set return_data_type(value: string) {
         this._return_data_type = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -126,6 +130,7 @@ export class Masking_Policy extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get signature(): Masking_Policy_Signature[] {
         return this._signature
     }
@@ -133,6 +138,7 @@ export class Masking_Policy extends TerraformResource {
     public set signature(value: Masking_Policy_Signature[]) {
         this._signature = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -140,6 +146,7 @@ export class Masking_Policy extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get exempt_other_policies(): boolean | undefined {
         return this._exempt_other_policies
     }
@@ -147,6 +154,7 @@ export class Masking_Policy extends TerraformResource {
     public set exempt_other_policies(value: boolean | undefined) {
         this._exempt_other_policies = value;
     }
+    
     public get if_not_exists(): boolean | undefined {
         return this._if_not_exists
     }
@@ -154,6 +162,7 @@ export class Masking_Policy extends TerraformResource {
     public set if_not_exists(value: boolean | undefined) {
         this._if_not_exists = value;
     }
+    
     public get or_replace(): boolean | undefined {
         return this._or_replace
     }
@@ -161,5 +170,6 @@ export class Masking_Policy extends TerraformResource {
     public set or_replace(value: boolean | undefined) {
         this._or_replace = value;
     }
+    
 }
 

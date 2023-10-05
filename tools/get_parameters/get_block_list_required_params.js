@@ -49,7 +49,7 @@ async function getBlockListRequiredParams(file) {
                 if (parenthesesMatches) {
                     // Extract content within parentheses and push it to the array
                     let contentWithinParentheses = '';
-                    let parenthesisMatch = parenthesesMatches[0];
+                    const parenthesisMatch = parenthesesMatches[0];
                     contentWithinParentheses = parenthesisMatch.slice(1, -1); // Remove parentheses
                     requiredParams.push({
                         name: `readonly ${contentWithinBackticks}: ${(0, clean_types_1.cleanTypes)(contentWithinParentheses)};`

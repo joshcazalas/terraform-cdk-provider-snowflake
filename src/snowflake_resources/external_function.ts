@@ -138,6 +138,7 @@ export class External_Function extends TerraformResource {
     public set api_integration(value: string) {
         this._api_integration = value;
     }
+    
     public get database(): string {
         return this._database
     }
@@ -145,6 +146,7 @@ export class External_Function extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -152,6 +154,7 @@ export class External_Function extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get return_behavior(): string {
         return this._return_behavior
     }
@@ -159,6 +162,7 @@ export class External_Function extends TerraformResource {
     public set return_behavior(value: string) {
         this._return_behavior = value;
     }
+    
     public get return_type(): string {
         return this._return_type
     }
@@ -166,6 +170,7 @@ export class External_Function extends TerraformResource {
     public set return_type(value: string) {
         this._return_type = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -173,6 +178,7 @@ export class External_Function extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get url_of_proxy_and_resource(): string {
         return this._url_of_proxy_and_resource
     }
@@ -180,6 +186,7 @@ export class External_Function extends TerraformResource {
     public set url_of_proxy_and_resource(value: string) {
         this._url_of_proxy_and_resource = value;
     }
+    
     public get arg(): External_Function_Arg[] | undefined {
         return this._arg
     }
@@ -187,6 +194,7 @@ export class External_Function extends TerraformResource {
     public set arg(value: External_Function_Arg[] | undefined) {
         this._arg = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -194,6 +202,7 @@ export class External_Function extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get compression(): string | undefined {
         return this._compression
     }
@@ -201,6 +210,7 @@ export class External_Function extends TerraformResource {
     public set compression(value: string | undefined) {
         this._compression = value;
     }
+    
     public get context_headers(): string[] | undefined {
         return this._context_headers
     }
@@ -208,6 +218,7 @@ export class External_Function extends TerraformResource {
     public set context_headers(value: string[] | undefined) {
         this._context_headers = value;
     }
+    
     public get header(): External_Function_Header[] | undefined {
         return this._header
     }
@@ -215,6 +226,7 @@ export class External_Function extends TerraformResource {
     public set header(value: External_Function_Header[] | undefined) {
         this._header = value;
     }
+    
     public get max_batch_rows(): number | undefined {
         return this._max_batch_rows
     }
@@ -222,6 +234,7 @@ export class External_Function extends TerraformResource {
     public set max_batch_rows(value: number | undefined) {
         this._max_batch_rows = value;
     }
+    
     public get null_input_behavior(): string | undefined {
         return this._null_input_behavior
     }
@@ -229,6 +242,7 @@ export class External_Function extends TerraformResource {
     public set null_input_behavior(value: string | undefined) {
         this._null_input_behavior = value;
     }
+    
     public get request_translator(): string | undefined {
         return this._request_translator
     }
@@ -236,6 +250,7 @@ export class External_Function extends TerraformResource {
     public set request_translator(value: string | undefined) {
         this._request_translator = value;
     }
+    
     public get response_translator(): string | undefined {
         return this._response_translator
     }
@@ -243,6 +258,7 @@ export class External_Function extends TerraformResource {
     public set response_translator(value: string | undefined) {
         this._response_translator = value;
     }
+    
     public get return_null_allowed(): boolean | undefined {
         return this._return_null_allowed
     }
@@ -250,5 +266,6 @@ export class External_Function extends TerraformResource {
     public set return_null_allowed(value: boolean | undefined) {
         this._return_null_allowed = value;
     }
+    
 }
 

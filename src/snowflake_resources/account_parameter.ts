@@ -55,6 +55,7 @@ export class Account_Parameter extends TerraformResource {
     public set key(value: string) {
         this._key = value;
     }
+    
     public get value(): string {
         return this._value
     }
@@ -62,5 +63,6 @@ export class Account_Parameter extends TerraformResource {
     public set value(value: string) {
         this._value = value;
     }
+    
 }
 

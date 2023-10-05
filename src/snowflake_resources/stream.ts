@@ -95,6 +95,7 @@ export class Stream extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -102,6 +103,7 @@ export class Stream extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -109,6 +111,7 @@ export class Stream extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get append_only(): boolean | undefined {
         return this._append_only
     }
@@ -116,6 +119,7 @@ export class Stream extends TerraformResource {
     public set append_only(value: boolean | undefined) {
         this._append_only = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -123,6 +127,7 @@ export class Stream extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get insert_only(): boolean | undefined {
         return this._insert_only
     }
@@ -130,6 +135,7 @@ export class Stream extends TerraformResource {
     public set insert_only(value: boolean | undefined) {
         this._insert_only = value;
     }
+    
     public get on_stage(): string | undefined {
         return this._on_stage
     }
@@ -137,6 +143,7 @@ export class Stream extends TerraformResource {
     public set on_stage(value: string | undefined) {
         this._on_stage = value;
     }
+    
     public get on_table(): string | undefined {
         return this._on_table
     }
@@ -144,6 +151,7 @@ export class Stream extends TerraformResource {
     public set on_table(value: string | undefined) {
         this._on_table = value;
     }
+    
     public get on_view(): string | undefined {
         return this._on_view
     }
@@ -151,6 +159,7 @@ export class Stream extends TerraformResource {
     public set on_view(value: string | undefined) {
         this._on_view = value;
     }
+    
     public get show_initial_rows(): boolean | undefined {
         return this._show_initial_rows
     }
@@ -158,5 +167,6 @@ export class Stream extends TerraformResource {
     public set show_initial_rows(value: boolean | undefined) {
         this._show_initial_rows = value;
     }
+    
 }
 

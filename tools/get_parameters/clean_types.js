@@ -11,7 +11,7 @@ function cleanTypes(input) {
         case 'map of string':
             return 'Record<string, string>';
         case 'set of string':
-            return 'string[]';
+            return 'Set<string>';
         case 'list of string':
             return 'string[]';
         case 'set of number':

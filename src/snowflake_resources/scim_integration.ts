@@ -65,6 +65,7 @@ export class Scim_Integration extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get provisioner_role(): string {
         return this._provisioner_role
     }
@@ -72,6 +73,7 @@ export class Scim_Integration extends TerraformResource {
     public set provisioner_role(value: string) {
         this._provisioner_role = value;
     }
+    
     public get scim_client(): string {
         return this._scim_client
     }
@@ -79,6 +81,7 @@ export class Scim_Integration extends TerraformResource {
     public set scim_client(value: string) {
         this._scim_client = value;
     }
+    
     public get network_policy(): string | undefined {
         return this._network_policy
     }
@@ -86,5 +89,6 @@ export class Scim_Integration extends TerraformResource {
     public set network_policy(value: string | undefined) {
         this._network_policy = value;
     }
+    
 }
 

@@ -13,14 +13,14 @@ async function writeToFile(fileAdded: string, filePath: string, newContents: str
 }
 
 export async function writeParamsToJSON() {
-    let fileNames = fs.readdirSync('../terraform-provider-snowflake/docs/resources')
+    const fileNames = fs.readdirSync('../terraform-provider-snowflake/docs/resources')
 
     // Empty the file by writing an empty string to it
     fs.writeFileSync('./snowflake_resources.json', '[', 'utf-8');
 
     for (let i = 0; i < fileNames.length; i++) {
       const file = fileNames[i];
-      let params = await getParams(`../terraform-provider-snowflake/docs/resources/${file}`)
+      const params = await getParams(`../terraform-provider-snowflake/docs/resources/${file}`)
       if (file) {
         // Changing behavior of the loop for the last item in the loop
         if (i === fileNames.length - 1) {

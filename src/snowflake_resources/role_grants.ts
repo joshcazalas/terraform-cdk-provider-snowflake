@@ -9,15 +9,15 @@ import { Construct } from "constructs";
 export interface Role_GrantsConfig extends TerraformMetaArguments {
     role_name: string;
     enable_multiple_grants?: boolean;
-    roles?: string[];
-    users?: string[];
+    roles?: Set<string>;
+    users?: Set<string>;
 }
 
 export class Role_Grants extends TerraformResource {
     _role_name: string;
     _enable_multiple_grants?: boolean;
-    _roles?: string[];
-    _users?: string[];
+    _roles?: Set<string>;
+    _users?: Set<string>;
     readonly _id: string;
 
     public constructor(scope: Construct, id: string, config: Role_GrantsConfig) {
@@ -65,6 +65,7 @@ export class Role_Grants extends TerraformResource {
     public set role_name(value: string) {
         this._role_name = value;
     }
+    
     public get enable_multiple_grants(): boolean | undefined {
         return this._enable_multiple_grants
     }
@@ -72,19 +73,22 @@ export class Role_Grants extends TerraformResource {
     public set enable_multiple_grants(value: boolean | undefined) {
         this._enable_multiple_grants = value;
     }
-    public get roles(): string[] | undefined {
+    
+    public get roles(): Set<string> | undefined {
         return this._roles
     }
 
-    public set roles(value: string[] | undefined) {
+    public set roles(value: Set<string> | undefined) {
         this._roles = value;
     }
-    public get users(): string[] | undefined {
+    
+    public get users(): Set<string> | undefined {
         return this._users
     }
 
-    public set users(value: string[] | undefined) {
+    public set users(value: Set<string> | undefined) {
         this._users = value;
     }
+    
 }
 

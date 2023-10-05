@@ -70,6 +70,7 @@ export class Sequence extends TerraformResource {
     public set database(value: string) {
         this._database = value;
     }
+    
     public get name(): string {
         return this._name
     }
@@ -77,6 +78,7 @@ export class Sequence extends TerraformResource {
     public set name(value: string) {
         this._name = value;
     }
+    
     public get schema(): string {
         return this._schema
     }
@@ -84,6 +86,7 @@ export class Sequence extends TerraformResource {
     public set schema(value: string) {
         this._schema = value;
     }
+    
     public get comment(): string | undefined {
         return this._comment
     }
@@ -91,6 +94,7 @@ export class Sequence extends TerraformResource {
     public set comment(value: string | undefined) {
         this._comment = value;
     }
+    
     public get increment(): number | undefined {
         return this._increment
     }
@@ -98,5 +102,6 @@ export class Sequence extends TerraformResource {
     public set increment(value: number | undefined) {
         this._increment = value;
     }
+    
 }
 
