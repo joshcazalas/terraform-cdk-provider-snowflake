@@ -2,6 +2,7 @@ import *  as Handlebars from "handlebars"
 import path from "path"
 import { readFileSync, writeFileSync } from "fs"
 import { writeParamsToJSON } from "./create_resources_json"
+import { cloneRepository } from "./clone_terrraform_provider"
 
 
 function toLowerCase(input: string) {
@@ -50,6 +51,7 @@ async function createCDKProviderFiles() {
 }
 
 async function main(): Promise<void> {
+    await cloneRepository()
     await createCDKProviderFiles()
 }
 

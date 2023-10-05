@@ -30,6 +30,7 @@ const Handlebars = __importStar(require("handlebars"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = require("fs");
 const create_resources_json_1 = require("./create_resources_json");
+const clone_terrraform_provider_1 = require("./clone_terrraform_provider");
 function toLowerCase(input) {
     if (!input) {
         return '';
@@ -64,6 +65,7 @@ async function createCDKProviderFiles() {
     (0, fs_1.writeFileSync)(`${parentDirectory}/src/snowflake_resources/index.ts`, indexTemplate(createdFiles));
 }
 async function main() {
+    await (0, clone_terrraform_provider_1.cloneRepository)();
     await createCDKProviderFiles();
 }
 main();
