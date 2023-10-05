@@ -20,7 +20,7 @@ To rebuild all Snowflake resource files, follow these steps:
 
 ## After Generating Files - Using This Provider
 
-- Go to [Snowflake Labs terraform-provider-snowflake Releases](https://github.com/Snowflake-Labs/terraform-provider-snowflake/releases)
+- Go to [Snowflake Labs Releases](https://github.com/Snowflake-Labs/terraform-provider-snowflake/releases)
 - Find the latest release and download the appropriate zip file (this example uses the linux_amd64 architecture)
 - Unzip the file and extract the terraform-provider-snowflake_v<VERSION> file
 - Copy the file into ~/.terraform.d/plugins/terraform-cdk-provider-snowflake/<VERSION>/<ARCHITECTURE>/
