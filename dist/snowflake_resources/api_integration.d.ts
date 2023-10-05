@@ -1,0 +1,61 @@
+import { TerraformMetaArguments, TerraformResource } from "cdktf";
+import { Construct } from "constructs";
+export interface Api_IntegrationConfig extends TerraformMetaArguments {
+    api_allowed_prefixes: string[];
+    api_provider: string;
+    name: string;
+    api_aws_role_arn?: string;
+    api_blocked_prefixes?: string[];
+    api_gcp_service_account?: string;
+    api_key?: string;
+    azure_ad_application_id?: string;
+    azure_tenant_id?: string;
+    comment?: string;
+    enabled?: boolean;
+    google_audience?: string;
+}
+export declare class Api_Integration extends TerraformResource {
+    _api_allowed_prefixes: string[];
+    _api_provider: string;
+    _name: string;
+    _api_aws_role_arn?: string;
+    _api_blocked_prefixes?: string[];
+    _api_gcp_service_account?: string;
+    _api_key?: string;
+    _azure_ad_application_id?: string;
+    _azure_tenant_id?: string;
+    _comment?: string;
+    _enabled?: boolean;
+    _google_audience?: string;
+    readonly _id: string;
+    constructor(scope: Construct, id: string, config: Api_IntegrationConfig);
+    getAttributes(): {
+        [name: string]: any;
+    };
+    get id(): string;
+    ref(attribute: string): string;
+    get api_allowed_prefixes(): string[];
+    set api_allowed_prefixes(value: string[]);
+    get api_provider(): string;
+    set api_provider(value: string);
+    get name(): string;
+    set name(value: string);
+    get api_aws_role_arn(): string | undefined;
+    set api_aws_role_arn(value: string | undefined);
+    get api_blocked_prefixes(): string[] | undefined;
+    set api_blocked_prefixes(value: string[] | undefined);
+    get api_gcp_service_account(): string | undefined;
+    set api_gcp_service_account(value: string | undefined);
+    get api_key(): string | undefined;
+    set api_key(value: string | undefined);
+    get azure_ad_application_id(): string | undefined;
+    set azure_ad_application_id(value: string | undefined);
+    get azure_tenant_id(): string | undefined;
+    set azure_tenant_id(value: string | undefined);
+    get comment(): string | undefined;
+    set comment(value: string | undefined);
+    get enabled(): boolean | undefined;
+    set enabled(value: boolean | undefined);
+    get google_audience(): string | undefined;
+    set google_audience(value: string | undefined);
+}
