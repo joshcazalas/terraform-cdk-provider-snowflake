@@ -6,11 +6,13 @@ import { TerraformMetaArguments, TerraformResource } from "cdktf";
 import { Construct } from "constructs";
 
 {{#each additional_types}}
-export interface {{this.name}} {
-    {{#each this.properties}}
-    {{this}}
+{{#each this}}
+    export interface {{name}} {
+        {{#each properties}}
+        {{this}}
+        {{/each}}
+    }
     {{/each}}
-}
 {{/each}}
 
 export interface {{name}}Config extends TerraformMetaArguments {

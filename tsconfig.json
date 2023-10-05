@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+      "outDir": "./dist/snowflake_resources",
+      // "declaration": true,
       "lib": ["ESNext", "dom"], 
       "target": "esNext", 
       "baseUrl": "./", 
@@ -18,6 +20,10 @@
     },
     "include": ["./**/*.ts"],
     "exclude": [
-      "node_modules/**/*"
+      "dist/**/*",
+      "node_modules/**/*",
+      // "tools/create_cdk_provider_files.ts",
+      // "tools/create_resources_json.ts",
+      // "tools/get_parameters/**",
     ]
   }

@@ -22,7 +22,6 @@ export async function getParams(file: string) {
         let optionalParams = await getOptionalParams(inputString)
         if (resourceName) {
             let allParams = await getAllParams(inputString, resourceName, requiredParams, optionalParams)
-            // console.dir(allParams, {depth:null})
             return allParams
         }
     }
@@ -34,10 +33,10 @@ export async function getParams(file: string) {
 
 export async function getAllParams(file:string, resource_name: string, requiredParams: string | requiredParameters[], optionalParams: string | optionalParameters[]) {
     let allParams;
-    if (requiredParams == 'Unable to find Required Parameters') {
+    if (requiredParams == 'Unable to find Required Parameters' || requiredParams == 'There is no Required Section in this File') {
         allParams = optionalParams
     }
-    else if (optionalParams == 'Unable to find Optional Parameters') {
+    else if (optionalParams == 'Unable to find Optional Parameters' || optionalParams == 'There is no Optional Section in this File') {
         allParams = requiredParams
     }
     else {

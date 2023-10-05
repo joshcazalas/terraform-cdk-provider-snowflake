@@ -3,7 +3,6 @@ import { checkForBlockList } from "./check_for_block_list";
 export function cleanTypes(input: string) {
     let checkedInput = checkForBlockList(input)
     if (checkedInput.includes(', deprecated')) {
-        console.log(`************************ it includes deprecated`)
         checkedInput = checkedInput.replace(', deprecated','')
     }
     switch (checkedInput.toLowerCase()) {
@@ -13,6 +12,8 @@ export function cleanTypes(input: string) {
         return 'string[]';
     case 'list of string':
         return 'string[]';
+    case 'set of number':
+        return 'Set<number>'
     case 'block list':
         return 'block list placeholder'
     // Add more cases for other possible values to replace

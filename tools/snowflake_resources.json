@@ -103,11 +103,6 @@
       "name": "value",
       "type": "string",
       "required": true
-    },
-    {
-      "name": "id",
-      "type": "string",
-      "required": true
     }
   ]
 },{
@@ -115,11 +110,6 @@
   "properties": [
     {
       "name": "password_policy",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "id",
       "type": "string",
       "required": true
     }
@@ -463,7 +453,7 @@
     },
     {
       "name": "header",
-      "type": "block set",
+      "type": "External_Function_Header[]",
       "required": false
     },
     {
@@ -2156,7 +2146,7 @@
     },
     {
       "name": "notify_triggers",
-      "type": "set of number",
+      "type": "Set<number>",
       "required": false
     },
     {
@@ -2181,7 +2171,7 @@
     },
     {
       "name": "suspend_immediate_triggers",
-      "type": "set of number",
+      "type": "Set<number>",
       "required": false
     },
     {
@@ -2191,7 +2181,7 @@
     },
     {
       "name": "suspend_triggers",
-      "type": "set of number",
+      "type": "Set<number>",
       "required": false
     },
     {
@@ -3133,11 +3123,6 @@
       "name": "table",
       "type": "string",
       "required": true
-    },
-    {
-      "name": "id",
-      "type": "string",
-      "required": true
     }
   ]
 },{
@@ -3358,7 +3343,7 @@
     },
     {
       "name": "timeouts",
-      "type": "block",
+      "type": "Tag_Association_Timeouts[]",
       "required": false
     }
   ]
@@ -3416,11 +3401,6 @@
     },
     {
       "name": "tag_id",
-      "type": "string",
-      "required": true
-    },
-    {
-      "name": "id",
       "type": "string",
       "required": true
     }
