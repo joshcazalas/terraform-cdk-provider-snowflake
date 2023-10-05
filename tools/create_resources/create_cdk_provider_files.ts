@@ -56,11 +56,13 @@ export async function createCDKProviderFiles() {
 
     await writeParamsToJSON()
 
-    const createdFiles: string[] = ['index']
+    const createdFiles: string[] = ['index', 'snowflake_provider']
     const parentDirectory = path.join(__dirname, '../..')
     const snowflakeResourcesJSON = readFileSync(`${path.join(__dirname, '..')}/snowflake_resources.json`, "utf-8")
     const snowflakResourceTemplate = Handlebars.compile(readFileSync(`${path.join(__dirname, '..')}/templates/snowflake_resource_template.hb`, "utf-8"), {noEscape: true, knownHelpers: {toLowerCase: true, nestedProperty: true}})
     const indexTemplate = Handlebars.compile(readFileSync(`${path.join(__dirname, '..')}/templates/index_template.hb`, "utf-8"), {noEscape: true, knownHelpers: {notEqual: true}})
+    const snowflakeProviderTemplate = Handlebars.compile(readFileSync(`${path.join(__dirname, '..')}/templates/snowflake_provider_template.hb`, "utf-8"), {noEscape: true})
+
 
     for (const snowflakeResource of JSON.parse(snowflakeResourcesJSON)) {
         createdFiles.push(snowflakeResource.name.toLowerCase())
@@ -69,11 +71,13 @@ export async function createCDKProviderFiles() {
         writeFileSync(`${file_name}.ts`, snowflakResourceTemplate(snowflakeResource))
     }
 
-    console.log("Writing Index to file: src/snowflake_resources/index.ts")
+    console.log("Writing Index File: src/snowflake_resources/index.ts")
     writeFileSync(`${parentDirectory}/src/snowflake_resources/index.ts`, indexTemplate(createdFiles))
+
+    console.log("Writing Snowflake Provider File: src/snowflake_resources/snowflake_provider.ts")
+    writeFileSync(`${parentDirectory}/src/snowflake_resources/snowflake_provider.ts`, snowflakeProviderTemplate(''))
 
     console.log('Removing Obsolete or Deprecated files...')
     await deleteObsoleteFiles(`${parentDirectory}/src/snowflake_resources/`, createdFiles)
     await deleteObsoleteFiles(`${parentDirectory}/dist/snowflake_resources/`, createdFiles)
 }
-

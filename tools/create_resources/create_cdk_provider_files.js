@@ -74,19 +74,22 @@ async function deleteObsoleteFiles(dir, resource_files) {
 exports.deleteObsoleteFiles = deleteObsoleteFiles;
 async function createCDKProviderFiles() {
     await (0, create_resources_json_1.writeParamsToJSON)();
-    const createdFiles = ['index'];
+    const createdFiles = ['index', 'snowflake_provider'];
     const parentDirectory = path_1.default.join(__dirname, '../..');
     const snowflakeResourcesJSON = (0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/snowflake_resources.json`, "utf-8");
     const snowflakResourceTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/snowflake_resource_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { toLowerCase: true, nestedProperty: true } });
     const indexTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/index_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { notEqual: true } });
+    const snowflakeProviderTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/snowflake_provider_template.hb`, "utf-8"), { noEscape: true });
     for (const snowflakeResource of JSON.parse(snowflakeResourcesJSON)) {
         createdFiles.push(snowflakeResource.name.toLowerCase());
         const file_name = `${parentDirectory}/src/snowflake_resources/${snowflakeResource.name.toLowerCase()}`;
         console.log(`Writing Snowflake Resource '${snowflakeResource.name}' to file: src/snowflake_resources/${snowflakeResource.name.toLowerCase()}.ts`);
         (0, fs_1.writeFileSync)(`${file_name}.ts`, snowflakResourceTemplate(snowflakeResource));
     }
-    console.log("Writing Index to file: src/snowflake_resources/index.ts");
+    console.log("Writing Index File: src/snowflake_resources/index.ts");
     (0, fs_1.writeFileSync)(`${parentDirectory}/src/snowflake_resources/index.ts`, indexTemplate(createdFiles));
+    console.log("Writing Snowflake Provider File: src/snowflake_resources/snowflake_provider.ts");
+    (0, fs_1.writeFileSync)(`${parentDirectory}/src/snowflake_resources/snowflake_provider.ts`, snowflakeProviderTemplate(''));
     console.log('Removing Obsolete or Deprecated files...');
     await deleteObsoleteFiles(`${parentDirectory}/src/snowflake_resources/`, createdFiles);
     await deleteObsoleteFiles(`${parentDirectory}/dist/snowflake_resources/`, createdFiles);
