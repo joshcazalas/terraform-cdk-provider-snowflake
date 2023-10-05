@@ -9,7 +9,7 @@ import { Construct } from "constructs";
 export interface AccountConfig extends TerraformMetaArguments {
     admin_name: string;
     edition: string;
-    email: string, sensitive;
+    email: string;
     name: string;
     admin_password?: string;
     admin_rsa_public_key?: string;
@@ -25,7 +25,7 @@ export interface AccountConfig extends TerraformMetaArguments {
 export class Account extends TerraformResource {
     _admin_name: string;
     _edition: string;
-    _email: string, sensitive;
+    _email: string;
     _name: string;
     _admin_password?: string;
     _admin_rsa_public_key?: string;
@@ -117,11 +117,11 @@ export class Account extends TerraformResource {
     public set edition(value: string) {
         this._edition = value;
     }
-    public get email(): string, sensitive {
+    public get email(): string {
         return this._email
     }
 
-    public set email(value: string, sensitive) {
+    public set email(value: string) {
         this._email = value;
     }
     public get name(): string {

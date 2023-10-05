@@ -12,11 +12,11 @@ async function writeToFile(fileAdded: string, filePath: string, newContents: str
   }
 }
 
-async function writeParamsToJSON() {
+export async function writeParamsToJSON() {
     let fileNames = fs.readdirSync('../terraform-provider-snowflake/docs/resources')
 
     // Empty the file by writing an empty string to it
-    fs.writeFileSync('./snowflake_resources.json', '[\n', 'utf-8');
+    fs.writeFileSync('./snowflake_resources.json', '[', 'utf-8');
 
     for (let i = 0; i < fileNames.length; i++) {
       const file = fileNames[i];
@@ -32,9 +32,3 @@ async function writeParamsToJSON() {
       }
     }
 }
-
-async function main(): Promise<void> {
-    await writeParamsToJSON()
-}
-
-main()

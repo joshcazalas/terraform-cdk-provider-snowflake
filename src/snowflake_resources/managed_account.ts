@@ -8,7 +8,7 @@ import { Construct } from "constructs";
 
 export interface Managed_AccountConfig extends TerraformMetaArguments {
     admin_name: string;
-    admin_password: string, sensitive;
+    admin_password: string;
     name: string;
     comment?: string;
     type?: string;
@@ -16,7 +16,7 @@ export interface Managed_AccountConfig extends TerraformMetaArguments {
 
 export class Managed_Account extends TerraformResource {
     _admin_name: string;
-    _admin_password: string, sensitive;
+    _admin_password: string;
     _name: string;
     _comment?: string;
     _type?: string;
@@ -70,11 +70,11 @@ export class Managed_Account extends TerraformResource {
     public set admin_name(value: string) {
         this._admin_name = value;
     }
-    public get admin_password(): string, sensitive {
+    public get admin_password(): string {
         return this._admin_password
     }
 
-    public set admin_password(value: string, sensitive) {
+    public set admin_password(value: string) {
         this._admin_password = value;
     }
     public get name(): string {

@@ -1,5 +1,4 @@
-[
-{
+[{
   "name": "Account",
   "properties": [
     {
@@ -14,7 +13,7 @@
     },
     {
       "name": "email",
-      "type": "string, sensitive",
+      "type": "string",
       "required": true
     },
     {
@@ -1341,7 +1340,7 @@
     },
     {
       "name": "admin_password",
-      "type": "string, sensitive",
+      "type": "string",
       "required": true
     },
     {
@@ -3564,7 +3563,7 @@
   "properties": [
     {
       "name": "name",
-      "type": "string, sensitive",
+      "type": "string",
       "required": true
     },
     {

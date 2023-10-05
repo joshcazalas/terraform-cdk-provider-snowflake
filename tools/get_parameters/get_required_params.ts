@@ -45,11 +45,14 @@ export async function getRequiredParams(file: string) {
                     let contentWithinParentheses = ''
                     let parenthesisMatch = parenthesesMatches[0]
                     contentWithinParentheses = parenthesisMatch.slice(1, -1); // Remove parentheses
-                    requiredParams.push({
-                        name: contentWithinBackticks,
-                        type: cleanTypes(contentWithinParentheses),
-                        required: true
-                    })
+                    let contentWithCommasRemoved = contentWithinParentheses.split(',')[0]
+                    if (contentWithCommasRemoved) {
+                        requiredParams.push({
+                            name: contentWithinBackticks,
+                            type: cleanTypes(contentWithCommasRemoved),
+                            required: true
+                        })
+                    }
                 }
             }
         }

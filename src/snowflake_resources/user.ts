@@ -7,7 +7,7 @@ import { Construct } from "constructs";
 
 
 export interface UserConfig extends TerraformMetaArguments {
-    name: string, sensitive;
+    name: string;
     comment?: string;
     default_namespace?: string;
     default_role?: string;
@@ -26,7 +26,7 @@ export interface UserConfig extends TerraformMetaArguments {
 }
 
 export class User extends TerraformResource {
-    _name: string, sensitive;
+    _name: string;
     _comment?: string;
     _default_namespace?: string;
     _default_role?: string;
@@ -118,11 +118,11 @@ export class User extends TerraformResource {
         return `\${snowflake_user.${this.friendlyUniqueId}.${attribute}}`;
     }
 
-    public get name(): string, sensitive {
+    public get name(): string {
         return this._name
     }
 
-    public set name(value: string, sensitive) {
+    public set name(value: string) {
         this._name = value;
     }
     public get comment(): string | undefined {
