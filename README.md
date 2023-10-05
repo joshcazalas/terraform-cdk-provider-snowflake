@@ -1,6 +1,6 @@
 # terraform-cdk-provider-snowflake
 
-**terraform-cdk-provider-snowflake** is a custom provider built on top of `terraform-provider-snowflake` by Snowflake Labs. You can find the original repository here: [terraform-provider-snowflake](https://github.com/Snowflake-Labs/terraform-provider-snowflake).
+**`terraform-cdk-provider-snowflake`** is a custom provider built on top of `terraform-provider-snowflake` by Snowflake Labs. You can find the original repository here: [terraform-provider-snowflake](https://github.com/Snowflake-Labs/terraform-provider-snowflake).
 
 ## How it Works
 The project automates the creation of a Terraform CDK library in TypeScript based on `terraform-provider-snowflake` by Snowflake Labs. Here's how it works:
