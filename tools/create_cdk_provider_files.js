@@ -30,6 +30,7 @@ const Handlebars = __importStar(require("handlebars"));
 const path_1 = __importDefault(require("path"));
 const child_process_1 = require("child_process");
 const fs_1 = require("fs");
+const promises_1 = require("fs/promises");
 const create_resources_json_1 = require("./create_resources_json");
 const clone_terrraform_provider_1 = require("./clone_terrraform_provider");
 Handlebars.registerHelper('toLowerCase', function (input) {
@@ -47,6 +48,26 @@ Handlebars.registerHelper('nestedProperty', function (context, property) {
     }
     return value;
 });
+async function deleteObsoleteFiles(dir, resource_files) {
+    try {
+        // Read the files in the directory
+        const files = await (0, promises_1.readdir)(dir); // Use fs.promises.readdir
+        // Loop through each file in the directory
+        for (const file of files) {
+            const resourceFileName = path_1.default.basename(file, path_1.default.extname(file)); // Remove file extension
+            // Check if the resource name is not in the array
+            if (!resource_files.includes(resourceFileName)) {
+                const filePath = path_1.default.join(dir, file);
+                // Delete the file
+                await (0, promises_1.unlink)(filePath); // Use fs.promises.unlink
+                console.log(`Deleted Obsolete/Deprecated file: ${filePath}`);
+            }
+        }
+    }
+    catch (error) {
+        console.error('Error deleting files:', error);
+    }
+}
 async function createCDKProviderFiles() {
     await (0, create_resources_json_1.writeParamsToJSON)();
     const createdFiles = [];
@@ -59,6 +80,9 @@ async function createCDKProviderFiles() {
         const file_name = `${parentDirectory}/src/snowflake_resources/${snowflakeResource.name.toLowerCase()}`;
         console.log(`Writing Snowflake Resource '${snowflakeResource.name}' to file: src/snowflake_resources/${snowflakeResource.name.toLowerCase()}.ts`);
         (0, fs_1.writeFileSync)(`${file_name}.ts`, snowflakResourceTemplate(snowflakeResource));
+        console.log('Removing Obsolete or Deprecated files...');
+        deleteObsoleteFiles(`${parentDirectory}/src/snowflake_resources/`, createdFiles);
+        deleteObsoleteFiles(`${parentDirectory}/dist/snowflake_resources/`, createdFiles);
     }
     console.log(createdFiles);
     console.log("Writing index.ts to file: src/snowflake_resources/index.ts");
