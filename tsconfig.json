@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "outDir": "./dist/snowflake_resources",
+      // "outDir": "./dist/snowflake_resources",
       // "declaration": true,
       "lib": ["ESNext", "dom"], 
       "target": "esNext", 

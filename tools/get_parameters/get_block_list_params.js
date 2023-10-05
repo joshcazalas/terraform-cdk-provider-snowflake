@@ -24,7 +24,6 @@ async function getBlockListParams(file) {
         let jsonOutput;
         let additionalProperties = { additional_properties: [{}] };
         while ((nestedMatch = nestedRegexPattern.exec(capturedText)) !== null) {
-            console.dir(nestedMatch, { depth: null });
             if (nestedMatch[1]) {
                 let blockListResourceName = await (0, get_block_list_resource_name_1.getBlockListResourceName)(nestedMatch[1]);
                 let blockListRequiredParams = await (0, get_block_list_required_params_1.getBlockListRequiredParams)(nestedMatch[1]);

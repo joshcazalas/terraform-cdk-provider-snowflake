@@ -23,7 +23,6 @@ async function getParams(file) {
         let optionalParams = await (0, get_optional_params_1.getOptionalParams)(inputString);
         if (resourceName) {
             let allParams = await getAllParams(inputString, resourceName, requiredParams, optionalParams);
-            // console.dir(allParams, {depth:null})
             return allParams;
         }
     }
