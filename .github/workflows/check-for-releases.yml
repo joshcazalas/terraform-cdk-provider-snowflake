@@ -24,4 +24,4 @@ jobs:
 
             console.log(`Latest release tag: ${latestReleaseTag}`);
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.EXTERNAL_REPO_PAT }}
