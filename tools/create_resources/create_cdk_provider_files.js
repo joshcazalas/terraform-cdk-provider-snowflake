@@ -50,6 +50,36 @@ Handlebars.registerHelper('nestedProperty', function (context, property) {
 Handlebars.registerHelper('notEqual', function (a, b, options) {
     return a !== b ? options.fn(this) : options.inverse(this);
 });
+async function readFirst100Lines(filePath) {
+    const content = (0, fs_1.readFileSync)(filePath, 'utf8');
+    const lines = content.split('\n');
+    const first100Lines = lines.slice(0, 100);
+    return first100Lines.join('\n');
+}
+async function extractVersion(changelog) {
+    const versionRegex = /\[([\d.]+)\]/;
+    const match = changelog.match(versionRegex);
+    if (match && match[1]) {
+        console.log('************************* Rebuilding Snowflake Provider Using Version ' + match[1] + ' *************************');
+        return match ? match[1] : null;
+    }
+    else {
+        return null;
+    }
+}
+function replacePlaceholderInFile(filePath, replacementText) {
+    try {
+        // Read the file contents
+        let fileContents = (0, fs_1.readFileSync)(filePath, 'utf8');
+        // Replace the placeholder with the provided text
+        fileContents = fileContents.replace(/PROVIDER_VERSION_PLACEHOLDER/g, replacementText);
+        // Write the modified contents back to the file
+        (0, fs_1.writeFileSync)(filePath, fileContents, 'utf8');
+    }
+    catch (error) {
+        console.error('Error replacing placeholder:', error);
+    }
+}
 async function deleteObsoleteFiles(dir, resource_files) {
     try {
         // Read the files in the directory
@@ -73,9 +103,11 @@ async function deleteObsoleteFiles(dir, resource_files) {
 }
 exports.deleteObsoleteFiles = deleteObsoleteFiles;
 async function createCDKProviderFiles() {
+    const parentDirectory = path_1.default.join(__dirname, '../..');
+    const changeLog = await readFirst100Lines(`${parentDirectory}/terraform-provider-snowflake/CHANGELOG.md`);
+    const providerVersion = await extractVersion(changeLog);
     await (0, create_resources_json_1.writeParamsToJSON)();
     const createdFiles = ['index', 'snowflake_provider'];
-    const parentDirectory = path_1.default.join(__dirname, '../..');
     const snowflakeResourcesJSON = (0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/snowflake_resources.json`, "utf-8");
     const snowflakResourceTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/snowflake_resource_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { toLowerCase: true, nestedProperty: true } });
     const indexTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/index_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { notEqual: true } });
@@ -90,6 +122,9 @@ async function createCDKProviderFiles() {
     (0, fs_1.writeFileSync)(`${parentDirectory}/src/snowflake_resources/index.ts`, indexTemplate(createdFiles));
     console.log("Writing Snowflake Provider File: src/snowflake_resources/snowflake_provider.ts");
     (0, fs_1.writeFileSync)(`${parentDirectory}/src/snowflake_resources/snowflake_provider.ts`, snowflakeProviderTemplate(''));
+    if (providerVersion) {
+        replacePlaceholderInFile(`${parentDirectory}/src/snowflake_resources/snowflake_provider.ts`, providerVersion);
+    }
     console.log('Removing Obsolete or Deprecated files...');
     await deleteObsoleteFiles(`${parentDirectory}/src/snowflake_resources/`, createdFiles);
     await deleteObsoleteFiles(`${parentDirectory}/dist/snowflake_resources/`, createdFiles);

@@ -8,15 +8,15 @@ The project automates the creation of a Terraform CDK library in TypeScript base
 1. The latest version of `terraform-provider-snowflake` is cloned from the Snowflake Labs repository.
 2. README files for each of the resources are parsed to extract information.
 3. This information is then used to generate TypeScript interfaces.
-4. The resources and their parameters are organized into a JSON file located at `tools/snowflake_resources.json`.
-5. Handlebars templates, located in `tools/templates`, are used to loop through the JSON data and create a TypeScript file for each resource.
+4. The resources and their parameters are organized from these interfaces into a JSON file located at `tools/snowflake_resources.json`.
+5. Template files, located in `tools/templates`, are used to loop through the JSON data and create a TypeScript file for each resource.
 6. All generated files in `src/snowflake_resources` are compiled into `dist/snowflake_resources`.
 
 ## Getting Started
 To rebuild all Snowflake resource files, follow these steps:
 
 1. Run `npm install` to install the necessary dependencies.
-2. Execute the `main.js` script to generate the Terraform CDK files.
+2. Execute the `main.js` script by running `node main.js` to generate the Terraform CDK files.
 
 ## After Generating Files - Using This Provider
 
