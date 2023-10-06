@@ -1,0 +1,26 @@
+name: Check for New Release
+
+on:
+  schedule:
+    # Define your schedule here (e.g., every day)
+    - cron: '0 6 * * *'
+
+jobs:
+  check-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check for New Release
+        id: check-release
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const response = await github.repos.getLatestRelease({
+              owner: 'Snowflake-Labs',
+              repo: 'terraform-provider-snowflake'
+            });
+            const latestReleaseTag = response.data.tag_name;
+
+            console.log(`Latest release tag: ${latestReleaseTag}`);
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
