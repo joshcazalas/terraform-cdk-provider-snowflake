@@ -1,9 +1,10 @@
 name: Check for New Release
 
 on:
-  schedule:
-    # Define your schedule here (e.g., every day)
-    - cron: '0 6 * * *'
+  workflow_dispatch
+  # schedule:
+  #   # Define your schedule here (e.g., every day)
+  #   - cron: '0 6 * * *'
 
 jobs:
   check-release:
