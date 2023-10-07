@@ -28,4 +28,4 @@ jobs:
 
       - name: Print Release Info
         run: |
-          echo "Release Name: ${{ steps.check-release.outputs.release }}
+          echo "Release Name: ${{ steps.check-release.outputs.release }}"
