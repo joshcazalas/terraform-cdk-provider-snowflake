@@ -30,9 +30,10 @@ jobs:
       - name: Get Your Repository's Version
         id: get-version
         run: |
-            # Use grep and awk to extract the version from the file
-            version=$(grep -oE 'version: "[0-9]+\.[0-9]+\.[0-9]+"' src/snowflake_resources/snowflake_provider.ts | awk -F'"' '{print $2}')
-            echo "::set-output name=MY_VERSION::$version"
+          cat src/snowflake_resources/snowflake_provider.ts  # Check file contents
+          version=$(grep -oE 'version: "[0-9]+\.[0-9]+\.[0-9]+"' src/snowflake_resources/snowflake_provider.ts | awk -F'"' '{print $2}')
+          echo "Extracted Version: $version"
+          echo "::set-output name=MY_VERSION::$version"
         shell: bash
 
       - name: Print Release Info
