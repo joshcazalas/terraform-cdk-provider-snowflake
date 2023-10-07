@@ -1,35 +1,23 @@
-name: Check for New Release
+name: Check for Release
 
 on:
-  workflow_dispatch
-  # schedule:
-  #   # Define your schedule here (e.g., every day)
-  #   - cron: '0 6 * * *'
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   check-release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Check for Release
+        uses: octokit/rest.js@v2
         with:
-          node-version: 18
-          
-      - name: Install Dependencies
-        run: npm install
-        
-      - name: Check for New Release
-        id: check-release
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const response = await github.repos.getLatestRelease({
-              owner: 'Snowflake-Labs',
-              repo: 'terraform-provider-snowflake'
-            });
-            const latestReleaseTag = response.data.tag_name;
+          github-token: ${{ secrets.EXTERNAL_REPO_PAT }}
+          method: GET
+          url: https://api.github.com/repos/other-person/other-repo/releases/latest
 
-            console.log(`Latest release tag: ${latestReleaseTag}`);
-        env:
-          GITHUB_TOKEN: ${{ secrets.EXTERNAL_REPO_PAT }}
+      - name: Print Release Info
+        run: |
+          echo "Release Name: ${{ steps.check-release.outputs.data.name }}"
+          echo "Release Tag: ${{ steps.check-release.outputs.data.tag_name }}"
+        if: steps.check-release.outputs.status == 200
