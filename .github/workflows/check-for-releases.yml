@@ -20,13 +20,13 @@ jobs:
         run: npm install
 
       - name: Check for Release
+        uses: pozetroninc/github-action-get-latest-release@master
         with:
+          owner: Snowflake-Labs
+          repo: terraform-provider-snowflake
+          excludes: prerelease, draft
           github-token: ${{ secrets.EXTERNAL_REPO_PAT }}
-          method: GET
-          url: https://api.github.com/repos/Snowflake-Labs/terraform-provider-snowflake/releases/latest
 
       - name: Print Release Info
         run: |
-          echo "Release Name: ${{ steps.check-release.outputs.data.name }}"
-          echo "Release Tag: ${{ steps.check-release.outputs.data.tag_name }}"
-        if: steps.check-release.outputs.status == 200
+          echo "Release Name: ${{ steps.check-release.outputs.release }}
