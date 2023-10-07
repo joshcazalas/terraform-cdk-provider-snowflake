@@ -26,6 +26,14 @@ jobs:
           owner: Snowflake-Labs
           repo: terraform-provider-snowflake
           excludes: prerelease, draft
+        
+      - name: Get Your Repository's Version
+        id: get-version
+        run: |
+            # Use grep and awk to extract the version from the file
+            version=$(grep -oE 'version: "[0-9]+\.[0-9]+\.[0-9]+"' src/snowflake_resources/snowflake_provider.ts | awk -F'"' '{print $2}')
+            echo "::set-output name=MY_VERSION::$version"
+        shell: bash
 
       - name: Print Release Info
         run: |
