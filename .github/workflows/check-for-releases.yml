@@ -25,7 +25,6 @@ jobs:
           owner: Snowflake-Labs
           repo: terraform-provider-snowflake
           excludes: prerelease, draft
-          github-token: ${{ secrets.EXTERNAL_REPO_PAT }}
 
       - name: Print Release Info
         run: |
