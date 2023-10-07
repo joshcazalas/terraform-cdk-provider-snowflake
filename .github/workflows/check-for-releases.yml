@@ -20,11 +20,10 @@ jobs:
         run: npm install
 
       - name: Check for Release
-        uses: octokit/rest.js@v20.0.2
         with:
           github-token: ${{ secrets.EXTERNAL_REPO_PAT }}
           method: GET
-          url: https://api.github.com/repos/other-person/other-repo/releases/latest
+          url: https://api.github.com/repos/Snowflake-Labs/terraform-provider-snowflake/releases/latest
 
       - name: Print Release Info
         run: |
