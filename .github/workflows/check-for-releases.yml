@@ -35,7 +35,17 @@ jobs:
           echo $version
         shell: bash
 
-      - name: Print Release Info
+      - name: Compare Release and Version
+        id: compare-release-version
         run: |
-          echo "Release Name: ${{ steps.get-release.outputs.release }}"
-          echo "Extracted Version: ${{ steps.get-version.outputs.MY_VERSION }}"
+          release="${{ steps.get-release.outputs.release }}"
+          extracted_version="${{ steps.get-version.outputs.MY_VERSION }}"
+
+          if [ "$release" = "$extracted_version" ]; then
+            echo "Versions Match: true"
+            echo "::set-output name=MATCHES::true"
+          else
+            echo "Versions Do Not Match: false"
+            echo "::set-output name=MATCHES::false"
+          fi
+        shell: bash
