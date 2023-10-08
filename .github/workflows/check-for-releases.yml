@@ -53,7 +53,7 @@ jobs:
         id: run-updates
         run: |
           match="${{ steps.compare-release-version.outputs.MATCHES }}"
-          if [ "$match" = true ]; then
+          if [ "$match" == 'true' ]; then
             echo "terraform-cdk-snowflake-provider is already up to date!"
           else
             node main.js
