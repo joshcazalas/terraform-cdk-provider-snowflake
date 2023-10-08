@@ -37,3 +37,4 @@ jobs:
       - name: Print Release Info
         run: |
           echo "Release Name: ${{ steps.get-release.outputs.release }}"
+          echo "Extracted Version: ${{ steps.get-version.outputs.MY_VERSION }}
