@@ -56,6 +56,7 @@ jobs:
           if [ "$match" == 'true' ]; then
             echo "terraform-cdk-snowflake-provider is already up to date!"
           else
+            ll
             node main.js
             git status
           fi
