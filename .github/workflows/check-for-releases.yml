@@ -45,7 +45,7 @@ jobs:
             echo "Versions Match: true"
             echo "::set-output name=MATCHES::true"
           else
-            echo "Versions Do Not Match: false"
+            echo "Versions Match: false"
             echo "::set-output name=MATCHES::false"
           fi
         shell: bash
