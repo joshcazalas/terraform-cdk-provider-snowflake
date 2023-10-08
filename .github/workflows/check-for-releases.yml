@@ -57,6 +57,8 @@ jobs:
             echo "terraform-cdk-snowflake-provider is already up to date!"
           else
             ls -al
+            cd terraform-provider-snowflake
+            ls -al
             node main.js
             git status
           fi
