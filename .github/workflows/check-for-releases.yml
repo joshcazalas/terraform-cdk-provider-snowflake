@@ -32,9 +32,10 @@ jobs:
         run: |
           version=$(cat src/snowflake_resources/snowflake_provider.ts | grep -oE 'providerVersionConstraint: "[0-9]+\.[0-9]+\.[0-9]+"' | awk -F'"' '{print $2}')
           echo "::set-output name=MY_VERSION::$version"
+          echo $version
         shell: bash
 
       - name: Print Release Info
         run: |
           echo "Release Name: ${{ steps.get-release.outputs.release }}"
-          echo "Extracted Version: ${{ steps.get-version.outputs.MY_VERSION }}
+          echo "Extracted Version: ${{ steps.get-version.outputs.MY_VERSION }}"
