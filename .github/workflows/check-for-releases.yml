@@ -58,3 +58,5 @@ jobs:
           else
             node main.js
             git status
+          fi
+        shell: bash
