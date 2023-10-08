@@ -27,7 +27,7 @@ jobs:
           repo: terraform-provider-snowflake
           excludes: prerelease, draft
         
-      - name: Get Your Repository's Version
+      - name: Get terraform-cdk-provider-snowflake Version
         id: get-version
         run: |
           version=$(cat src/snowflake_resources/snowflake_provider.ts | grep -oE 'providerVersionConstraint: "[0-9]+\.[0-9]+\.[0-9]+"' | awk -F'"' '{print "v"$2}')
@@ -49,3 +49,12 @@ jobs:
             echo "::set-output name=MATCHES::false"
           fi
         shell: bash
+      - name: Run Updates for New Release 
+        id: run-updates
+        run: |
+          match="${{ steps.compare-release-version.outputs.MATCHES }}"
+          if [ "$match" = true ]; then
+            echo "terraform-cdk-snowflake-provider is already up to date!"
+          else
+            node main.js
+            git status
