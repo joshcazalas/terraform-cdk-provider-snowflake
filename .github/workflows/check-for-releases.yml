@@ -31,9 +31,6 @@ jobs:
         id: get-version
         run: |
           file_content = $(cat src/snowflake_resources/snowflake_provider.ts)
-          # version=$(echo "$file_content" | grep -oE 'providerVersionConstraint: "[0-9]+\.[0-9]+\.[0-9]+"' | awk -F'"' '{print $2}')
-          # echo "::set-output name=MY_VERSION::$version"
-          # echo "Extracted Version: $version"
         shell: bash
 
       - name: Print Release Info
