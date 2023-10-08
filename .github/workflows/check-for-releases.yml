@@ -30,7 +30,8 @@ jobs:
       - name: Get Your Repository's Version
         id: get-version
         run: |
-          file_content = $(cat src/snowflake_resources/snowflake_provider.ts)
+          version=$(cat src/snowflake_resources/snowflake_provider.ts | grep -oE 'providerVersionConstraint: "[0-9]+\.[0-9]+\.[0-9]+"' | awk -F'"' '{print $2}')
+          echo "::set-output name=MY_VERSION::$version"
         shell: bash
 
       - name: Print Release Info
