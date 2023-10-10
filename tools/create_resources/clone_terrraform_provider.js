@@ -27,10 +27,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cloneRepository = void 0;
-const isomorphic_git_1 = require("isomorphic-git");
+const child_process_1 = require("child_process");
 const fs = __importStar(require("fs"));
 const path_1 = __importDefault(require("path"));
-const node_1 = __importDefault(require("isomorphic-git/http/node"));
 function deleteDirectoryRecursive(dirPath) {
     if (fs.existsSync(dirPath)) {
         fs.readdirSync(dirPath).forEach((file) => {
@@ -54,18 +53,14 @@ function recreateDirectory(dirPath) {
 }
 async function cloneRepository() {
     const repoURL = 'https://github.com/Snowflake-Labs/terraform-provider-snowflake';
-    const targetDirectory = '../terraform-provider-snowflake'; // Replace with the directory where you want to clone the repository.
-    deleteDirectoryRecursive(targetDirectory);
-    recreateDirectory(targetDirectory);
+    const targetDirectory = ''; // Replace with the directory where you want to clone the repository.
+    const deleteDirectory = 'terraform-provider-snowflake';
+    deleteDirectoryRecursive(deleteDirectory);
+    recreateDirectory(deleteDirectory);
     try {
-        // Clone the repository
-        await (0, isomorphic_git_1.clone)({
-            fs,
-            http: node_1.default,
-            dir: targetDirectory,
-            url: repoURL,
-            singleBranch: true,
-            depth: 1, // Limit the history to the latest commit
+        (0, child_process_1.execSync)(`git clone ${repoURL}`, {
+            stdio: [0, 1, 2],
+            cwd: path_1.default.resolve(targetDirectory, ''), // path to where you want to save the file
         });
         console.log('Repository cloned successfully.');
         // Now you can access the files in the cloned directory.

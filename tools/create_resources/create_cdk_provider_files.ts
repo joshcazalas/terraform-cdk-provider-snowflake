@@ -95,7 +95,8 @@ export async function createCDKProviderFiles() {
   await writeParamsToJSON()
 
   const createdFiles: string[] = ['index', 'snowflake_provider']
-  const snowflakeResourcesJSON = readFileSync(`${path.join(__dirname, '..')}/snowflake_resources.json`, "utf-8")
+  // const snowflakeResourcesJSON = readFileSync(`${path.join(__dirname, '..')}/snowflake_resources.json`, "utf-8")
+  const snowflakeResourcesJSON = readFileSync(`tools/snowflake_resources.json`, "utf-8")
   const snowflakResourceTemplate = Handlebars.compile(readFileSync(`${path.join(__dirname, '..')}/templates/snowflake_resource_template.hb`, "utf-8"), {noEscape: true, knownHelpers: {toLowerCase: true, nestedProperty: true}})
   const indexTemplate = Handlebars.compile(readFileSync(`${path.join(__dirname, '..')}/templates/index_template.hb`, "utf-8"), {noEscape: true, knownHelpers: {notEqual: true}})
   const snowflakeProviderTemplate = Handlebars.compile(readFileSync(`${path.join(__dirname, '..')}/templates/snowflake_provider_template.hb`, "utf-8"), {noEscape: true})

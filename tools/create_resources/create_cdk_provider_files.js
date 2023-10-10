@@ -108,7 +108,8 @@ async function createCDKProviderFiles() {
     const providerVersion = await extractVersion(changeLog);
     await (0, create_resources_json_1.writeParamsToJSON)();
     const createdFiles = ['index', 'snowflake_provider'];
-    const snowflakeResourcesJSON = (0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/snowflake_resources.json`, "utf-8");
+    // const snowflakeResourcesJSON = readFileSync(`${path.join(__dirname, '..')}/snowflake_resources.json`, "utf-8")
+    const snowflakeResourcesJSON = (0, fs_1.readFileSync)(`tools/snowflake_resources.json`, "utf-8");
     const snowflakResourceTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/snowflake_resource_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { toLowerCase: true, nestedProperty: true } });
     const indexTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/index_template.hb`, "utf-8"), { noEscape: true, knownHelpers: { notEqual: true } });
     const snowflakeProviderTemplate = Handlebars.compile((0, fs_1.readFileSync)(`${path_1.default.join(__dirname, '..')}/templates/snowflake_provider_template.hb`, "utf-8"), { noEscape: true });
