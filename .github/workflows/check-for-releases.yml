@@ -58,6 +58,9 @@ jobs:
             echo "terraform-cdk-snowflake-provider is already up to date!"
           else
             node main.js
-            git status
+            git add .
+            version="${{ steps.get-release.outputs.release }}"
+            git commit -m "Update Triggered by GitHub Actions Workflow for New Release $version"
+            git push
           fi
         shell: bash
