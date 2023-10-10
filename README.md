@@ -24,6 +24,7 @@ To rebuild all Snowflake resource files, follow these steps:
 - Find the latest release and download the appropriate zip file (this example uses the linux_amd64 architecture)
 - Unzip the file and extract the terraform-provider-snowflake_v&lt;VERSION&gt; file
 - Copy the file into ~/.terraform.d/plugins/terraform-cdk-provider-snowflake/&lt;VERSION&gt;/&lt;ARCHITECTURE&gt;/
+- Clone this repo down into the desired project
 
 ## Example Copying Provider File from Downloads Folder to Correct Directory Using linux_amd64 and Version 0.72.0 
  - `mkdir -p ~/.terraform.d/plugins/terraform-provider-snowflake/0.72.0/linux_amd64 && cp /mnt/c/Users/<YOUR USER NAME>/Downloads/terraform-provider-snowflake_v0.72.0 ~/.terraform.d/plugins/terraform-provider-snowflake/0.72.0/linux_amd64`
