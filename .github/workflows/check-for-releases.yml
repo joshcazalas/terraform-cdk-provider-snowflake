@@ -60,6 +60,8 @@ jobs:
             node main.js
             git add .
             version="${{ steps.get-release.outputs.release }}"
+            git config --global user.name "GitHubActions"
+            git config --global user.email "GithubActions@github.com"
             git commit -m "Update Triggered by GitHub Actions Workflow for New Release $version"
             git push
           fi
