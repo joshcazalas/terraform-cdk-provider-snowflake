@@ -52,6 +52,10 @@ jobs:
         
       - name: Run Updates for New Release 
         id: run-updates
+        env: 
+          PAT: ${{ secrets.EXTERNAL_REPO_PAT }}
+          USERNAME: ${{ secrets.USERNAME }}
+          EMAIL: ${{ secrets.EMAIL }}
         run: |
           match="${{ steps.compare-release-version.outputs.MATCHES }}"
           if [ "$match" == 'true' ]; then
@@ -60,9 +64,10 @@ jobs:
             node main.js
             git add .
             version="${{ steps.get-release.outputs.release }}"
-            git config --global user.name "GitHubActions"
-            git config --global user.email "GithubActions@github.com"
+            git config user.name "$USERNAME"
+            git config user.email "$EMAIL"
             git commit -m "Update Triggered by GitHub Actions Workflow for New Release $version"
-            git push
+            git remote set-url origin https://$PAT@github.com/joshcazalas/terraform-cdk-provider-snowflake.git
+            git push origin main
           fi
         shell: bash
