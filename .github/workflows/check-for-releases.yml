@@ -19,13 +19,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Try Cloning Provider
-        run: |
-          cd tools/create_resources
-          node clone_terrraform_provider.js
-          cd ../../terraform-provider-snowflake/
-          ls -al
-
       - name: Check for Release
         id: get-release
         uses: pozetroninc/github-action-get-latest-release@master
@@ -56,6 +49,7 @@ jobs:
             echo "::set-output name=MATCHES::false"
           fi
         shell: bash
+        
       - name: Run Updates for New Release 
         id: run-updates
         run: |
@@ -63,9 +57,6 @@ jobs:
           if [ "$match" == 'true' ]; then
             echo "terraform-cdk-snowflake-provider is already up to date!"
           else
-            ls -al
-            cd terraform-provider-snowflake
-            ls -al
             node main.js
             git status
           fi
