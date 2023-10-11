@@ -33,7 +33,7 @@ export class SnowflakeProvider extends TerraformProvider {
             terraformResourceType: "snowflake",
             terraformGeneratorMetadata: {
                 providerName: "snowflake",
-                providerVersionConstraint: "0.72.0"
+                providerVersionConstraint: "0.73.0"
             },
             terraformProviderSource: "terraform-cdk-provider-snowflake"
         })
