@@ -2,7 +2,7 @@ name: Check for Release
 
 on:
   schedule:
-    - cron: '0 12 * * *'  # Cron expression for 12 PM UTC (6 AM CST)
+    - cron: '30 16 * * *'  # Cron expression for 12 PM UTC (6 AM CST)
 
 jobs:
   check-release:
