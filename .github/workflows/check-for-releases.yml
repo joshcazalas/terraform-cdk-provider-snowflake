@@ -1,7 +1,8 @@
 name: Check for Release
 
 on:
-  workflow_dispatch:  # Allows manual triggering
+  schedule:
+    - cron: '0 12 * * *'  # Cron expression for 12 PM UTC (6 AM CST)
 
 jobs:
   check-release:
