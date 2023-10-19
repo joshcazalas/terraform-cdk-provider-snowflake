@@ -26,6 +26,7 @@ __exportStar(require("./api_integration"), exports);
 __exportStar(require("./database"), exports);
 __exportStar(require("./database_grant"), exports);
 __exportStar(require("./database_role"), exports);
+__exportStar(require("./dynamic_table"), exports);
 __exportStar(require("./email_notification_integration"), exports);
 __exportStar(require("./external_function"), exports);
 __exportStar(require("./external_oauth_integration"), exports);

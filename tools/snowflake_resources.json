@@ -362,6 +362,62 @@
     ]
   },
   {
+    "name": "Dynamic_Table",
+    "additional_types": [
+      [
+        {
+          "name": "Dynamic_Table_Target_Lag",
+          "properties": [
+            "readonly downstream?: boolean;",
+            "readonly maximum_duration?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "query",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "target_lag",
+        "type": "Dynamic_Table_Target_Lag[]",
+        "required": true
+      },
+      {
+        "name": "warehouse",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "comment",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "or_replace",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
     "name": "Email_Notification_Integration",
     "properties": [
       {

@@ -11,6 +11,7 @@ export * from "./api_integration";
 export * from "./database";
 export * from "./database_grant";
 export * from "./database_role";
+export * from "./dynamic_table";
 export * from "./email_notification_integration";
 export * from "./external_function";
 export * from "./external_oauth_integration";
