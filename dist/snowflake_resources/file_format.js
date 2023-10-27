@@ -29,6 +29,7 @@ class File_Format extends cdktf_1.TerraformResource {
     _file_extension;
     _ignore_utf8_errors;
     _null_if;
+    _parse_header;
     _preserve_space;
     _record_delimiter;
     _replace_invalid_characters;
@@ -77,6 +78,7 @@ class File_Format extends cdktf_1.TerraformResource {
         this._file_extension = config.file_extension;
         this._ignore_utf8_errors = config.ignore_utf8_errors;
         this._null_if = config.null_if;
+        this._parse_header = config.parse_header;
         this._preserve_space = config.preserve_space;
         this._record_delimiter = config.record_delimiter;
         this._replace_invalid_characters = config.replace_invalid_characters;
@@ -115,6 +117,7 @@ class File_Format extends cdktf_1.TerraformResource {
             file_extension: this._file_extension,
             ignore_utf8_errors: this._ignore_utf8_errors,
             null_if: this._null_if,
+            parse_header: this._parse_header,
             preserve_space: this._preserve_space,
             record_delimiter: this._record_delimiter,
             replace_invalid_characters: this._replace_invalid_characters,
@@ -272,6 +275,12 @@ class File_Format extends cdktf_1.TerraformResource {
     }
     set null_if(value) {
         this._null_if = value;
+    }
+    get parse_header() {
+        return this._parse_header;
+    }
+    set parse_header(value) {
+        this._parse_header = value;
     }
     get preserve_space() {
         return this._preserve_space;

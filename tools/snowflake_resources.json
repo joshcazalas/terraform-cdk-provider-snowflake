@@ -1008,6 +1008,11 @@
         "required": false
       },
       {
+        "name": "parse_header",
+        "type": "boolean",
+        "required": false
+      },
+      {
         "name": "preserve_space",
         "type": "boolean",
         "required": false

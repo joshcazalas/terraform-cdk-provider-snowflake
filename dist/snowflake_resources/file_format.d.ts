@@ -24,6 +24,7 @@ export interface File_FormatConfig extends TerraformMetaArguments {
     file_extension?: string;
     ignore_utf8_errors?: boolean;
     null_if?: string[];
+    parse_header?: boolean;
     preserve_space?: boolean;
     record_delimiter?: string;
     replace_invalid_characters?: boolean;
@@ -61,6 +62,7 @@ export declare class File_Format extends TerraformResource {
     _file_extension?: string;
     _ignore_utf8_errors?: boolean;
     _null_if?: string[];
+    _parse_header?: boolean;
     _preserve_space?: boolean;
     _record_delimiter?: string;
     _replace_invalid_characters?: boolean;
@@ -126,6 +128,8 @@ export declare class File_Format extends TerraformResource {
     set ignore_utf8_errors(value: boolean | undefined);
     get null_if(): string[] | undefined;
     set null_if(value: string[] | undefined);
+    get parse_header(): boolean | undefined;
+    set parse_header(value: boolean | undefined);
     get preserve_space(): boolean | undefined;
     set preserve_space(value: boolean | undefined);
     get record_delimiter(): string | undefined;

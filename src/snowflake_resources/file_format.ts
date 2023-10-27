@@ -30,6 +30,7 @@ export interface File_FormatConfig extends TerraformMetaArguments {
     file_extension?: string;
     ignore_utf8_errors?: boolean;
     null_if?: string[];
+    parse_header?: boolean;
     preserve_space?: boolean;
     record_delimiter?: string;
     replace_invalid_characters?: boolean;
@@ -68,6 +69,7 @@ export class File_Format extends TerraformResource {
     _file_extension?: string;
     _ignore_utf8_errors?: boolean;
     _null_if?: string[];
+    _parse_header?: boolean;
     _preserve_space?: boolean;
     _record_delimiter?: string;
     _replace_invalid_characters?: boolean;
@@ -141,6 +143,8 @@ export class File_Format extends TerraformResource {
         
         this._null_if = config.null_if;
         
+        this._parse_header = config.parse_header;
+        
         this._preserve_space = config.preserve_space;
         
         this._record_delimiter = config.record_delimiter;
@@ -190,6 +194,7 @@ export class File_Format extends TerraformResource {
             file_extension: this._file_extension,
             ignore_utf8_errors: this._ignore_utf8_errors,
             null_if: this._null_if,
+            parse_header: this._parse_header,
             preserve_space: this._preserve_space,
             record_delimiter: this._record_delimiter,
             replace_invalid_characters: this._replace_invalid_characters,
@@ -395,6 +400,14 @@ export class File_Format extends TerraformResource {
 
     public set null_if(value: string[] | undefined) {
         this._null_if = value;
+    }
+    
+    public get parse_header(): boolean | undefined {
+        return this._parse_header
+    }
+
+    public set parse_header(value: boolean | undefined) {
+        this._parse_header = value;
     }
     
     public get preserve_space(): boolean | undefined {
