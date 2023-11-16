@@ -18,6 +18,7 @@ export interface TaskConfig extends TerraformMetaArguments {
     error_integration?: string;
     schedule?: string;
     session_parameters?: Record<string, string>;
+    suspend_task_after_num_failures?: number;
     user_task_managed_initial_warehouse_size?: string;
     user_task_timeout_ms?: number;
     warehouse?: string;
@@ -36,6 +37,7 @@ export class Task extends TerraformResource {
     _error_integration?: string;
     _schedule?: string;
     _session_parameters?: Record<string, string>;
+    _suspend_task_after_num_failures?: number;
     _user_task_managed_initial_warehouse_size?: string;
     _user_task_timeout_ms?: number;
     _warehouse?: string;
@@ -77,6 +79,8 @@ export class Task extends TerraformResource {
         
         this._session_parameters = config.session_parameters;
         
+        this._suspend_task_after_num_failures = config.suspend_task_after_num_failures;
+        
         this._user_task_managed_initial_warehouse_size = config.user_task_managed_initial_warehouse_size;
         
         this._user_task_timeout_ms = config.user_task_timeout_ms;
@@ -98,6 +102,7 @@ export class Task extends TerraformResource {
             error_integration: this._error_integration,
             schedule: this._schedule,
             session_parameters: this._session_parameters,
+            suspend_task_after_num_failures: this._suspend_task_after_num_failures,
             user_task_managed_initial_warehouse_size: this._user_task_managed_initial_warehouse_size,
             user_task_timeout_ms: this._user_task_timeout_ms,
             warehouse: this._warehouse,
@@ -199,6 +204,14 @@ export class Task extends TerraformResource {
 
     public set session_parameters(value: Record<string, string> | undefined) {
         this._session_parameters = value;
+    }
+    
+    public get suspend_task_after_num_failures(): number | undefined {
+        return this._suspend_task_after_num_failures
+    }
+
+    public set suspend_task_after_num_failures(value: number | undefined) {
+        this._suspend_task_after_num_failures = value;
     }
     
     public get user_task_managed_initial_warehouse_size(): string | undefined {

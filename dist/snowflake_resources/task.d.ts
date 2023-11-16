@@ -12,6 +12,7 @@ export interface TaskConfig extends TerraformMetaArguments {
     error_integration?: string;
     schedule?: string;
     session_parameters?: Record<string, string>;
+    suspend_task_after_num_failures?: number;
     user_task_managed_initial_warehouse_size?: string;
     user_task_timeout_ms?: number;
     warehouse?: string;
@@ -29,6 +30,7 @@ export declare class Task extends TerraformResource {
     _error_integration?: string;
     _schedule?: string;
     _session_parameters?: Record<string, string>;
+    _suspend_task_after_num_failures?: number;
     _user_task_managed_initial_warehouse_size?: string;
     _user_task_timeout_ms?: number;
     _warehouse?: string;
@@ -62,6 +64,8 @@ export declare class Task extends TerraformResource {
     set schedule(value: string | undefined);
     get session_parameters(): Record<string, string> | undefined;
     set session_parameters(value: Record<string, string> | undefined);
+    get suspend_task_after_num_failures(): number | undefined;
+    set suspend_task_after_num_failures(value: number | undefined);
     get user_task_managed_initial_warehouse_size(): string | undefined;
     set user_task_managed_initial_warehouse_size(value: string | undefined);
     get user_task_timeout_ms(): number | undefined;

@@ -17,6 +17,7 @@ class Task extends cdktf_1.TerraformResource {
     _error_integration;
     _schedule;
     _session_parameters;
+    _suspend_task_after_num_failures;
     _user_task_managed_initial_warehouse_size;
     _user_task_timeout_ms;
     _warehouse;
@@ -45,6 +46,7 @@ class Task extends cdktf_1.TerraformResource {
         this._error_integration = config.error_integration;
         this._schedule = config.schedule;
         this._session_parameters = config.session_parameters;
+        this._suspend_task_after_num_failures = config.suspend_task_after_num_failures;
         this._user_task_managed_initial_warehouse_size = config.user_task_managed_initial_warehouse_size;
         this._user_task_timeout_ms = config.user_task_timeout_ms;
         this._warehouse = config.warehouse;
@@ -63,6 +65,7 @@ class Task extends cdktf_1.TerraformResource {
             error_integration: this._error_integration,
             schedule: this._schedule,
             session_parameters: this._session_parameters,
+            suspend_task_after_num_failures: this._suspend_task_after_num_failures,
             user_task_managed_initial_warehouse_size: this._user_task_managed_initial_warehouse_size,
             user_task_timeout_ms: this._user_task_timeout_ms,
             warehouse: this._warehouse,
@@ -140,6 +143,12 @@ class Task extends cdktf_1.TerraformResource {
     }
     set session_parameters(value) {
         this._session_parameters = value;
+    }
+    get suspend_task_after_num_failures() {
+        return this._suspend_task_after_num_failures;
+    }
+    set suspend_task_after_num_failures(value) {
+        this._suspend_task_after_num_failures = value;
     }
     get user_task_managed_initial_warehouse_size() {
         return this._user_task_managed_initial_warehouse_size;
