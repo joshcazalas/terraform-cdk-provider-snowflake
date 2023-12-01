@@ -70,6 +70,7 @@ export * from "./tag_grant";
 export * from "./tag_masking_policy_association";
 export * from "./task";
 export * from "./task_grant";
+export * from "./unsafe_execute";
 export * from "./user";
 export * from "./user_grant";
 export * from "./user_ownership_grant";

@@ -3656,6 +3656,26 @@
     ]
   },
   {
+    "name": "Unsafe_Execute",
+    "properties": [
+      {
+        "name": "execute",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "revert",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "query",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
     "name": "User",
     "properties": [
       {
