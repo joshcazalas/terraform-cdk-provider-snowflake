@@ -11,11 +11,13 @@ export interface Password_PolicyConfig extends TerraformMetaArguments {
     name: string;
     schema: string;
     comment?: string;
+    history?: number;
     if_not_exists?: boolean;
     lockout_time_mins?: number;
     max_age_days?: number;
     max_length?: number;
     max_retries?: number;
+    min_age_days?: number;
     min_length?: number;
     min_lower_case_chars?: number;
     min_numeric_chars?: number;
@@ -29,11 +31,13 @@ export class Password_Policy extends TerraformResource {
     _name: string;
     _schema: string;
     _comment?: string;
+    _history?: number;
     _if_not_exists?: boolean;
     _lockout_time_mins?: number;
     _max_age_days?: number;
     _max_length?: number;
     _max_retries?: number;
+    _min_age_days?: number;
     _min_length?: number;
     _min_lower_case_chars?: number;
     _min_numeric_chars?: number;
@@ -63,6 +67,8 @@ export class Password_Policy extends TerraformResource {
         
         this._comment = config.comment;
         
+        this._history = config.history;
+        
         this._if_not_exists = config.if_not_exists;
         
         this._lockout_time_mins = config.lockout_time_mins;
@@ -72,6 +78,8 @@ export class Password_Policy extends TerraformResource {
         this._max_length = config.max_length;
         
         this._max_retries = config.max_retries;
+        
+        this._min_age_days = config.min_age_days;
         
         this._min_length = config.min_length;
         
@@ -91,11 +99,13 @@ export class Password_Policy extends TerraformResource {
             name: this._name,
             schema: this._schema,
             comment: this._comment,
+            history: this._history,
             if_not_exists: this._if_not_exists,
             lockout_time_mins: this._lockout_time_mins,
             max_age_days: this._max_age_days,
             max_length: this._max_length,
             max_retries: this._max_retries,
+            min_age_days: this._min_age_days,
             min_length: this._min_length,
             min_lower_case_chars: this._min_lower_case_chars,
             min_numeric_chars: this._min_numeric_chars,
@@ -145,6 +155,14 @@ export class Password_Policy extends TerraformResource {
         this._comment = value;
     }
     
+    public get history(): number | undefined {
+        return this._history
+    }
+
+    public set history(value: number | undefined) {
+        this._history = value;
+    }
+    
     public get if_not_exists(): boolean | undefined {
         return this._if_not_exists
     }
@@ -183,6 +201,14 @@ export class Password_Policy extends TerraformResource {
 
     public set max_retries(value: number | undefined) {
         this._max_retries = value;
+    }
+    
+    public get min_age_days(): number | undefined {
+        return this._min_age_days
+    }
+
+    public set min_age_days(value: number | undefined) {
+        this._min_age_days = value;
     }
     
     public get min_length(): number | undefined {

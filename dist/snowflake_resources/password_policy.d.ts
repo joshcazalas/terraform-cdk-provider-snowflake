@@ -5,11 +5,13 @@ export interface Password_PolicyConfig extends TerraformMetaArguments {
     name: string;
     schema: string;
     comment?: string;
+    history?: number;
     if_not_exists?: boolean;
     lockout_time_mins?: number;
     max_age_days?: number;
     max_length?: number;
     max_retries?: number;
+    min_age_days?: number;
     min_length?: number;
     min_lower_case_chars?: number;
     min_numeric_chars?: number;
@@ -22,11 +24,13 @@ export declare class Password_Policy extends TerraformResource {
     _name: string;
     _schema: string;
     _comment?: string;
+    _history?: number;
     _if_not_exists?: boolean;
     _lockout_time_mins?: number;
     _max_age_days?: number;
     _max_length?: number;
     _max_retries?: number;
+    _min_age_days?: number;
     _min_length?: number;
     _min_lower_case_chars?: number;
     _min_numeric_chars?: number;
@@ -48,6 +52,8 @@ export declare class Password_Policy extends TerraformResource {
     set schema(value: string);
     get comment(): string | undefined;
     set comment(value: string | undefined);
+    get history(): number | undefined;
+    set history(value: number | undefined);
     get if_not_exists(): boolean | undefined;
     set if_not_exists(value: boolean | undefined);
     get lockout_time_mins(): number | undefined;
@@ -58,6 +64,8 @@ export declare class Password_Policy extends TerraformResource {
     set max_length(value: number | undefined);
     get max_retries(): number | undefined;
     set max_retries(value: number | undefined);
+    get min_age_days(): number | undefined;
+    set min_age_days(value: number | undefined);
     get min_length(): number | undefined;
     set min_length(value: number | undefined);
     get min_lower_case_chars(): number | undefined;

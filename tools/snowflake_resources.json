@@ -1899,6 +1899,11 @@
         "required": false
       },
       {
+        "name": "history",
+        "type": "number",
+        "required": false
+      },
+      {
         "name": "if_not_exists",
         "type": "boolean",
         "required": false
@@ -1920,6 +1925,11 @@
       },
       {
         "name": "max_retries",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "min_age_days",
         "type": "number",
         "required": false
       },

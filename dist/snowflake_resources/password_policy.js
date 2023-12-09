@@ -10,11 +10,13 @@ class Password_Policy extends cdktf_1.TerraformResource {
     _name;
     _schema;
     _comment;
+    _history;
     _if_not_exists;
     _lockout_time_mins;
     _max_age_days;
     _max_length;
     _max_retries;
+    _min_age_days;
     _min_length;
     _min_lower_case_chars;
     _min_numeric_chars;
@@ -38,11 +40,13 @@ class Password_Policy extends cdktf_1.TerraformResource {
         this._name = config.name;
         this._schema = config.schema;
         this._comment = config.comment;
+        this._history = config.history;
         this._if_not_exists = config.if_not_exists;
         this._lockout_time_mins = config.lockout_time_mins;
         this._max_age_days = config.max_age_days;
         this._max_length = config.max_length;
         this._max_retries = config.max_retries;
+        this._min_age_days = config.min_age_days;
         this._min_length = config.min_length;
         this._min_lower_case_chars = config.min_lower_case_chars;
         this._min_numeric_chars = config.min_numeric_chars;
@@ -56,11 +60,13 @@ class Password_Policy extends cdktf_1.TerraformResource {
             name: this._name,
             schema: this._schema,
             comment: this._comment,
+            history: this._history,
             if_not_exists: this._if_not_exists,
             lockout_time_mins: this._lockout_time_mins,
             max_age_days: this._max_age_days,
             max_length: this._max_length,
             max_retries: this._max_retries,
+            min_age_days: this._min_age_days,
             min_length: this._min_length,
             min_lower_case_chars: this._min_lower_case_chars,
             min_numeric_chars: this._min_numeric_chars,
@@ -99,6 +105,12 @@ class Password_Policy extends cdktf_1.TerraformResource {
     set comment(value) {
         this._comment = value;
     }
+    get history() {
+        return this._history;
+    }
+    set history(value) {
+        this._history = value;
+    }
     get if_not_exists() {
         return this._if_not_exists;
     }
@@ -128,6 +140,12 @@ class Password_Policy extends cdktf_1.TerraformResource {
     }
     set max_retries(value) {
         this._max_retries = value;
+    }
+    get min_age_days() {
+        return this._min_age_days;
+    }
+    set min_age_days(value) {
+        this._min_age_days = value;
     }
     get min_length() {
         return this._min_length;

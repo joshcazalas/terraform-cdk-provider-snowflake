@@ -20,7 +20,7 @@ class SnowflakeProvider extends cdktf_1.TerraformProvider {
             terraformResourceType: "snowflake",
             terraformGeneratorMetadata: {
                 providerName: "snowflake",
-                providerVersionConstraint: "0.77.0"
+                providerVersionConstraint: "0.78.0"
             },
             terraformProviderSource: "terraform-cdk-provider-snowflake"
         });
