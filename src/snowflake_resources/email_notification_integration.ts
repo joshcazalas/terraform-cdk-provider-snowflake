@@ -7,16 +7,16 @@ import { Construct } from "constructs";
 
 
 export interface Email_Notification_IntegrationConfig extends TerraformMetaArguments {
-    allowed_recipients: Set<string>;
     enabled: boolean;
     name: string;
+    allowed_recipients?: Set<string>;
     comment?: string;
 }
 
 export class Email_Notification_Integration extends TerraformResource {
-    _allowed_recipients: Set<string>;
     _enabled: boolean;
     _name: string;
+    _allowed_recipients?: Set<string>;
     _comment?: string;
     readonly _id: string;
 
@@ -33,19 +33,19 @@ export class Email_Notification_Integration extends TerraformResource {
         });
         this._id = id;
         
-        this._allowed_recipients = config.allowed_recipients;
-        
         this._enabled = config.enabled;
         
         this._name = config.name;
+        
+        this._allowed_recipients = config.allowed_recipients;
         
         this._comment = config.comment;
     }
     public getAttributes(): { [name: string]: any } {
         return {
-            allowed_recipients: this._allowed_recipients,
             enabled: this._enabled,
             name: this._name,
+            allowed_recipients: this._allowed_recipients,
             comment: this._comment,
         }
     }
@@ -58,14 +58,6 @@ export class Email_Notification_Integration extends TerraformResource {
         return `\${snowflake_email_notification_integration.${this.friendlyUniqueId}.${attribute}}`;
     }
 
-    public get allowed_recipients(): Set<string> {
-        return this._allowed_recipients
-    }
-
-    public set allowed_recipients(value: Set<string>) {
-        this._allowed_recipients = value;
-    }
-    
     public get enabled(): boolean {
         return this._enabled
     }
@@ -80,6 +72,14 @@ export class Email_Notification_Integration extends TerraformResource {
 
     public set name(value: string) {
         this._name = value;
+    }
+    
+    public get allowed_recipients(): Set<string> | undefined {
+        return this._allowed_recipients
+    }
+
+    public set allowed_recipients(value: Set<string> | undefined) {
+        this._allowed_recipients = value;
     }
     
     public get comment(): string | undefined {

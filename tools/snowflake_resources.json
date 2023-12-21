@@ -421,11 +421,6 @@
     "name": "Email_Notification_Integration",
     "properties": [
       {
-        "name": "allowed_recipients",
-        "type": "Set<string>",
-        "required": true
-      },
-      {
         "name": "enabled",
         "type": "boolean",
         "required": true
@@ -434,6 +429,11 @@
         "name": "name",
         "type": "string",
         "required": true
+      },
+      {
+        "name": "allowed_recipients",
+        "type": "Set<string>",
+        "required": false
       },
       {
         "name": "comment",

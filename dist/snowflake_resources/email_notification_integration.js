@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Email_Notification_Integration = void 0;
 const cdktf_1 = require("cdktf");
 class Email_Notification_Integration extends cdktf_1.TerraformResource {
-    _allowed_recipients;
     _enabled;
     _name;
+    _allowed_recipients;
     _comment;
     _id;
     constructor(scope, id, config) {
@@ -23,16 +23,16 @@ class Email_Notification_Integration extends cdktf_1.TerraformResource {
             lifecycle: config.lifecycle
         });
         this._id = id;
-        this._allowed_recipients = config.allowed_recipients;
         this._enabled = config.enabled;
         this._name = config.name;
+        this._allowed_recipients = config.allowed_recipients;
         this._comment = config.comment;
     }
     getAttributes() {
         return {
-            allowed_recipients: this._allowed_recipients,
             enabled: this._enabled,
             name: this._name,
+            allowed_recipients: this._allowed_recipients,
             comment: this._comment,
         };
     }
@@ -41,12 +41,6 @@ class Email_Notification_Integration extends cdktf_1.TerraformResource {
     }
     ref(attribute) {
         return `\${snowflake_email_notification_integration.${this.friendlyUniqueId}.${attribute}}`;
-    }
-    get allowed_recipients() {
-        return this._allowed_recipients;
-    }
-    set allowed_recipients(value) {
-        this._allowed_recipients = value;
     }
     get enabled() {
         return this._enabled;
@@ -59,6 +53,12 @@ class Email_Notification_Integration extends cdktf_1.TerraformResource {
     }
     set name(value) {
         this._name = value;
+    }
+    get allowed_recipients() {
+        return this._allowed_recipients;
+    }
+    set allowed_recipients(value) {
+        this._allowed_recipients = value;
     }
     get comment() {
         return this._comment;
