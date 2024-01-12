@@ -25,6 +25,7 @@ export interface External_TableConfig extends TerraformMetaArguments {
     partition_by?: string[];
     pattern?: string;
     refresh_on_create?: boolean;
+    table_format?: string;
     tag?: External_Table_Tag[];
 }
 export declare class External_Table extends TerraformResource {
@@ -41,6 +42,7 @@ export declare class External_Table extends TerraformResource {
     _partition_by?: string[];
     _pattern?: string;
     _refresh_on_create?: boolean;
+    _table_format?: string;
     _tag?: External_Table_Tag[];
     readonly _id: string;
     constructor(scope: Construct, id: string, config: External_TableConfig);
@@ -75,6 +77,8 @@ export declare class External_Table extends TerraformResource {
     set pattern(value: string | undefined);
     get refresh_on_create(): boolean | undefined;
     set refresh_on_create(value: boolean | undefined);
+    get table_format(): string | undefined;
+    set table_format(value: string | undefined);
     get tag(): External_Table_Tag[] | undefined;
     set tag(value: External_Table_Tag[] | undefined);
 }

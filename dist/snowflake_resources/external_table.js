@@ -19,6 +19,7 @@ class External_Table extends cdktf_1.TerraformResource {
     _partition_by;
     _pattern;
     _refresh_on_create;
+    _table_format;
     _tag;
     _id;
     constructor(scope, id, config) {
@@ -46,6 +47,7 @@ class External_Table extends cdktf_1.TerraformResource {
         this._partition_by = config.partition_by;
         this._pattern = config.pattern;
         this._refresh_on_create = config.refresh_on_create;
+        this._table_format = config.table_format;
         this._tag = config.tag;
     }
     getAttributes() {
@@ -63,6 +65,7 @@ class External_Table extends cdktf_1.TerraformResource {
             partition_by: this._partition_by,
             pattern: this._pattern,
             refresh_on_create: this._refresh_on_create,
+            table_format: this._table_format,
             tag: this._tag,
         };
     }
@@ -149,6 +152,12 @@ class External_Table extends cdktf_1.TerraformResource {
     }
     set refresh_on_create(value) {
         this._refresh_on_create = value;
+    }
+    get table_format() {
+        return this._table_format;
+    }
+    set table_format(value) {
+        this._table_format = value;
     }
     get tag() {
         return this._tag;

@@ -719,6 +719,11 @@
         "required": false
       },
       {
+        "name": "table_format",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "tag",
         "type": "External_Table_Tag[]",
         "required": false
@@ -1277,6 +1282,77 @@
       },
       {
         "name": "shares",
+        "type": "Set<string>",
+        "required": false
+      },
+      {
+        "name": "with_grant_option",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Grant_Privileges_To_Database_Role",
+    "additional_types": [
+      [
+        {
+          "name": "Grant_Privileges_To_Database_Role_On_Schema",
+          "properties": [
+            "readonly all_schemas_in_database?: string;",
+            "readonly future_schemas_in_database?: string;",
+            "readonly schema_name?: string;"
+          ]
+        },
+        {
+          "name": "Grant_Privileges_To_Database_Role_On_Schema_Object",
+          "properties": [
+            "readonly all?: {readonly object_type_plural: string; readonly in_database?: string; readonly in_schema?: string; };",
+            "readonly future?: {readonly object_type_plural: string; readonly in_database?: string; \nreadonly in_schema?: string; };",
+            "readonly object_name?: string;",
+            "readonly object_type?: string;"
+          ]
+        }
+      ]
+    ],
+    "properties": [
+      {
+        "name": "database_role_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "all_privileges",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "always_apply",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "always_apply_trigger",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_database",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_schema",
+        "type": "Grant_Privileges_To_Database_Role_On_Schema[]",
+        "required": false
+      },
+      {
+        "name": "on_schema_object",
+        "type": "Grant_Privileges_To_Database_Role_On_Schema_Object[]",
+        "required": false
+      },
+      {
+        "name": "privileges",
         "type": "Set<string>",
         "required": false
       },
