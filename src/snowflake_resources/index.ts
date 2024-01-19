@@ -23,6 +23,8 @@ export * from "./file_format";
 export * from "./file_format_grant";
 export * from "./function";
 export * from "./function_grant";
+export * from "./grant_account_role";
+export * from "./grant_database_role";
 export * from "./grant_privileges_to_database_role";
 export * from "./grant_privileges_to_role";
 export * from "./integration_grant";

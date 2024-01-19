@@ -1293,6 +1293,51 @@
     ]
   },
   {
+    "name": "Grant_Account_Role",
+    "properties": [
+      {
+        "name": "role_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "parent_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Grant_Database_Role",
+    "properties": [
+      {
+        "name": "database_role_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "parent_database_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "parent_role_name",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "share_name",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
     "name": "Grant_Privileges_To_Database_Role",
     "additional_types": [
       [

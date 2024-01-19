@@ -38,6 +38,8 @@ __exportStar(require("./file_format"), exports);
 __exportStar(require("./file_format_grant"), exports);
 __exportStar(require("./function"), exports);
 __exportStar(require("./function_grant"), exports);
+__exportStar(require("./grant_account_role"), exports);
+__exportStar(require("./grant_database_role"), exports);
 __exportStar(require("./grant_privileges_to_database_role"), exports);
 __exportStar(require("./grant_privileges_to_role"), exports);
 __exportStar(require("./integration_grant"), exports);
