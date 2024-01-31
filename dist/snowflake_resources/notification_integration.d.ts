@@ -2,6 +2,7 @@ import { TerraformMetaArguments, TerraformResource } from "cdktf";
 import { Construct } from "constructs";
 export interface Notification_IntegrationConfig extends TerraformMetaArguments {
     name: string;
+    notification_provider: string;
     aws_sns_role_arn?: string;
     aws_sns_topic_arn?: string;
     aws_sqs_arn?: string;
@@ -13,11 +14,11 @@ export interface Notification_IntegrationConfig extends TerraformMetaArguments {
     enabled?: boolean;
     gcp_pubsub_subscription_name?: string;
     gcp_pubsub_topic_name?: string;
-    notification_provider?: string;
     type?: string;
 }
 export declare class Notification_Integration extends TerraformResource {
     _name: string;
+    _notification_provider: string;
     _aws_sns_role_arn?: string;
     _aws_sns_topic_arn?: string;
     _aws_sqs_arn?: string;
@@ -29,7 +30,6 @@ export declare class Notification_Integration extends TerraformResource {
     _enabled?: boolean;
     _gcp_pubsub_subscription_name?: string;
     _gcp_pubsub_topic_name?: string;
-    _notification_provider?: string;
     _type?: string;
     readonly _id: string;
     constructor(scope: Construct, id: string, config: Notification_IntegrationConfig);
@@ -40,6 +40,8 @@ export declare class Notification_Integration extends TerraformResource {
     ref(attribute: string): string;
     get name(): string;
     set name(value: string);
+    get notification_provider(): string;
+    set notification_provider(value: string);
     get aws_sns_role_arn(): string | undefined;
     set aws_sns_role_arn(value: string | undefined);
     get aws_sns_topic_arn(): string | undefined;
@@ -62,8 +64,6 @@ export declare class Notification_Integration extends TerraformResource {
     set gcp_pubsub_subscription_name(value: string | undefined);
     get gcp_pubsub_topic_name(): string | undefined;
     set gcp_pubsub_topic_name(value: string | undefined);
-    get notification_provider(): string | undefined;
-    set notification_provider(value: string | undefined);
     get type(): string | undefined;
     set type(value: string | undefined);
 }

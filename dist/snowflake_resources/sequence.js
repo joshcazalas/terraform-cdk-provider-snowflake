@@ -11,6 +11,7 @@ class Sequence extends cdktf_1.TerraformResource {
     _schema;
     _comment;
     _increment;
+    _ordering;
     _id;
     constructor(scope, id, config) {
         super(scope, id, {
@@ -29,6 +30,7 @@ class Sequence extends cdktf_1.TerraformResource {
         this._schema = config.schema;
         this._comment = config.comment;
         this._increment = config.increment;
+        this._ordering = config.ordering;
     }
     getAttributes() {
         return {
@@ -37,6 +39,7 @@ class Sequence extends cdktf_1.TerraformResource {
             schema: this._schema,
             comment: this._comment,
             increment: this._increment,
+            ordering: this._ordering,
         };
     }
     get id() {
@@ -74,6 +77,12 @@ class Sequence extends cdktf_1.TerraformResource {
     }
     set increment(value) {
         this._increment = value;
+    }
+    get ordering() {
+        return this._ordering;
+    }
+    set ordering(value) {
+        this._ordering = value;
     }
 }
 exports.Sequence = Sequence;

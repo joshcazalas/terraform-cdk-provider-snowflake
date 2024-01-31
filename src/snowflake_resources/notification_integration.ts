@@ -8,6 +8,7 @@ import { Construct } from "constructs";
 
 export interface Notification_IntegrationConfig extends TerraformMetaArguments {
     name: string;
+    notification_provider: string;
     aws_sns_role_arn?: string;
     aws_sns_topic_arn?: string;
     aws_sqs_arn?: string;
@@ -19,12 +20,12 @@ export interface Notification_IntegrationConfig extends TerraformMetaArguments {
     enabled?: boolean;
     gcp_pubsub_subscription_name?: string;
     gcp_pubsub_topic_name?: string;
-    notification_provider?: string;
     type?: string;
 }
 
 export class Notification_Integration extends TerraformResource {
     _name: string;
+    _notification_provider: string;
     _aws_sns_role_arn?: string;
     _aws_sns_topic_arn?: string;
     _aws_sqs_arn?: string;
@@ -36,7 +37,6 @@ export class Notification_Integration extends TerraformResource {
     _enabled?: boolean;
     _gcp_pubsub_subscription_name?: string;
     _gcp_pubsub_topic_name?: string;
-    _notification_provider?: string;
     _type?: string;
     readonly _id: string;
 
@@ -54,6 +54,8 @@ export class Notification_Integration extends TerraformResource {
         this._id = id;
         
         this._name = config.name;
+        
+        this._notification_provider = config.notification_provider;
         
         this._aws_sns_role_arn = config.aws_sns_role_arn;
         
@@ -77,13 +79,12 @@ export class Notification_Integration extends TerraformResource {
         
         this._gcp_pubsub_topic_name = config.gcp_pubsub_topic_name;
         
-        this._notification_provider = config.notification_provider;
-        
         this._type = config.type;
     }
     public getAttributes(): { [name: string]: any } {
         return {
             name: this._name,
+            notification_provider: this._notification_provider,
             aws_sns_role_arn: this._aws_sns_role_arn,
             aws_sns_topic_arn: this._aws_sns_topic_arn,
             aws_sqs_arn: this._aws_sqs_arn,
@@ -95,7 +96,6 @@ export class Notification_Integration extends TerraformResource {
             enabled: this._enabled,
             gcp_pubsub_subscription_name: this._gcp_pubsub_subscription_name,
             gcp_pubsub_topic_name: this._gcp_pubsub_topic_name,
-            notification_provider: this._notification_provider,
             type: this._type,
         }
     }
@@ -114,6 +114,14 @@ export class Notification_Integration extends TerraformResource {
 
     public set name(value: string) {
         this._name = value;
+    }
+    
+    public get notification_provider(): string {
+        return this._notification_provider
+    }
+
+    public set notification_provider(value: string) {
+        this._notification_provider = value;
     }
     
     public get aws_sns_role_arn(): string | undefined {
@@ -202,14 +210,6 @@ export class Notification_Integration extends TerraformResource {
 
     public set gcp_pubsub_topic_name(value: string | undefined) {
         this._gcp_pubsub_topic_name = value;
-    }
-    
-    public get notification_provider(): string | undefined {
-        return this._notification_provider
-    }
-
-    public set notification_provider(value: string | undefined) {
-        this._notification_provider = value;
     }
     
     public get type(): string | undefined {

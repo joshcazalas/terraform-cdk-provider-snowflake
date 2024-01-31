@@ -1916,6 +1916,11 @@
         "required": true
       },
       {
+        "name": "notification_provider",
+        "type": "string",
+        "required": true
+      },
+      {
         "name": "aws_sns_role_arn",
         "type": "string",
         "required": false
@@ -1967,11 +1972,6 @@
       },
       {
         "name": "gcp_pubsub_topic_name",
-        "type": "string",
-        "required": false
-      },
-      {
-        "name": "notification_provider",
         "type": "string",
         "required": false
       },
@@ -2924,6 +2924,11 @@
       {
         "name": "increment",
         "type": "number",
+        "required": false
+      },
+      {
+        "name": "ordering",
+        "type": "string",
         "required": false
       }
     ]

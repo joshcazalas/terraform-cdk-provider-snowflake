@@ -7,6 +7,7 @@ exports.Notification_Integration = void 0;
 const cdktf_1 = require("cdktf");
 class Notification_Integration extends cdktf_1.TerraformResource {
     _name;
+    _notification_provider;
     _aws_sns_role_arn;
     _aws_sns_topic_arn;
     _aws_sqs_arn;
@@ -18,7 +19,6 @@ class Notification_Integration extends cdktf_1.TerraformResource {
     _enabled;
     _gcp_pubsub_subscription_name;
     _gcp_pubsub_topic_name;
-    _notification_provider;
     _type;
     _id;
     constructor(scope, id, config) {
@@ -34,6 +34,7 @@ class Notification_Integration extends cdktf_1.TerraformResource {
         });
         this._id = id;
         this._name = config.name;
+        this._notification_provider = config.notification_provider;
         this._aws_sns_role_arn = config.aws_sns_role_arn;
         this._aws_sns_topic_arn = config.aws_sns_topic_arn;
         this._aws_sqs_arn = config.aws_sqs_arn;
@@ -45,12 +46,12 @@ class Notification_Integration extends cdktf_1.TerraformResource {
         this._enabled = config.enabled;
         this._gcp_pubsub_subscription_name = config.gcp_pubsub_subscription_name;
         this._gcp_pubsub_topic_name = config.gcp_pubsub_topic_name;
-        this._notification_provider = config.notification_provider;
         this._type = config.type;
     }
     getAttributes() {
         return {
             name: this._name,
+            notification_provider: this._notification_provider,
             aws_sns_role_arn: this._aws_sns_role_arn,
             aws_sns_topic_arn: this._aws_sns_topic_arn,
             aws_sqs_arn: this._aws_sqs_arn,
@@ -62,7 +63,6 @@ class Notification_Integration extends cdktf_1.TerraformResource {
             enabled: this._enabled,
             gcp_pubsub_subscription_name: this._gcp_pubsub_subscription_name,
             gcp_pubsub_topic_name: this._gcp_pubsub_topic_name,
-            notification_provider: this._notification_provider,
             type: this._type,
         };
     }
@@ -77,6 +77,12 @@ class Notification_Integration extends cdktf_1.TerraformResource {
     }
     set name(value) {
         this._name = value;
+    }
+    get notification_provider() {
+        return this._notification_provider;
+    }
+    set notification_provider(value) {
+        this._notification_provider = value;
     }
     get aws_sns_role_arn() {
         return this._aws_sns_role_arn;
@@ -143,12 +149,6 @@ class Notification_Integration extends cdktf_1.TerraformResource {
     }
     set gcp_pubsub_topic_name(value) {
         this._gcp_pubsub_topic_name = value;
-    }
-    get notification_provider() {
-        return this._notification_provider;
-    }
-    set notification_provider(value) {
-        this._notification_provider = value;
     }
     get type() {
         return this._type;

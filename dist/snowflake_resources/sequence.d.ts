@@ -6,6 +6,7 @@ export interface SequenceConfig extends TerraformMetaArguments {
     schema: string;
     comment?: string;
     increment?: number;
+    ordering?: string;
 }
 export declare class Sequence extends TerraformResource {
     _database: string;
@@ -13,6 +14,7 @@ export declare class Sequence extends TerraformResource {
     _schema: string;
     _comment?: string;
     _increment?: number;
+    _ordering?: string;
     readonly _id: string;
     constructor(scope: Construct, id: string, config: SequenceConfig);
     getAttributes(): {
@@ -30,4 +32,6 @@ export declare class Sequence extends TerraformResource {
     set comment(value: string | undefined);
     get increment(): number | undefined;
     set increment(value: number | undefined);
+    get ordering(): string | undefined;
+    set ordering(value: string | undefined);
 }
