@@ -43,6 +43,7 @@ __exportStar(require("./grant_database_role"), exports);
 __exportStar(require("./grant_privileges_to_account_role"), exports);
 __exportStar(require("./grant_privileges_to_database_role"), exports);
 __exportStar(require("./grant_privileges_to_role"), exports);
+__exportStar(require("./grant_privileges_to_share"), exports);
 __exportStar(require("./integration_grant"), exports);
 __exportStar(require("./managed_account"), exports);
 __exportStar(require("./masking_policy"), exports);

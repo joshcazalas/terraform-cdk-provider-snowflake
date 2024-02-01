@@ -24,6 +24,7 @@ export * from "./grant_database_role";
 export * from "./grant_privileges_to_account_role";
 export * from "./grant_privileges_to_database_role";
 export * from "./grant_privileges_to_role";
+export * from "./grant_privileges_to_share";
 export * from "./integration_grant";
 export * from "./managed_account";
 export * from "./masking_policy";

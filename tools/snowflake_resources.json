@@ -1565,6 +1565,51 @@
     ]
   },
   {
+    "name": "Grant_Privileges_To_Share",
+    "properties": [
+      {
+        "name": "privileges",
+        "type": "Set<string>",
+        "required": true
+      },
+      {
+        "name": "to_share",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "on_all_tables_in_schema",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_database",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_schema",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_table",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_tag",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "on_view",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
     "name": "Integration_Grant",
     "properties": [
       {
