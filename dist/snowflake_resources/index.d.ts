@@ -75,6 +75,7 @@ export * from "./unsafe_execute";
 export * from "./user";
 export * from "./user_grant";
 export * from "./user_ownership_grant";
+export * from "./user_password_policy_attachment";
 export * from "./user_public_keys";
 export * from "./view";
 export * from "./view_grant";

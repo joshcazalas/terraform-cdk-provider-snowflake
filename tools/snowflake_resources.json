@@ -4080,6 +4080,31 @@
     ]
   },
   {
+    "name": "User_Password_Policy_Attachment",
+    "properties": [
+      {
+        "name": "password_policy_database",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "password_policy_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "password_policy_schema",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "required": true
+      }
+    ]
+  },
+  {
     "name": "User_Public_Keys",
     "properties": [
       {

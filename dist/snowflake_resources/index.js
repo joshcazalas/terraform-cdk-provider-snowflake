@@ -94,6 +94,7 @@ __exportStar(require("./unsafe_execute"), exports);
 __exportStar(require("./user"), exports);
 __exportStar(require("./user_grant"), exports);
 __exportStar(require("./user_ownership_grant"), exports);
+__exportStar(require("./user_password_policy_attachment"), exports);
 __exportStar(require("./user_public_keys"), exports);
 __exportStar(require("./view"), exports);
 __exportStar(require("./view_grant"), exports);
