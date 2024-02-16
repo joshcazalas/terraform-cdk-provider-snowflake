@@ -13,7 +13,9 @@ class Dynamic_Table extends cdktf_1.TerraformResource {
     _target_lag;
     _warehouse;
     _comment;
+    _initialize;
     _or_replace;
+    _refresh_mode;
     _id;
     constructor(scope, id, config) {
         super(scope, id, {
@@ -34,7 +36,9 @@ class Dynamic_Table extends cdktf_1.TerraformResource {
         this._target_lag = config.target_lag;
         this._warehouse = config.warehouse;
         this._comment = config.comment;
+        this._initialize = config.initialize;
         this._or_replace = config.or_replace;
+        this._refresh_mode = config.refresh_mode;
     }
     getAttributes() {
         return {
@@ -45,7 +49,9 @@ class Dynamic_Table extends cdktf_1.TerraformResource {
             target_lag: this._target_lag,
             warehouse: this._warehouse,
             comment: this._comment,
+            initialize: this._initialize,
             or_replace: this._or_replace,
+            refresh_mode: this._refresh_mode,
         };
     }
     get id() {
@@ -96,11 +102,23 @@ class Dynamic_Table extends cdktf_1.TerraformResource {
     set comment(value) {
         this._comment = value;
     }
+    get initialize() {
+        return this._initialize;
+    }
+    set initialize(value) {
+        this._initialize = value;
+    }
     get or_replace() {
         return this._or_replace;
     }
     set or_replace(value) {
         this._or_replace = value;
+    }
+    get refresh_mode() {
+        return this._refresh_mode;
+    }
+    set refresh_mode(value) {
+        this._refresh_mode = value;
     }
 }
 exports.Dynamic_Table = Dynamic_Table;

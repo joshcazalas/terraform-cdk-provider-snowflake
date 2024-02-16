@@ -7,16 +7,12 @@ import { Construct } from "constructs";
 
 
 export interface User_Password_Policy_AttachmentConfig extends TerraformMetaArguments {
-    password_policy_database: string;
     password_policy_name: string;
-    password_policy_schema: string;
     user_name: string;
 }
 
 export class User_Password_Policy_Attachment extends TerraformResource {
-    _password_policy_database: string;
     _password_policy_name: string;
-    _password_policy_schema: string;
     _user_name: string;
     readonly _id: string;
 
@@ -33,19 +29,13 @@ export class User_Password_Policy_Attachment extends TerraformResource {
         });
         this._id = id;
         
-        this._password_policy_database = config.password_policy_database;
-        
         this._password_policy_name = config.password_policy_name;
-        
-        this._password_policy_schema = config.password_policy_schema;
         
         this._user_name = config.user_name;
     }
     public getAttributes(): { [name: string]: any } {
         return {
-            password_policy_database: this._password_policy_database,
             password_policy_name: this._password_policy_name,
-            password_policy_schema: this._password_policy_schema,
             user_name: this._user_name,
         }
     }
@@ -58,28 +48,12 @@ export class User_Password_Policy_Attachment extends TerraformResource {
         return `\${snowflake_user_password_policy_attachment.${this.friendlyUniqueId}.${attribute}}`;
     }
 
-    public get password_policy_database(): string {
-        return this._password_policy_database
-    }
-
-    public set password_policy_database(value: string) {
-        this._password_policy_database = value;
-    }
-    
     public get password_policy_name(): string {
         return this._password_policy_name
     }
 
     public set password_policy_name(value: string) {
         this._password_policy_name = value;
-    }
-    
-    public get password_policy_schema(): string {
-        return this._password_policy_schema
-    }
-
-    public set password_policy_schema(value: string) {
-        this._password_policy_schema = value;
     }
     
     public get user_name(): string {

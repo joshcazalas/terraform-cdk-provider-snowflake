@@ -21,6 +21,7 @@ class Procedure extends cdktf_1.TerraformResource {
     _packages;
     _return_behavior;
     _runtime_version;
+    _secure;
     _id;
     constructor(scope, id, config) {
         super(scope, id, {
@@ -49,6 +50,7 @@ class Procedure extends cdktf_1.TerraformResource {
         this._packages = config.packages;
         this._return_behavior = config.return_behavior;
         this._runtime_version = config.runtime_version;
+        this._secure = config.secure;
     }
     getAttributes() {
         return {
@@ -67,6 +69,7 @@ class Procedure extends cdktf_1.TerraformResource {
             packages: this._packages,
             return_behavior: this._return_behavior,
             runtime_version: this._runtime_version,
+            secure: this._secure,
         };
     }
     get id() {
@@ -164,6 +167,12 @@ class Procedure extends cdktf_1.TerraformResource {
     }
     set runtime_version(value) {
         this._runtime_version = value;
+    }
+    get secure() {
+        return this._secure;
+    }
+    set secure(value) {
+        this._secure = value;
     }
 }
 exports.Procedure = Procedure;

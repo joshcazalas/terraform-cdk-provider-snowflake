@@ -18,7 +18,9 @@ export interface Dynamic_TableConfig extends TerraformMetaArguments {
     target_lag: Dynamic_Table_Target_Lag[];
     warehouse: string;
     comment?: string;
+    initialize?: string;
     or_replace?: boolean;
+    refresh_mode?: string;
 }
 
 export class Dynamic_Table extends TerraformResource {
@@ -29,7 +31,9 @@ export class Dynamic_Table extends TerraformResource {
     _target_lag: Dynamic_Table_Target_Lag[];
     _warehouse: string;
     _comment?: string;
+    _initialize?: string;
     _or_replace?: boolean;
+    _refresh_mode?: string;
     readonly _id: string;
 
     public constructor(scope: Construct, id: string, config: Dynamic_TableConfig) {
@@ -59,7 +63,11 @@ export class Dynamic_Table extends TerraformResource {
         
         this._comment = config.comment;
         
+        this._initialize = config.initialize;
+        
         this._or_replace = config.or_replace;
+        
+        this._refresh_mode = config.refresh_mode;
     }
     public getAttributes(): { [name: string]: any } {
         return {
@@ -70,7 +78,9 @@ export class Dynamic_Table extends TerraformResource {
             target_lag: this._target_lag,
             warehouse: this._warehouse,
             comment: this._comment,
+            initialize: this._initialize,
             or_replace: this._or_replace,
+            refresh_mode: this._refresh_mode,
         }
     }
 
@@ -138,12 +148,28 @@ export class Dynamic_Table extends TerraformResource {
         this._comment = value;
     }
     
+    public get initialize(): string | undefined {
+        return this._initialize
+    }
+
+    public set initialize(value: string | undefined) {
+        this._initialize = value;
+    }
+    
     public get or_replace(): boolean | undefined {
         return this._or_replace
     }
 
     public set or_replace(value: boolean | undefined) {
         this._or_replace = value;
+    }
+    
+    public get refresh_mode(): string | undefined {
+        return this._refresh_mode
+    }
+
+    public set refresh_mode(value: string | undefined) {
+        this._refresh_mode = value;
     }
     
 }

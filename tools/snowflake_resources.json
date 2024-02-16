@@ -411,8 +411,18 @@
         "required": false
       },
       {
+        "name": "initialize",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "or_replace",
         "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "refresh_mode",
+        "type": "string",
         "required": false
       }
     ]
@@ -2399,6 +2409,11 @@
         "name": "runtime_version",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "secure",
+        "type": "boolean",
+        "required": false
       }
     ]
   },
@@ -4083,17 +4098,7 @@
     "name": "User_Password_Policy_Attachment",
     "properties": [
       {
-        "name": "password_policy_database",
-        "type": "string",
-        "required": true
-      },
-      {
         "name": "password_policy_name",
-        "type": "string",
-        "required": true
-      },
-      {
-        "name": "password_policy_schema",
         "type": "string",
         "required": true
       },

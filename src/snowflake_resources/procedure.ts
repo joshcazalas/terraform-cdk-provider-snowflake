@@ -26,6 +26,7 @@ export interface ProcedureConfig extends TerraformMetaArguments {
     packages?: string[];
     return_behavior?: string;
     runtime_version?: string;
+    secure?: boolean;
 }
 
 export class Procedure extends TerraformResource {
@@ -44,6 +45,7 @@ export class Procedure extends TerraformResource {
     _packages?: string[];
     _return_behavior?: string;
     _runtime_version?: string;
+    _secure?: boolean;
     readonly _id: string;
 
     public constructor(scope: Construct, id: string, config: ProcedureConfig) {
@@ -88,6 +90,8 @@ export class Procedure extends TerraformResource {
         this._return_behavior = config.return_behavior;
         
         this._runtime_version = config.runtime_version;
+        
+        this._secure = config.secure;
     }
     public getAttributes(): { [name: string]: any } {
         return {
@@ -106,6 +110,7 @@ export class Procedure extends TerraformResource {
             packages: this._packages,
             return_behavior: this._return_behavior,
             runtime_version: this._runtime_version,
+            secure: this._secure,
         }
     }
 
@@ -235,6 +240,14 @@ export class Procedure extends TerraformResource {
 
     public set runtime_version(value: string | undefined) {
         this._runtime_version = value;
+    }
+    
+    public get secure(): boolean | undefined {
+        return this._secure
+    }
+
+    public set secure(value: boolean | undefined) {
+        this._secure = value;
     }
     
 }

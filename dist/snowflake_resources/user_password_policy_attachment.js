@@ -6,9 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.User_Password_Policy_Attachment = void 0;
 const cdktf_1 = require("cdktf");
 class User_Password_Policy_Attachment extends cdktf_1.TerraformResource {
-    _password_policy_database;
     _password_policy_name;
-    _password_policy_schema;
     _user_name;
     _id;
     constructor(scope, id, config) {
@@ -23,16 +21,12 @@ class User_Password_Policy_Attachment extends cdktf_1.TerraformResource {
             lifecycle: config.lifecycle
         });
         this._id = id;
-        this._password_policy_database = config.password_policy_database;
         this._password_policy_name = config.password_policy_name;
-        this._password_policy_schema = config.password_policy_schema;
         this._user_name = config.user_name;
     }
     getAttributes() {
         return {
-            password_policy_database: this._password_policy_database,
             password_policy_name: this._password_policy_name,
-            password_policy_schema: this._password_policy_schema,
             user_name: this._user_name,
         };
     }
@@ -42,23 +36,11 @@ class User_Password_Policy_Attachment extends cdktf_1.TerraformResource {
     ref(attribute) {
         return `\${snowflake_user_password_policy_attachment.${this.friendlyUniqueId}.${attribute}}`;
     }
-    get password_policy_database() {
-        return this._password_policy_database;
-    }
-    set password_policy_database(value) {
-        this._password_policy_database = value;
-    }
     get password_policy_name() {
         return this._password_policy_name;
     }
     set password_policy_name(value) {
         this._password_policy_name = value;
-    }
-    get password_policy_schema() {
-        return this._password_policy_schema;
-    }
-    set password_policy_schema(value) {
-        this._password_policy_schema = value;
     }
     get user_name() {
         return this._user_name;
