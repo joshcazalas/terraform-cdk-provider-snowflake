@@ -3410,6 +3410,7 @@
           "properties": [
             "readonly name: string;",
             "readonly type: string;",
+            "readonly collate?: string;",
             "readonly comment?: string;",
             "readonly default?: {readonly constant?: string; readonly expression?: string; readonly sequence?: string; };",
             "readonly identity?: {readonly start_num?: number; readonly step_num?: number; };",
@@ -3466,11 +3467,6 @@
       {
         "name": "comment",
         "type": "string",
-        "required": false
-      },
-      {
-        "name": "data_retention_days",
-        "type": "number",
         "required": false
       },
       {

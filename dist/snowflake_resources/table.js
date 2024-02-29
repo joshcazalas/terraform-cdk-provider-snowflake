@@ -13,7 +13,6 @@ class Table extends cdktf_1.TerraformResource {
     _change_tracking;
     _cluster_by;
     _comment;
-    _data_retention_days;
     _data_retention_time_in_days;
     _primary_key;
     _tag;
@@ -37,7 +36,6 @@ class Table extends cdktf_1.TerraformResource {
         this._change_tracking = config.change_tracking;
         this._cluster_by = config.cluster_by;
         this._comment = config.comment;
-        this._data_retention_days = config.data_retention_days;
         this._data_retention_time_in_days = config.data_retention_time_in_days;
         this._primary_key = config.primary_key;
         this._tag = config.tag;
@@ -51,7 +49,6 @@ class Table extends cdktf_1.TerraformResource {
             change_tracking: this._change_tracking,
             cluster_by: this._cluster_by,
             comment: this._comment,
-            data_retention_days: this._data_retention_days,
             data_retention_time_in_days: this._data_retention_time_in_days,
             primary_key: this._primary_key,
             tag: this._tag,
@@ -104,12 +101,6 @@ class Table extends cdktf_1.TerraformResource {
     }
     set comment(value) {
         this._comment = value;
-    }
-    get data_retention_days() {
-        return this._data_retention_days;
-    }
-    set data_retention_days(value) {
-        this._data_retention_days = value;
     }
     get data_retention_time_in_days() {
         return this._data_retention_time_in_days;

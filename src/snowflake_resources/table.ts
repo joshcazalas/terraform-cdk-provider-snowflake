@@ -8,6 +8,7 @@ import { Construct } from "constructs";
     export interface Table_Column {
         readonly name: string;
         readonly type: string;
+        readonly collate?: string;
         readonly comment?: string;
         readonly default?: {readonly constant?: string; readonly expression?: string; readonly sequence?: string; };
         readonly identity?: {readonly start_num?: number; readonly step_num?: number; };
@@ -33,7 +34,6 @@ export interface TableConfig extends TerraformMetaArguments {
     change_tracking?: boolean;
     cluster_by?: string[];
     comment?: string;
-    data_retention_days?: number;
     data_retention_time_in_days?: number;
     primary_key?: Table_Primary_Key[];
     tag?: Table_Tag[];
@@ -47,7 +47,6 @@ export class Table extends TerraformResource {
     _change_tracking?: boolean;
     _cluster_by?: string[];
     _comment?: string;
-    _data_retention_days?: number;
     _data_retention_time_in_days?: number;
     _primary_key?: Table_Primary_Key[];
     _tag?: Table_Tag[];
@@ -80,8 +79,6 @@ export class Table extends TerraformResource {
         
         this._comment = config.comment;
         
-        this._data_retention_days = config.data_retention_days;
-        
         this._data_retention_time_in_days = config.data_retention_time_in_days;
         
         this._primary_key = config.primary_key;
@@ -97,7 +94,6 @@ export class Table extends TerraformResource {
             change_tracking: this._change_tracking,
             cluster_by: this._cluster_by,
             comment: this._comment,
-            data_retention_days: this._data_retention_days,
             data_retention_time_in_days: this._data_retention_time_in_days,
             primary_key: this._primary_key,
             tag: this._tag,
@@ -166,14 +162,6 @@ export class Table extends TerraformResource {
 
     public set comment(value: string | undefined) {
         this._comment = value;
-    }
-    
-    public get data_retention_days(): number | undefined {
-        return this._data_retention_days
-    }
-
-    public set data_retention_days(value: number | undefined) {
-        this._data_retention_days = value;
     }
     
     public get data_retention_time_in_days(): number | undefined {

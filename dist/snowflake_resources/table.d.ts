@@ -3,6 +3,7 @@ import { Construct } from "constructs";
 export interface Table_Column {
     readonly name: string;
     readonly type: string;
+    readonly collate?: string;
     readonly comment?: string;
     readonly default?: {
         readonly constant?: string;
@@ -34,7 +35,6 @@ export interface TableConfig extends TerraformMetaArguments {
     change_tracking?: boolean;
     cluster_by?: string[];
     comment?: string;
-    data_retention_days?: number;
     data_retention_time_in_days?: number;
     primary_key?: Table_Primary_Key[];
     tag?: Table_Tag[];
@@ -47,7 +47,6 @@ export declare class Table extends TerraformResource {
     _change_tracking?: boolean;
     _cluster_by?: string[];
     _comment?: string;
-    _data_retention_days?: number;
     _data_retention_time_in_days?: number;
     _primary_key?: Table_Primary_Key[];
     _tag?: Table_Tag[];
@@ -72,8 +71,6 @@ export declare class Table extends TerraformResource {
     set cluster_by(value: string[] | undefined);
     get comment(): string | undefined;
     set comment(value: string | undefined);
-    get data_retention_days(): number | undefined;
-    set data_retention_days(value: number | undefined);
     get data_retention_time_in_days(): number | undefined;
     set data_retention_time_in_days(value: number | undefined);
     get primary_key(): Table_Primary_Key[] | undefined;
